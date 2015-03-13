@@ -1,0 +1,24 @@
+# Sotieralgorithmen
+---
+
+- Theorie
+	- Sotieren (Wozu?...)	
+	- O Notation (Warum nicht anders?)
+	- Sotieralgorithmen
+		- Allgemeines
+			- Sotieren mit Vergleichen
+			- Sortieren ohne Vergleiche
+		- Insertion Sort
+		- QuickSort
+		- Lineares Sotieren / LSD RadixSort
+	- Mögliche Unterschiede Theorie/Praxis
+		- Befehle die nicht O(1) dauern
+		- Kleines n
+		- Komplexität
+		- CPU oder Compilerbasierte Optimierung
+	- Betrachtete Analyseaspekte (Laufzeit, Arbeitsspeicher, Anzahl Vergleiche, Anzahl Tausche)
+- Praxis
+	- Testbedingungen
+	- Implementation
+	- Vorstellung der Ergebnisse
+-Beantwortung der Fragestellung
