@@ -10,7 +10,7 @@ import saveData
 
 for i in 1..1000000:
     var t = newSeq[float](0)
-    for j in 1 .. 100:  
+    for j in 1 .. 10:  
         var a = randomKeys(i) # MASTER
         t.add time a.quickSort
         assert a.isSorted
