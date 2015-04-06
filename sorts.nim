@@ -1,32 +1,93 @@
-import sequtils, import test
+import sequtils, bench
 
-proc quickSort [T] (a: var openarray[T], inl: int, inr: int) =
+proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int =
+  if liste[a] < liste[b]:
+    if liste[b] < liste[c]:
+      return b
+    elif liste[a] < liste[c]:
+      return c
+    else:
+      return a
+  else:
+    if liste[c] < liste[b]:
+      return b
+    elif liste[c] < liste[a]:
+      return c
+    else:
+      return a
+
+
+
+proc quickSort[T](liste: var openarray[T], inl, inr: int) =
   var r = inr
-  var links = inl
-  let n = r - links + 1
+  var l = inl
+  let n = r - l + 1
   if n < 2: return
-  let p = a[links + 3 * n div 4]
-  while links <= r:
-    if a[links] < p:
-      inc links
+
+  block trenner:
+    if n <= 40:
+      var m = medianVon3(liste, l, l + n div 2, r)
+      swap liste[m], liste[inr]
+    # Turkey Ninther
+    else:
+      let eps = n div 8
+      let mid = l + n div 2
+      let m1 = liste.medianVon3(l, l + eps, l + eps + eps)
+      let m2 = liste.medianVon3(mid - eps, mid, mid + eps)
+      let m3 = liste.medianVon3(r - eps - eps, r - eps, r)
+      let ninther = liste.medianVon3(m1, m2, m3)
+      swap liste[ninther], liste[inr]
+
+  let p = liste[inr]
+  while l <= r:
+    if liste[l] < p:
+      inc l
       continue
-    if a[r] > p:
+    if liste[r] > p:
       dec r
       continue
-    if links <= r:
-      swap a[links], a[r]
-      inc links
+    if l <= r:
+      swap liste[l], liste[r]
+      inc l
       dec r
-  quickSort(a, inl, r)
-  quickSort(a, links, inr)
-
-
-proc quickSort* [T] (a: var openarray[T]) =
-  quickSort(a, 0, a.high)
-  assert a.isSorted
+  quickSort(liste, inl, r)
+  quickSort(liste, l, inr)
 
 
 
+
+
+
+proc quickSort* [T] (liste: var openarray[T]) =
+  # Optimiert bis in den Tod
+  quickSort(liste, 0, liste.high)
+  assert liste.isSorted
+
+proc simpleQuickSort[T](liste: var openarray[T], inl, inr: int) =
+  var r = inr
+  var l = inl
+  let n = r - l + 1
+  if n < 2: return
+
+  let p = liste[inr]
+  while l <= r:
+    if liste[l] < p:
+      inc l
+      continue
+    if liste[r] > p:
+      dec r
+      continue
+    if l <= r:
+      swap liste[l], liste[r]
+      inc l
+      dec r
+  quickSort(liste, inl, r)
+  quickSort(liste, l, inr)
+
+proc simpleQuickSort* [T] (liste: var openarray[T]) =
+  # Nicht optimiert bis in den Tod!
+  quickSort(liste, 0, liste.high)
+  assert liste.isSorted
 
 proc insertionSort* [T](liste: var openarray[T]) =
   for i in 1 .. <liste.len:
@@ -36,9 +97,9 @@ proc insertionSort* [T](liste: var openarray[T]) =
       liste[j] = liste[j-1]
       dec j
       liste[j] = wert
-  assert a.isSorted
+  assert liste.isSorted
 
-proc radixSort* [T](liste: var seq[T], radix: int = 10) =
+proc radixSort* [T](liste: var seq[T], radix: int = 32) =
   var maxLength = false
   var tmp = -1
   var placement = 1
@@ -56,12 +117,10 @@ proc radixSort* [T](liste: var seq[T], radix: int = 10) =
         maxLength = false
  
     # empty lists into aList array
-    echo buckets
     liste = concat buckets
-    echo liste
  
     # move to next digit
     placement *= radix
 
-  assert a.isSorted
+  assert liste.isSorted
 
