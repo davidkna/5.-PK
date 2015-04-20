@@ -48,7 +48,7 @@ template benchMark*(sorter: stmt, listSpawner: stmt, saveFileName: string, maxLe
       for j in 1..times:
         resultString.add("\n" & $i & ";")
         var t = 0.0
-        while t == 0.0:
+        while t <= 0.0:
           var a = listSpawner i
           t = time(a.sorter)
           assert a.isSorted
