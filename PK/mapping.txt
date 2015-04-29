@@ -1,0 +1,21 @@
+[C_Files]
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/PK.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_system.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_os.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_strutils.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_parseutils.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_times.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_posix.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_osproc.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_strtabs.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_hashes.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_streams.c"
+--file:r"/Users/david/projekte/5_PK/PK/nimcache/stdlib_cpuinfo.c"
+
+[C_Compiler]
+Flags="-w -O3 -fno-strict-aliasing"
+[Linker]
+Flags=" -ldl"
+[Environment]
+libpath="/Users/david/Nim/lib"
+[Symbols]

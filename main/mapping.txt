@@ -1,0 +1,25 @@
+[C_Files]
+--file:r"/Users/david/projekte/5_PK/main/nimcache/main.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_system.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/bench.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_times.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_strutils.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_parseutils.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_os.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_posix.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/saveData.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_algorithm.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/sorts.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_sequtils.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/listSpawner.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/shuffle.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/stdlib_math.c"
+--file:r"/Users/david/projekte/5_PK/main/nimcache/radixListSpawner.c"
+
+[C_Compiler]
+Flags="-w -O3 -fno-strict-aliasing"
+[Linker]
+Flags=" -ldl"
+[Environment]
+libpath="/Users/david/Nim/lib"
+[Symbols]
