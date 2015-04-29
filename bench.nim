@@ -43,7 +43,6 @@ template benchMark*(sorter: stmt, listSpawner: stmt, saveFileName: string, maxLe
   if not existsFile("testData" & DirSep & saveFileName & ".lock") and beginAt < maxLength:
     # Create lockfile
     createFile("testData" & DirSep & saveFileName & ".lock")
-    putEnv(saveFileName, "doing")
     for i in countUpBenchStyle(beginAt, maxLength, step):
       for j in 1..times:
         resultString.add("\n" & $i & ";")
