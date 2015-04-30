@@ -45,13 +45,14 @@ template benchMark*(sorter: stmt, listSpawner: stmt, saveFileName: string, maxLe
     createFile("testData" & DirSep & saveFileName & ".lock")
     for i in countUpBenchStyle(beginAt, maxLength, step):
       for j in 1..times:
-        resultString.add("\n" & $i & ";")
+        if likely(i != 0): resultString.add("\n")
+        resultString.add($i & ";")
         var t = 0.0
         while t <= 0.0:
           var a = listSpawner i
           t = time(a.sorter)
           assert a.isSorted
-        resultString.add formatFloat(t, ffScientific, 32).replace(".", ",")
+        resultString.add formatFloat(t, ffScientific, 32)
       if (unlikely(i mod 10_000 div times == 0)):
         appendDataTo("testData" & DirSep & saveFileName, resultString)
         resultString = ""
