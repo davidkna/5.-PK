@@ -1,6 +1,6 @@
 language: c
 script:
-    - cd PK
+    - cd PK/build
     - make
-    - cd ../main
+    - cd ../../main/build
     - make
