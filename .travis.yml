@@ -1,6 +1,7 @@
 language: c
 sudo: required
 install:
+    - CURRENTDIR = $(PWD)
     - sudo apt-get install --yes build-essential
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
     - sudo apt-get update --yes -q
@@ -8,6 +9,7 @@ install:
     - cd /usr/bin
     - sudo rm  -f gcc
     - sudo ln -s gcc-5 gcc
+    - cd CURRENTDIR
 script:
     - cd ./PK/build/
     - ./build.sh
