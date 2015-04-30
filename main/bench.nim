@@ -46,7 +46,7 @@ template benchMark*(sorter: stmt, listSpawner: stmt, saveFileName: string, maxLe
     for i in countUpBenchStyle(beginAt, maxLength, step):
       for j in 1..times:
         if likely(i != 0): resultString.add("\n")
-        resultString.add($i & ";")
+        resultString.add($i & ",")
         var t = 0.0
         while t <= 0.0:
           var a = listSpawner i
