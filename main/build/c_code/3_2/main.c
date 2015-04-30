@@ -742,34 +742,34 @@ int main(int argc, char** args, char** env) {
 
 NIM_EXTERNC N_NOINLINE(void, mainInit)(void) {
 	NimStringDesc* LOC64;
-	NimStringDesc* LOC97;
-	NimStringDesc* LOC130;
-	NimStringDesc* LOC163;
-	NimStringDesc* LOC196;
-	NimStringDesc* LOC229;
-	NimStringDesc* LOC262;
-	NimStringDesc* LOC295;
-	NimStringDesc* LOC328;
-	NimStringDesc* LOC361;
-	NimStringDesc* LOC394;
-	NimStringDesc* LOC427;
-	NimStringDesc* LOC460;
-	NimStringDesc* LOC493;
-	NimStringDesc* LOC526;
-	NimStringDesc* LOC559;
-	NimStringDesc* LOC592;
-	NimStringDesc* LOC625;
-	NimStringDesc* LOC658;
-	NimStringDesc* LOC691;
-	NimStringDesc* LOC724;
-	NimStringDesc* LOC757;
-	NimStringDesc* LOC790;
-	NimStringDesc* LOC823;
-	NimStringDesc* LOC856;
-	NimStringDesc* LOC889;
-	NimStringDesc* LOC922;
-	NimStringDesc* LOC955;
-	NimStringDesc* LOC988;
+	NimStringDesc* LOC101;
+	NimStringDesc* LOC138;
+	NimStringDesc* LOC175;
+	NimStringDesc* LOC212;
+	NimStringDesc* LOC249;
+	NimStringDesc* LOC286;
+	NimStringDesc* LOC323;
+	NimStringDesc* LOC360;
+	NimStringDesc* LOC397;
+	NimStringDesc* LOC434;
+	NimStringDesc* LOC471;
+	NimStringDesc* LOC508;
+	NimStringDesc* LOC545;
+	NimStringDesc* LOC582;
+	NimStringDesc* LOC619;
+	NimStringDesc* LOC656;
+	NimStringDesc* LOC693;
+	NimStringDesc* LOC730;
+	NimStringDesc* LOC767;
+	NimStringDesc* LOC804;
+	NimStringDesc* LOC841;
+	NimStringDesc* LOC878;
+	NimStringDesc* LOC915;
+	NimStringDesc* LOC952;
+	NimStringDesc* LOC989;
+	NimStringDesc* LOC1026;
+	NimStringDesc* LOC1063;
+	NimStringDesc* LOC1100;
 	beginat_141013 = preparebench_131012(((NimStringDesc*) &TMP48), ((NI) 1), ((NI) 1));
 	{
 		NIM_BOOL LOC3;
@@ -1023,7 +1023,7 @@ appendString(resultstring_144098, LOC61);
 	{
 		NIM_BOOL LOC67;
 		NIM_BOOL LOC68;
-		NimStringDesc* LOC96;
+		NimStringDesc* LOC100;
 		LOC67 = 0;
 		LOC68 = 0;
 		LOC68 = nosexistsFile(((NimStringDesc*) &TMP74));
@@ -1046,102 +1046,107 @@ appendString(resultstring_144098, LOC61);
 						res_144609 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC78;
-								NimStringDesc* LOC79;
-								NF t_144494;
 								NimStringDesc* LOC83;
 								NimStringDesc* LOC84;
+								NF t_144494;
+								NimStringDesc* LOC88;
 								if (!(res_144609 <= ((NI) 1))) goto LA77;
 								j_144492 = res_144609;
-								LOC78 = 0;
-								LOC79 = 0;
-								LOC79 = nimIntToStr(i_144490);
-								LOC78 = rawNewString(LOC79->Sup.len + 2);
-appendString(LOC78, ((NimStringDesc*) &TMP61));
-appendString(LOC78, LOC79);
-appendString(LOC78, ((NimStringDesc*) &TMP75));
-								resultstring_144488 = resizeString(resultstring_144488, LOC78->Sup.len + 0);
-appendString(resultstring_144488, LOC78);
+								{
+									NIM_BOOL LOC80;
+									LOC80 = 0;
+									LOC80 = likely(!((i_144490 == ((NI) 0))));
+									if (!LOC80) goto LA81;
+									resultstring_144488 = resizeString(resultstring_144488, 1);
+appendString(resultstring_144488, ((NimStringDesc*) &TMP61));
+								}
+								LA81: ;
+								LOC83 = 0;
+								LOC84 = 0;
+								LOC84 = nimIntToStr(i_144490);
+								LOC83 = rawNewString(LOC84->Sup.len + 1);
+appendString(LOC83, LOC84);
+appendString(LOC83, ((NimStringDesc*) &TMP75));
+								resultstring_144488 = resizeString(resultstring_144488, LOC83->Sup.len + 0);
+appendString(resultstring_144488, LOC83);
 								t_144494 = 0.0;
 								{
 									while (1) {
 										TY139293* a_144496;
 										NF t0_144566;
-										NF LOC82;
-										if (!(t_144494 <= 0.0)) goto LA81;
+										NF LOC87;
+										if (!(t_144494 <= 0.0)) goto LA86;
 										a_144496 = almostsortedkeys_139188(i_144490);
 										t0_144566 = ntcpuTime();
 										radixsort_141063((&a_144496), ((NI) 32));
-										LOC82 = 0;
-										LOC82 = ntcpuTime();
-										t_144494 = ((NF)(LOC82) - (NF)(t0_144566));
-									} LA81: ;
+										LOC87 = 0;
+										LOC87 = ntcpuTime();
+										t_144494 = ((NF)(LOC87) - (NF)(t0_144566));
+									} LA86: ;
 								}
-								LOC83 = 0;
-								LOC83 = nsuformatFloat(t_144494, ((NU8) 2), ((NI) 32));
-								LOC84 = 0;
-								LOC84 = nsuReplaceStr(LOC83, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_144488 = resizeString(resultstring_144488, LOC84->Sup.len + 0);
-appendString(resultstring_144488, LOC84);
+								LOC88 = 0;
+								LOC88 = nsuformatFloat(t_144494, ((NU8) 2), ((NI) 32));
+								resultstring_144488 = resizeString(resultstring_144488, LOC88->Sup.len + 0);
+appendString(resultstring_144488, LOC88);
 								res_144609 += ((NI) 1);
 							} LA77: ;
 						}
 					}
 					{
-						NIM_BOOL LOC87;
-						NimStringDesc* LOC90;
-						LOC87 = 0;
-						LOC87 = unlikely((((NI) ((NI)(((NI) ((NI)(i_144490 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC87) goto LA88;
+						NIM_BOOL LOC91;
+						NimStringDesc* LOC94;
+						LOC91 = 0;
+						LOC91 = unlikely((((NI) ((NI)(((NI) ((NI)(i_144490 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC91) goto LA92;
 						appenddatato_129003(((NimStringDesc*) &TMP76), resultstring_144488);
-						LOC90 = 0;
-						LOC90 = resultstring_144488; resultstring_144488 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC90) nimGCunrefNoCycle(LOC90);
+						LOC94 = 0;
+						LOC94 = resultstring_144488; resultstring_144488 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC94) nimGCunrefNoCycle(LOC94);
 					}
-					LA88: ;
+					LA92: ;
 					{
-						if (!(res_144615 < ((NI) 10000))) goto LA93;
+						if (!(res_144615 < ((NI) 10000))) goto LA97;
 						res_144615 += ((NI) 1);
 					}
-					goto LA91;
-					LA93: ;
+					goto LA95;
+					LA97: ;
 					{
 						res_144615 += ((NI) 1);
 					}
-					LA91: ;
+					LA95: ;
 				} LA74: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP76), resultstring_144488);
-		LOC96 = 0;
-		LOC96 = resultstring_144488; resultstring_144488 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC96) nimGCunrefNoCycle(LOC96);
+		LOC100 = 0;
+		LOC100 = resultstring_144488; resultstring_144488 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC100) nimGCunrefNoCycle(LOC100);
 		nosremoveFile(((NimStringDesc*) &TMP74));
 	}
 	LA70: ;
 	beginat_144645 = preparebench_131012(((NimStringDesc*) &TMP77), ((NI) 1), ((NI) 1));
-	LOC97 = 0;
-	LOC97 = resultstring_144647; resultstring_144647 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC97) nimGCunrefNoCycle(LOC97);
+	LOC101 = 0;
+	LOC101 = resultstring_144647; resultstring_144647 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC101) nimGCunrefNoCycle(LOC101);
 	{
-		NIM_BOOL LOC100;
-		NIM_BOOL LOC101;
-		NimStringDesc* LOC129;
-		LOC100 = 0;
-		LOC101 = 0;
-		LOC101 = nosexistsFile(((NimStringDesc*) &TMP78));
-		LOC100 = !(LOC101);
-		if (!(LOC100)) goto LA102;
-		LOC100 = (beginat_144645 < ((NI) 100000));
-		LA102: ;
-		if (!LOC100) goto LA103;
+		NIM_BOOL LOC104;
+		NIM_BOOL LOC105;
+		NimStringDesc* LOC137;
+		LOC104 = 0;
+		LOC105 = 0;
+		LOC105 = nosexistsFile(((NimStringDesc*) &TMP78));
+		LOC104 = !(LOC105);
+		if (!(LOC104)) goto LA106;
+		LOC104 = (beginat_144645 < ((NI) 100000));
+		LA106: ;
+		if (!LOC104) goto LA107;
 		createfile_129068(((NimStringDesc*) &TMP78));
 		{
 			NI res_144815;
 			res_144815 = beginat_144645;
 			{
 				while (1) {
-					if (!(res_144815 <= ((NI) 100000))) goto LA107;
+					if (!(res_144815 <= ((NI) 100000))) goto LA111;
 					i_144649 = res_144815;
 					{
 						NI res_144809;
@@ -1149,102 +1154,107 @@ appendString(resultstring_144488, LOC84);
 						res_144809 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC111;
-								NimStringDesc* LOC112;
+								NimStringDesc* LOC120;
+								NimStringDesc* LOC121;
 								NF t_144653;
-								NimStringDesc* LOC116;
-								NimStringDesc* LOC117;
-								if (!(res_144809 <= ((NI) 1))) goto LA110;
+								NimStringDesc* LOC125;
+								if (!(res_144809 <= ((NI) 1))) goto LA114;
 								j_144651 = res_144809;
-								LOC111 = 0;
-								LOC112 = 0;
-								LOC112 = nimIntToStr(i_144649);
-								LOC111 = rawNewString(LOC112->Sup.len + 2);
-appendString(LOC111, ((NimStringDesc*) &TMP61));
-appendString(LOC111, LOC112);
-appendString(LOC111, ((NimStringDesc*) &TMP75));
-								resultstring_144647 = resizeString(resultstring_144647, LOC111->Sup.len + 0);
-appendString(resultstring_144647, LOC111);
+								{
+									NIM_BOOL LOC117;
+									LOC117 = 0;
+									LOC117 = likely(!((i_144649 == ((NI) 0))));
+									if (!LOC117) goto LA118;
+									resultstring_144647 = resizeString(resultstring_144647, 1);
+appendString(resultstring_144647, ((NimStringDesc*) &TMP61));
+								}
+								LA118: ;
+								LOC120 = 0;
+								LOC121 = 0;
+								LOC121 = nimIntToStr(i_144649);
+								LOC120 = rawNewString(LOC121->Sup.len + 1);
+appendString(LOC120, LOC121);
+appendString(LOC120, ((NimStringDesc*) &TMP75));
+								resultstring_144647 = resizeString(resultstring_144647, LOC120->Sup.len + 0);
+appendString(resultstring_144647, LOC120);
 								t_144653 = 0.0;
 								{
 									while (1) {
 										TY139293* a_144655;
 										NF t0_144693;
-										NF LOC115;
-										if (!(t_144653 <= 0.0)) goto LA114;
+										NF LOC124;
+										if (!(t_144653 <= 0.0)) goto LA123;
 										a_144655 = almostsortedkeysx32_140061(i_144649);
 										t0_144693 = ntcpuTime();
 										radixsort_141063((&a_144655), ((NI) 32));
-										LOC115 = 0;
-										LOC115 = ntcpuTime();
-										t_144653 = ((NF)(LOC115) - (NF)(t0_144693));
-									} LA114: ;
+										LOC124 = 0;
+										LOC124 = ntcpuTime();
+										t_144653 = ((NF)(LOC124) - (NF)(t0_144693));
+									} LA123: ;
 								}
-								LOC116 = 0;
-								LOC116 = nsuformatFloat(t_144653, ((NU8) 2), ((NI) 32));
-								LOC117 = 0;
-								LOC117 = nsuReplaceStr(LOC116, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_144647 = resizeString(resultstring_144647, LOC117->Sup.len + 0);
-appendString(resultstring_144647, LOC117);
+								LOC125 = 0;
+								LOC125 = nsuformatFloat(t_144653, ((NU8) 2), ((NI) 32));
+								resultstring_144647 = resizeString(resultstring_144647, LOC125->Sup.len + 0);
+appendString(resultstring_144647, LOC125);
 								res_144809 += ((NI) 1);
-							} LA110: ;
+							} LA114: ;
 						}
 					}
 					{
-						NIM_BOOL LOC120;
-						NimStringDesc* LOC123;
-						LOC120 = 0;
-						LOC120 = unlikely((((NI) ((NI)(((NI) ((NI)(i_144649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC120) goto LA121;
+						NIM_BOOL LOC128;
+						NimStringDesc* LOC131;
+						LOC128 = 0;
+						LOC128 = unlikely((((NI) ((NI)(((NI) ((NI)(i_144649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC128) goto LA129;
 						appenddatato_129003(((NimStringDesc*) &TMP79), resultstring_144647);
-						LOC123 = 0;
-						LOC123 = resultstring_144647; resultstring_144647 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC123) nimGCunrefNoCycle(LOC123);
+						LOC131 = 0;
+						LOC131 = resultstring_144647; resultstring_144647 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC131) nimGCunrefNoCycle(LOC131);
 					}
-					LA121: ;
+					LA129: ;
 					{
-						if (!(res_144815 < ((NI) 10000))) goto LA126;
+						if (!(res_144815 < ((NI) 10000))) goto LA134;
 						res_144815 += ((NI) 1);
 					}
-					goto LA124;
-					LA126: ;
+					goto LA132;
+					LA134: ;
 					{
 						res_144815 += ((NI) 1);
 					}
-					LA124: ;
-				} LA107: ;
+					LA132: ;
+				} LA111: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP79), resultstring_144647);
-		LOC129 = 0;
-		LOC129 = resultstring_144647; resultstring_144647 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC129) nimGCunrefNoCycle(LOC129);
+		LOC137 = 0;
+		LOC137 = resultstring_144647; resultstring_144647 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC137) nimGCunrefNoCycle(LOC137);
 		nosremoveFile(((NimStringDesc*) &TMP78));
 	}
-	LA103: ;
+	LA107: ;
 	beginat_144845 = preparebench_131012(((NimStringDesc*) &TMP80), ((NI) 1), ((NI) 1));
-	LOC130 = 0;
-	LOC130 = resultstring_144847; resultstring_144847 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC130) nimGCunrefNoCycle(LOC130);
+	LOC138 = 0;
+	LOC138 = resultstring_144847; resultstring_144847 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC138) nimGCunrefNoCycle(LOC138);
 	{
-		NIM_BOOL LOC133;
-		NIM_BOOL LOC134;
-		NimStringDesc* LOC162;
-		LOC133 = 0;
-		LOC134 = 0;
-		LOC134 = nosexistsFile(((NimStringDesc*) &TMP81));
-		LOC133 = !(LOC134);
-		if (!(LOC133)) goto LA135;
-		LOC133 = (beginat_144845 < ((NI) 100000));
-		LA135: ;
-		if (!LOC133) goto LA136;
+		NIM_BOOL LOC141;
+		NIM_BOOL LOC142;
+		NimStringDesc* LOC174;
+		LOC141 = 0;
+		LOC142 = 0;
+		LOC142 = nosexistsFile(((NimStringDesc*) &TMP81));
+		LOC141 = !(LOC142);
+		if (!(LOC141)) goto LA143;
+		LOC141 = (beginat_144845 < ((NI) 100000));
+		LA143: ;
+		if (!LOC141) goto LA144;
 		createfile_129068(((NimStringDesc*) &TMP81));
 		{
 			NI res_145015;
 			res_145015 = beginat_144845;
 			{
 				while (1) {
-					if (!(res_145015 <= ((NI) 100000))) goto LA140;
+					if (!(res_145015 <= ((NI) 100000))) goto LA148;
 					i_144849 = res_145015;
 					{
 						NI res_145009;
@@ -1252,102 +1262,107 @@ appendString(resultstring_144647, LOC117);
 						res_145009 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC144;
-								NimStringDesc* LOC145;
+								NimStringDesc* LOC157;
+								NimStringDesc* LOC158;
 								NF t_144853;
-								NimStringDesc* LOC149;
-								NimStringDesc* LOC150;
-								if (!(res_145009 <= ((NI) 1))) goto LA143;
+								NimStringDesc* LOC162;
+								if (!(res_145009 <= ((NI) 1))) goto LA151;
 								j_144851 = res_145009;
-								LOC144 = 0;
-								LOC145 = 0;
-								LOC145 = nimIntToStr(i_144849);
-								LOC144 = rawNewString(LOC145->Sup.len + 2);
-appendString(LOC144, ((NimStringDesc*) &TMP61));
-appendString(LOC144, LOC145);
-appendString(LOC144, ((NimStringDesc*) &TMP75));
-								resultstring_144847 = resizeString(resultstring_144847, LOC144->Sup.len + 0);
-appendString(resultstring_144847, LOC144);
+								{
+									NIM_BOOL LOC154;
+									LOC154 = 0;
+									LOC154 = likely(!((i_144849 == ((NI) 0))));
+									if (!LOC154) goto LA155;
+									resultstring_144847 = resizeString(resultstring_144847, 1);
+appendString(resultstring_144847, ((NimStringDesc*) &TMP61));
+								}
+								LA155: ;
+								LOC157 = 0;
+								LOC158 = 0;
+								LOC158 = nimIntToStr(i_144849);
+								LOC157 = rawNewString(LOC158->Sup.len + 1);
+appendString(LOC157, LOC158);
+appendString(LOC157, ((NimStringDesc*) &TMP75));
+								resultstring_144847 = resizeString(resultstring_144847, LOC157->Sup.len + 0);
+appendString(resultstring_144847, LOC157);
 								t_144853 = 0.0;
 								{
 									while (1) {
 										TY139293* a_144855;
 										NF t0_144893;
-										NF LOC148;
-										if (!(t_144853 <= 0.0)) goto LA147;
+										NF LOC161;
+										if (!(t_144853 <= 0.0)) goto LA160;
 										a_144855 = almostreversekeys_139266(i_144849);
 										t0_144893 = ntcpuTime();
 										radixsort_141063((&a_144855), ((NI) 32));
-										LOC148 = 0;
-										LOC148 = ntcpuTime();
-										t_144853 = ((NF)(LOC148) - (NF)(t0_144893));
-									} LA147: ;
+										LOC161 = 0;
+										LOC161 = ntcpuTime();
+										t_144853 = ((NF)(LOC161) - (NF)(t0_144893));
+									} LA160: ;
 								}
-								LOC149 = 0;
-								LOC149 = nsuformatFloat(t_144853, ((NU8) 2), ((NI) 32));
-								LOC150 = 0;
-								LOC150 = nsuReplaceStr(LOC149, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_144847 = resizeString(resultstring_144847, LOC150->Sup.len + 0);
-appendString(resultstring_144847, LOC150);
+								LOC162 = 0;
+								LOC162 = nsuformatFloat(t_144853, ((NU8) 2), ((NI) 32));
+								resultstring_144847 = resizeString(resultstring_144847, LOC162->Sup.len + 0);
+appendString(resultstring_144847, LOC162);
 								res_145009 += ((NI) 1);
-							} LA143: ;
+							} LA151: ;
 						}
 					}
 					{
-						NIM_BOOL LOC153;
-						NimStringDesc* LOC156;
-						LOC153 = 0;
-						LOC153 = unlikely((((NI) ((NI)(((NI) ((NI)(i_144849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC153) goto LA154;
+						NIM_BOOL LOC165;
+						NimStringDesc* LOC168;
+						LOC165 = 0;
+						LOC165 = unlikely((((NI) ((NI)(((NI) ((NI)(i_144849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC165) goto LA166;
 						appenddatato_129003(((NimStringDesc*) &TMP82), resultstring_144847);
-						LOC156 = 0;
-						LOC156 = resultstring_144847; resultstring_144847 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC156) nimGCunrefNoCycle(LOC156);
+						LOC168 = 0;
+						LOC168 = resultstring_144847; resultstring_144847 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC168) nimGCunrefNoCycle(LOC168);
 					}
-					LA154: ;
+					LA166: ;
 					{
-						if (!(res_145015 < ((NI) 10000))) goto LA159;
+						if (!(res_145015 < ((NI) 10000))) goto LA171;
 						res_145015 += ((NI) 1);
 					}
-					goto LA157;
-					LA159: ;
+					goto LA169;
+					LA171: ;
 					{
 						res_145015 += ((NI) 1);
 					}
-					LA157: ;
-				} LA140: ;
+					LA169: ;
+				} LA148: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP82), resultstring_144847);
-		LOC162 = 0;
-		LOC162 = resultstring_144847; resultstring_144847 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC162) nimGCunrefNoCycle(LOC162);
+		LOC174 = 0;
+		LOC174 = resultstring_144847; resultstring_144847 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC174) nimGCunrefNoCycle(LOC174);
 		nosremoveFile(((NimStringDesc*) &TMP81));
 	}
-	LA136: ;
+	LA144: ;
 	beginat_145045 = preparebench_131012(((NimStringDesc*) &TMP83), ((NI) 1), ((NI) 1));
-	LOC163 = 0;
-	LOC163 = resultstring_145047; resultstring_145047 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC163) nimGCunrefNoCycle(LOC163);
+	LOC175 = 0;
+	LOC175 = resultstring_145047; resultstring_145047 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC175) nimGCunrefNoCycle(LOC175);
 	{
-		NIM_BOOL LOC166;
-		NIM_BOOL LOC167;
-		NimStringDesc* LOC195;
-		LOC166 = 0;
-		LOC167 = 0;
-		LOC167 = nosexistsFile(((NimStringDesc*) &TMP84));
-		LOC166 = !(LOC167);
-		if (!(LOC166)) goto LA168;
-		LOC166 = (beginat_145045 < ((NI) 100000));
-		LA168: ;
-		if (!LOC166) goto LA169;
+		NIM_BOOL LOC178;
+		NIM_BOOL LOC179;
+		NimStringDesc* LOC211;
+		LOC178 = 0;
+		LOC179 = 0;
+		LOC179 = nosexistsFile(((NimStringDesc*) &TMP84));
+		LOC178 = !(LOC179);
+		if (!(LOC178)) goto LA180;
+		LOC178 = (beginat_145045 < ((NI) 100000));
+		LA180: ;
+		if (!LOC178) goto LA181;
 		createfile_129068(((NimStringDesc*) &TMP84));
 		{
 			NI res_145215;
 			res_145215 = beginat_145045;
 			{
 				while (1) {
-					if (!(res_145215 <= ((NI) 100000))) goto LA173;
+					if (!(res_145215 <= ((NI) 100000))) goto LA185;
 					i_145049 = res_145215;
 					{
 						NI res_145209;
@@ -1355,102 +1370,107 @@ appendString(resultstring_144847, LOC150);
 						res_145209 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC177;
-								NimStringDesc* LOC178;
+								NimStringDesc* LOC194;
+								NimStringDesc* LOC195;
 								NF t_145053;
-								NimStringDesc* LOC182;
-								NimStringDesc* LOC183;
-								if (!(res_145209 <= ((NI) 1))) goto LA176;
+								NimStringDesc* LOC199;
+								if (!(res_145209 <= ((NI) 1))) goto LA188;
 								j_145051 = res_145209;
-								LOC177 = 0;
-								LOC178 = 0;
-								LOC178 = nimIntToStr(i_145049);
-								LOC177 = rawNewString(LOC178->Sup.len + 2);
-appendString(LOC177, ((NimStringDesc*) &TMP61));
-appendString(LOC177, LOC178);
-appendString(LOC177, ((NimStringDesc*) &TMP75));
-								resultstring_145047 = resizeString(resultstring_145047, LOC177->Sup.len + 0);
-appendString(resultstring_145047, LOC177);
+								{
+									NIM_BOOL LOC191;
+									LOC191 = 0;
+									LOC191 = likely(!((i_145049 == ((NI) 0))));
+									if (!LOC191) goto LA192;
+									resultstring_145047 = resizeString(resultstring_145047, 1);
+appendString(resultstring_145047, ((NimStringDesc*) &TMP61));
+								}
+								LA192: ;
+								LOC194 = 0;
+								LOC195 = 0;
+								LOC195 = nimIntToStr(i_145049);
+								LOC194 = rawNewString(LOC195->Sup.len + 1);
+appendString(LOC194, LOC195);
+appendString(LOC194, ((NimStringDesc*) &TMP75));
+								resultstring_145047 = resizeString(resultstring_145047, LOC194->Sup.len + 0);
+appendString(resultstring_145047, LOC194);
 								t_145053 = 0.0;
 								{
 									while (1) {
 										TY139293* a_145055;
 										NF t0_145093;
-										NF LOC181;
-										if (!(t_145053 <= 0.0)) goto LA180;
+										NF LOC198;
+										if (!(t_145053 <= 0.0)) goto LA197;
 										a_145055 = almostreversekeysx32_140159(i_145049);
 										t0_145093 = ntcpuTime();
 										radixsort_141063((&a_145055), ((NI) 32));
-										LOC181 = 0;
-										LOC181 = ntcpuTime();
-										t_145053 = ((NF)(LOC181) - (NF)(t0_145093));
-									} LA180: ;
+										LOC198 = 0;
+										LOC198 = ntcpuTime();
+										t_145053 = ((NF)(LOC198) - (NF)(t0_145093));
+									} LA197: ;
 								}
-								LOC182 = 0;
-								LOC182 = nsuformatFloat(t_145053, ((NU8) 2), ((NI) 32));
-								LOC183 = 0;
-								LOC183 = nsuReplaceStr(LOC182, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_145047 = resizeString(resultstring_145047, LOC183->Sup.len + 0);
-appendString(resultstring_145047, LOC183);
+								LOC199 = 0;
+								LOC199 = nsuformatFloat(t_145053, ((NU8) 2), ((NI) 32));
+								resultstring_145047 = resizeString(resultstring_145047, LOC199->Sup.len + 0);
+appendString(resultstring_145047, LOC199);
 								res_145209 += ((NI) 1);
-							} LA176: ;
+							} LA188: ;
 						}
 					}
 					{
-						NIM_BOOL LOC186;
-						NimStringDesc* LOC189;
-						LOC186 = 0;
-						LOC186 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145049 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC186) goto LA187;
+						NIM_BOOL LOC202;
+						NimStringDesc* LOC205;
+						LOC202 = 0;
+						LOC202 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145049 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC202) goto LA203;
 						appenddatato_129003(((NimStringDesc*) &TMP85), resultstring_145047);
-						LOC189 = 0;
-						LOC189 = resultstring_145047; resultstring_145047 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC189) nimGCunrefNoCycle(LOC189);
+						LOC205 = 0;
+						LOC205 = resultstring_145047; resultstring_145047 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC205) nimGCunrefNoCycle(LOC205);
 					}
-					LA187: ;
+					LA203: ;
 					{
-						if (!(res_145215 < ((NI) 10000))) goto LA192;
+						if (!(res_145215 < ((NI) 10000))) goto LA208;
 						res_145215 += ((NI) 1);
 					}
-					goto LA190;
-					LA192: ;
+					goto LA206;
+					LA208: ;
 					{
 						res_145215 += ((NI) 1);
 					}
-					LA190: ;
-				} LA173: ;
+					LA206: ;
+				} LA185: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP85), resultstring_145047);
-		LOC195 = 0;
-		LOC195 = resultstring_145047; resultstring_145047 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC195) nimGCunrefNoCycle(LOC195);
+		LOC211 = 0;
+		LOC211 = resultstring_145047; resultstring_145047 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC211) nimGCunrefNoCycle(LOC211);
 		nosremoveFile(((NimStringDesc*) &TMP84));
 	}
-	LA169: ;
+	LA181: ;
 	beginat_145245 = preparebench_131012(((NimStringDesc*) &TMP86), ((NI) 1), ((NI) 1));
-	LOC196 = 0;
-	LOC196 = resultstring_145247; resultstring_145247 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC196) nimGCunrefNoCycle(LOC196);
+	LOC212 = 0;
+	LOC212 = resultstring_145247; resultstring_145247 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC212) nimGCunrefNoCycle(LOC212);
 	{
-		NIM_BOOL LOC199;
-		NIM_BOOL LOC200;
-		NimStringDesc* LOC228;
-		LOC199 = 0;
-		LOC200 = 0;
-		LOC200 = nosexistsFile(((NimStringDesc*) &TMP87));
-		LOC199 = !(LOC200);
-		if (!(LOC199)) goto LA201;
-		LOC199 = (beginat_145245 < ((NI) 100000));
-		LA201: ;
-		if (!LOC199) goto LA202;
+		NIM_BOOL LOC215;
+		NIM_BOOL LOC216;
+		NimStringDesc* LOC248;
+		LOC215 = 0;
+		LOC216 = 0;
+		LOC216 = nosexistsFile(((NimStringDesc*) &TMP87));
+		LOC215 = !(LOC216);
+		if (!(LOC215)) goto LA217;
+		LOC215 = (beginat_145245 < ((NI) 100000));
+		LA217: ;
+		if (!LOC215) goto LA218;
 		createfile_129068(((NimStringDesc*) &TMP87));
 		{
 			NI res_145415;
 			res_145415 = beginat_145245;
 			{
 				while (1) {
-					if (!(res_145415 <= ((NI) 100000))) goto LA206;
+					if (!(res_145415 <= ((NI) 100000))) goto LA222;
 					i_145249 = res_145415;
 					{
 						NI res_145409;
@@ -1458,102 +1478,107 @@ appendString(resultstring_145047, LOC183);
 						res_145409 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC210;
-								NimStringDesc* LOC211;
+								NimStringDesc* LOC231;
+								NimStringDesc* LOC232;
 								NF t_145253;
-								NimStringDesc* LOC215;
-								NimStringDesc* LOC216;
-								if (!(res_145409 <= ((NI) 1))) goto LA209;
+								NimStringDesc* LOC236;
+								if (!(res_145409 <= ((NI) 1))) goto LA225;
 								j_145251 = res_145409;
-								LOC210 = 0;
-								LOC211 = 0;
-								LOC211 = nimIntToStr(i_145249);
-								LOC210 = rawNewString(LOC211->Sup.len + 2);
-appendString(LOC210, ((NimStringDesc*) &TMP61));
-appendString(LOC210, LOC211);
-appendString(LOC210, ((NimStringDesc*) &TMP75));
-								resultstring_145247 = resizeString(resultstring_145247, LOC210->Sup.len + 0);
-appendString(resultstring_145247, LOC210);
+								{
+									NIM_BOOL LOC228;
+									LOC228 = 0;
+									LOC228 = likely(!((i_145249 == ((NI) 0))));
+									if (!LOC228) goto LA229;
+									resultstring_145247 = resizeString(resultstring_145247, 1);
+appendString(resultstring_145247, ((NimStringDesc*) &TMP61));
+								}
+								LA229: ;
+								LOC231 = 0;
+								LOC232 = 0;
+								LOC232 = nimIntToStr(i_145249);
+								LOC231 = rawNewString(LOC232->Sup.len + 1);
+appendString(LOC231, LOC232);
+appendString(LOC231, ((NimStringDesc*) &TMP75));
+								resultstring_145247 = resizeString(resultstring_145247, LOC231->Sup.len + 0);
+appendString(resultstring_145247, LOC231);
 								t_145253 = 0.0;
 								{
 									while (1) {
 										TY139293* a_145255;
 										NF t0_145293;
-										NF LOC214;
-										if (!(t_145253 <= 0.0)) goto LA213;
+										NF LOC235;
+										if (!(t_145253 <= 0.0)) goto LA234;
 										a_145255 = equalkeys_139083(i_145249);
 										t0_145293 = ntcpuTime();
 										radixsort_141063((&a_145255), ((NI) 32));
-										LOC214 = 0;
-										LOC214 = ntcpuTime();
-										t_145253 = ((NF)(LOC214) - (NF)(t0_145293));
-									} LA213: ;
+										LOC235 = 0;
+										LOC235 = ntcpuTime();
+										t_145253 = ((NF)(LOC235) - (NF)(t0_145293));
+									} LA234: ;
 								}
-								LOC215 = 0;
-								LOC215 = nsuformatFloat(t_145253, ((NU8) 2), ((NI) 32));
-								LOC216 = 0;
-								LOC216 = nsuReplaceStr(LOC215, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_145247 = resizeString(resultstring_145247, LOC216->Sup.len + 0);
-appendString(resultstring_145247, LOC216);
+								LOC236 = 0;
+								LOC236 = nsuformatFloat(t_145253, ((NU8) 2), ((NI) 32));
+								resultstring_145247 = resizeString(resultstring_145247, LOC236->Sup.len + 0);
+appendString(resultstring_145247, LOC236);
 								res_145409 += ((NI) 1);
-							} LA209: ;
+							} LA225: ;
 						}
 					}
 					{
-						NIM_BOOL LOC219;
-						NimStringDesc* LOC222;
-						LOC219 = 0;
-						LOC219 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC219) goto LA220;
+						NIM_BOOL LOC239;
+						NimStringDesc* LOC242;
+						LOC239 = 0;
+						LOC239 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC239) goto LA240;
 						appenddatato_129003(((NimStringDesc*) &TMP88), resultstring_145247);
-						LOC222 = 0;
-						LOC222 = resultstring_145247; resultstring_145247 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC222) nimGCunrefNoCycle(LOC222);
+						LOC242 = 0;
+						LOC242 = resultstring_145247; resultstring_145247 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC242) nimGCunrefNoCycle(LOC242);
 					}
-					LA220: ;
+					LA240: ;
 					{
-						if (!(res_145415 < ((NI) 10000))) goto LA225;
+						if (!(res_145415 < ((NI) 10000))) goto LA245;
 						res_145415 += ((NI) 1);
 					}
-					goto LA223;
-					LA225: ;
+					goto LA243;
+					LA245: ;
 					{
 						res_145415 += ((NI) 1);
 					}
-					LA223: ;
-				} LA206: ;
+					LA243: ;
+				} LA222: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP88), resultstring_145247);
-		LOC228 = 0;
-		LOC228 = resultstring_145247; resultstring_145247 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC228) nimGCunrefNoCycle(LOC228);
+		LOC248 = 0;
+		LOC248 = resultstring_145247; resultstring_145247 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC248) nimGCunrefNoCycle(LOC248);
 		nosremoveFile(((NimStringDesc*) &TMP87));
 	}
-	LA202: ;
+	LA218: ;
 	beginat_145445 = preparebench_131012(((NimStringDesc*) &TMP89), ((NI) 1), ((NI) 1));
-	LOC229 = 0;
-	LOC229 = resultstring_145447; resultstring_145447 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC229) nimGCunrefNoCycle(LOC229);
+	LOC249 = 0;
+	LOC249 = resultstring_145447; resultstring_145447 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC249) nimGCunrefNoCycle(LOC249);
 	{
-		NIM_BOOL LOC232;
-		NIM_BOOL LOC233;
-		NimStringDesc* LOC261;
-		LOC232 = 0;
-		LOC233 = 0;
-		LOC233 = nosexistsFile(((NimStringDesc*) &TMP90));
-		LOC232 = !(LOC233);
-		if (!(LOC232)) goto LA234;
-		LOC232 = (beginat_145445 < ((NI) 100000));
-		LA234: ;
-		if (!LOC232) goto LA235;
+		NIM_BOOL LOC252;
+		NIM_BOOL LOC253;
+		NimStringDesc* LOC285;
+		LOC252 = 0;
+		LOC253 = 0;
+		LOC253 = nosexistsFile(((NimStringDesc*) &TMP90));
+		LOC252 = !(LOC253);
+		if (!(LOC252)) goto LA254;
+		LOC252 = (beginat_145445 < ((NI) 100000));
+		LA254: ;
+		if (!LOC252) goto LA255;
 		createfile_129068(((NimStringDesc*) &TMP90));
 		{
 			NI res_145615;
 			res_145615 = beginat_145445;
 			{
 				while (1) {
-					if (!(res_145615 <= ((NI) 100000))) goto LA239;
+					if (!(res_145615 <= ((NI) 100000))) goto LA259;
 					i_145449 = res_145615;
 					{
 						NI res_145609;
@@ -1561,102 +1586,107 @@ appendString(resultstring_145247, LOC216);
 						res_145609 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC243;
-								NimStringDesc* LOC244;
+								NimStringDesc* LOC268;
+								NimStringDesc* LOC269;
 								NF t_145453;
-								NimStringDesc* LOC248;
-								NimStringDesc* LOC249;
-								if (!(res_145609 <= ((NI) 1))) goto LA242;
+								NimStringDesc* LOC273;
+								if (!(res_145609 <= ((NI) 1))) goto LA262;
 								j_145451 = res_145609;
-								LOC243 = 0;
-								LOC244 = 0;
-								LOC244 = nimIntToStr(i_145449);
-								LOC243 = rawNewString(LOC244->Sup.len + 2);
-appendString(LOC243, ((NimStringDesc*) &TMP61));
-appendString(LOC243, LOC244);
-appendString(LOC243, ((NimStringDesc*) &TMP75));
-								resultstring_145447 = resizeString(resultstring_145447, LOC243->Sup.len + 0);
-appendString(resultstring_145447, LOC243);
+								{
+									NIM_BOOL LOC265;
+									LOC265 = 0;
+									LOC265 = likely(!((i_145449 == ((NI) 0))));
+									if (!LOC265) goto LA266;
+									resultstring_145447 = resizeString(resultstring_145447, 1);
+appendString(resultstring_145447, ((NimStringDesc*) &TMP61));
+								}
+								LA266: ;
+								LOC268 = 0;
+								LOC269 = 0;
+								LOC269 = nimIntToStr(i_145449);
+								LOC268 = rawNewString(LOC269->Sup.len + 1);
+appendString(LOC268, LOC269);
+appendString(LOC268, ((NimStringDesc*) &TMP75));
+								resultstring_145447 = resizeString(resultstring_145447, LOC268->Sup.len + 0);
+appendString(resultstring_145447, LOC268);
 								t_145453 = 0.0;
 								{
 									while (1) {
 										TY139293* a_145455;
 										NF t0_145493;
-										NF LOC247;
-										if (!(t_145453 <= 0.0)) goto LA246;
+										NF LOC272;
+										if (!(t_145453 <= 0.0)) goto LA271;
 										a_145455 = equalkeysx32_140110(i_145449);
 										t0_145493 = ntcpuTime();
 										radixsort_141063((&a_145455), ((NI) 32));
-										LOC247 = 0;
-										LOC247 = ntcpuTime();
-										t_145453 = ((NF)(LOC247) - (NF)(t0_145493));
-									} LA246: ;
+										LOC272 = 0;
+										LOC272 = ntcpuTime();
+										t_145453 = ((NF)(LOC272) - (NF)(t0_145493));
+									} LA271: ;
 								}
-								LOC248 = 0;
-								LOC248 = nsuformatFloat(t_145453, ((NU8) 2), ((NI) 32));
-								LOC249 = 0;
-								LOC249 = nsuReplaceStr(LOC248, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_145447 = resizeString(resultstring_145447, LOC249->Sup.len + 0);
-appendString(resultstring_145447, LOC249);
+								LOC273 = 0;
+								LOC273 = nsuformatFloat(t_145453, ((NU8) 2), ((NI) 32));
+								resultstring_145447 = resizeString(resultstring_145447, LOC273->Sup.len + 0);
+appendString(resultstring_145447, LOC273);
 								res_145609 += ((NI) 1);
-							} LA242: ;
+							} LA262: ;
 						}
 					}
 					{
-						NIM_BOOL LOC252;
-						NimStringDesc* LOC255;
-						LOC252 = 0;
-						LOC252 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC252) goto LA253;
+						NIM_BOOL LOC276;
+						NimStringDesc* LOC279;
+						LOC276 = 0;
+						LOC276 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC276) goto LA277;
 						appenddatato_129003(((NimStringDesc*) &TMP91), resultstring_145447);
-						LOC255 = 0;
-						LOC255 = resultstring_145447; resultstring_145447 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC255) nimGCunrefNoCycle(LOC255);
+						LOC279 = 0;
+						LOC279 = resultstring_145447; resultstring_145447 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC279) nimGCunrefNoCycle(LOC279);
 					}
-					LA253: ;
+					LA277: ;
 					{
-						if (!(res_145615 < ((NI) 10000))) goto LA258;
+						if (!(res_145615 < ((NI) 10000))) goto LA282;
 						res_145615 += ((NI) 1);
 					}
-					goto LA256;
-					LA258: ;
+					goto LA280;
+					LA282: ;
 					{
 						res_145615 += ((NI) 1);
 					}
-					LA256: ;
-				} LA239: ;
+					LA280: ;
+				} LA259: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP91), resultstring_145447);
-		LOC261 = 0;
-		LOC261 = resultstring_145447; resultstring_145447 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC261) nimGCunrefNoCycle(LOC261);
+		LOC285 = 0;
+		LOC285 = resultstring_145447; resultstring_145447 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC285) nimGCunrefNoCycle(LOC285);
 		nosremoveFile(((NimStringDesc*) &TMP90));
 	}
-	LA235: ;
+	LA255: ;
 	beginat_145645 = preparebench_131012(((NimStringDesc*) &TMP92), ((NI) 1), ((NI) 1));
-	LOC262 = 0;
-	LOC262 = resultstring_145647; resultstring_145647 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC262) nimGCunrefNoCycle(LOC262);
+	LOC286 = 0;
+	LOC286 = resultstring_145647; resultstring_145647 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC286) nimGCunrefNoCycle(LOC286);
 	{
-		NIM_BOOL LOC265;
-		NIM_BOOL LOC266;
-		NimStringDesc* LOC294;
-		LOC265 = 0;
-		LOC266 = 0;
-		LOC266 = nosexistsFile(((NimStringDesc*) &TMP93));
-		LOC265 = !(LOC266);
-		if (!(LOC265)) goto LA267;
-		LOC265 = (beginat_145645 < ((NI) 100000));
-		LA267: ;
-		if (!LOC265) goto LA268;
+		NIM_BOOL LOC289;
+		NIM_BOOL LOC290;
+		NimStringDesc* LOC322;
+		LOC289 = 0;
+		LOC290 = 0;
+		LOC290 = nosexistsFile(((NimStringDesc*) &TMP93));
+		LOC289 = !(LOC290);
+		if (!(LOC289)) goto LA291;
+		LOC289 = (beginat_145645 < ((NI) 100000));
+		LA291: ;
+		if (!LOC289) goto LA292;
 		createfile_129068(((NimStringDesc*) &TMP93));
 		{
 			NI res_145815;
 			res_145815 = beginat_145645;
 			{
 				while (1) {
-					if (!(res_145815 <= ((NI) 100000))) goto LA272;
+					if (!(res_145815 <= ((NI) 100000))) goto LA296;
 					i_145649 = res_145815;
 					{
 						NI res_145809;
@@ -1664,102 +1694,107 @@ appendString(resultstring_145447, LOC249);
 						res_145809 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC276;
-								NimStringDesc* LOC277;
+								NimStringDesc* LOC305;
+								NimStringDesc* LOC306;
 								NF t_145653;
-								NimStringDesc* LOC281;
-								NimStringDesc* LOC282;
-								if (!(res_145809 <= ((NI) 1))) goto LA275;
+								NimStringDesc* LOC310;
+								if (!(res_145809 <= ((NI) 1))) goto LA299;
 								j_145651 = res_145809;
-								LOC276 = 0;
-								LOC277 = 0;
-								LOC277 = nimIntToStr(i_145649);
-								LOC276 = rawNewString(LOC277->Sup.len + 2);
-appendString(LOC276, ((NimStringDesc*) &TMP61));
-appendString(LOC276, LOC277);
-appendString(LOC276, ((NimStringDesc*) &TMP75));
-								resultstring_145647 = resizeString(resultstring_145647, LOC276->Sup.len + 0);
-appendString(resultstring_145647, LOC276);
+								{
+									NIM_BOOL LOC302;
+									LOC302 = 0;
+									LOC302 = likely(!((i_145649 == ((NI) 0))));
+									if (!LOC302) goto LA303;
+									resultstring_145647 = resizeString(resultstring_145647, 1);
+appendString(resultstring_145647, ((NimStringDesc*) &TMP61));
+								}
+								LA303: ;
+								LOC305 = 0;
+								LOC306 = 0;
+								LOC306 = nimIntToStr(i_145649);
+								LOC305 = rawNewString(LOC306->Sup.len + 1);
+appendString(LOC305, LOC306);
+appendString(LOC305, ((NimStringDesc*) &TMP75));
+								resultstring_145647 = resizeString(resultstring_145647, LOC305->Sup.len + 0);
+appendString(resultstring_145647, LOC305);
 								t_145653 = 0.0;
 								{
 									while (1) {
 										TY139293* a_145655;
 										NF t0_145693;
-										NF LOC280;
-										if (!(t_145653 <= 0.0)) goto LA279;
+										NF LOC309;
+										if (!(t_145653 <= 0.0)) goto LA308;
 										a_145655 = fewuniquekeys_139121(i_145649);
 										t0_145693 = ntcpuTime();
 										radixsort_141063((&a_145655), ((NI) 32));
-										LOC280 = 0;
-										LOC280 = ntcpuTime();
-										t_145653 = ((NF)(LOC280) - (NF)(t0_145693));
-									} LA279: ;
+										LOC309 = 0;
+										LOC309 = ntcpuTime();
+										t_145653 = ((NF)(LOC309) - (NF)(t0_145693));
+									} LA308: ;
 								}
-								LOC281 = 0;
-								LOC281 = nsuformatFloat(t_145653, ((NU8) 2), ((NI) 32));
-								LOC282 = 0;
-								LOC282 = nsuReplaceStr(LOC281, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_145647 = resizeString(resultstring_145647, LOC282->Sup.len + 0);
-appendString(resultstring_145647, LOC282);
+								LOC310 = 0;
+								LOC310 = nsuformatFloat(t_145653, ((NU8) 2), ((NI) 32));
+								resultstring_145647 = resizeString(resultstring_145647, LOC310->Sup.len + 0);
+appendString(resultstring_145647, LOC310);
 								res_145809 += ((NI) 1);
-							} LA275: ;
+							} LA299: ;
 						}
 					}
 					{
-						NIM_BOOL LOC285;
-						NimStringDesc* LOC288;
-						LOC285 = 0;
-						LOC285 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC285) goto LA286;
+						NIM_BOOL LOC313;
+						NimStringDesc* LOC316;
+						LOC313 = 0;
+						LOC313 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC313) goto LA314;
 						appenddatato_129003(((NimStringDesc*) &TMP94), resultstring_145647);
-						LOC288 = 0;
-						LOC288 = resultstring_145647; resultstring_145647 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC288) nimGCunrefNoCycle(LOC288);
+						LOC316 = 0;
+						LOC316 = resultstring_145647; resultstring_145647 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC316) nimGCunrefNoCycle(LOC316);
 					}
-					LA286: ;
+					LA314: ;
 					{
-						if (!(res_145815 < ((NI) 10000))) goto LA291;
+						if (!(res_145815 < ((NI) 10000))) goto LA319;
 						res_145815 += ((NI) 1);
 					}
-					goto LA289;
-					LA291: ;
+					goto LA317;
+					LA319: ;
 					{
 						res_145815 += ((NI) 1);
 					}
-					LA289: ;
-				} LA272: ;
+					LA317: ;
+				} LA296: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP94), resultstring_145647);
-		LOC294 = 0;
-		LOC294 = resultstring_145647; resultstring_145647 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC294) nimGCunrefNoCycle(LOC294);
+		LOC322 = 0;
+		LOC322 = resultstring_145647; resultstring_145647 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC322) nimGCunrefNoCycle(LOC322);
 		nosremoveFile(((NimStringDesc*) &TMP93));
 	}
-	LA268: ;
+	LA292: ;
 	beginat_145845 = preparebench_131012(((NimStringDesc*) &TMP95), ((NI) 1), ((NI) 1));
-	LOC295 = 0;
-	LOC295 = resultstring_145847; resultstring_145847 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC295) nimGCunrefNoCycle(LOC295);
+	LOC323 = 0;
+	LOC323 = resultstring_145847; resultstring_145847 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC323) nimGCunrefNoCycle(LOC323);
 	{
-		NIM_BOOL LOC298;
-		NIM_BOOL LOC299;
-		NimStringDesc* LOC327;
-		LOC298 = 0;
-		LOC299 = 0;
-		LOC299 = nosexistsFile(((NimStringDesc*) &TMP96));
-		LOC298 = !(LOC299);
-		if (!(LOC298)) goto LA300;
-		LOC298 = (beginat_145845 < ((NI) 100000));
-		LA300: ;
-		if (!LOC298) goto LA301;
+		NIM_BOOL LOC326;
+		NIM_BOOL LOC327;
+		NimStringDesc* LOC359;
+		LOC326 = 0;
+		LOC327 = 0;
+		LOC327 = nosexistsFile(((NimStringDesc*) &TMP96));
+		LOC326 = !(LOC327);
+		if (!(LOC326)) goto LA328;
+		LOC326 = (beginat_145845 < ((NI) 100000));
+		LA328: ;
+		if (!LOC326) goto LA329;
 		createfile_129068(((NimStringDesc*) &TMP96));
 		{
 			NI res_146015;
 			res_146015 = beginat_145845;
 			{
 				while (1) {
-					if (!(res_146015 <= ((NI) 100000))) goto LA305;
+					if (!(res_146015 <= ((NI) 100000))) goto LA333;
 					i_145849 = res_146015;
 					{
 						NI res_146009;
@@ -1767,102 +1802,107 @@ appendString(resultstring_145647, LOC282);
 						res_146009 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC309;
-								NimStringDesc* LOC310;
+								NimStringDesc* LOC342;
+								NimStringDesc* LOC343;
 								NF t_145853;
-								NimStringDesc* LOC314;
-								NimStringDesc* LOC315;
-								if (!(res_146009 <= ((NI) 1))) goto LA308;
+								NimStringDesc* LOC347;
+								if (!(res_146009 <= ((NI) 1))) goto LA336;
 								j_145851 = res_146009;
-								LOC309 = 0;
-								LOC310 = 0;
-								LOC310 = nimIntToStr(i_145849);
-								LOC309 = rawNewString(LOC310->Sup.len + 2);
-appendString(LOC309, ((NimStringDesc*) &TMP61));
-appendString(LOC309, LOC310);
-appendString(LOC309, ((NimStringDesc*) &TMP75));
-								resultstring_145847 = resizeString(resultstring_145847, LOC309->Sup.len + 0);
-appendString(resultstring_145847, LOC309);
+								{
+									NIM_BOOL LOC339;
+									LOC339 = 0;
+									LOC339 = likely(!((i_145849 == ((NI) 0))));
+									if (!LOC339) goto LA340;
+									resultstring_145847 = resizeString(resultstring_145847, 1);
+appendString(resultstring_145847, ((NimStringDesc*) &TMP61));
+								}
+								LA340: ;
+								LOC342 = 0;
+								LOC343 = 0;
+								LOC343 = nimIntToStr(i_145849);
+								LOC342 = rawNewString(LOC343->Sup.len + 1);
+appendString(LOC342, LOC343);
+appendString(LOC342, ((NimStringDesc*) &TMP75));
+								resultstring_145847 = resizeString(resultstring_145847, LOC342->Sup.len + 0);
+appendString(resultstring_145847, LOC342);
 								t_145853 = 0.0;
 								{
 									while (1) {
 										TY139293* a_145855;
 										NF t0_145893;
-										NF LOC313;
-										if (!(t_145853 <= 0.0)) goto LA312;
+										NF LOC346;
+										if (!(t_145853 <= 0.0)) goto LA345;
 										a_145855 = fewuniquekeysx32_140009(i_145849);
 										t0_145893 = ntcpuTime();
 										radixsort_141063((&a_145855), ((NI) 32));
-										LOC313 = 0;
-										LOC313 = ntcpuTime();
-										t_145853 = ((NF)(LOC313) - (NF)(t0_145893));
-									} LA312: ;
+										LOC346 = 0;
+										LOC346 = ntcpuTime();
+										t_145853 = ((NF)(LOC346) - (NF)(t0_145893));
+									} LA345: ;
 								}
-								LOC314 = 0;
-								LOC314 = nsuformatFloat(t_145853, ((NU8) 2), ((NI) 32));
-								LOC315 = 0;
-								LOC315 = nsuReplaceStr(LOC314, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_145847 = resizeString(resultstring_145847, LOC315->Sup.len + 0);
-appendString(resultstring_145847, LOC315);
+								LOC347 = 0;
+								LOC347 = nsuformatFloat(t_145853, ((NU8) 2), ((NI) 32));
+								resultstring_145847 = resizeString(resultstring_145847, LOC347->Sup.len + 0);
+appendString(resultstring_145847, LOC347);
 								res_146009 += ((NI) 1);
-							} LA308: ;
+							} LA336: ;
 						}
 					}
 					{
-						NIM_BOOL LOC318;
-						NimStringDesc* LOC321;
-						LOC318 = 0;
-						LOC318 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC318) goto LA319;
+						NIM_BOOL LOC350;
+						NimStringDesc* LOC353;
+						LOC350 = 0;
+						LOC350 = unlikely((((NI) ((NI)(((NI) ((NI)(i_145849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC350) goto LA351;
 						appenddatato_129003(((NimStringDesc*) &TMP97), resultstring_145847);
-						LOC321 = 0;
-						LOC321 = resultstring_145847; resultstring_145847 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC321) nimGCunrefNoCycle(LOC321);
+						LOC353 = 0;
+						LOC353 = resultstring_145847; resultstring_145847 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC353) nimGCunrefNoCycle(LOC353);
 					}
-					LA319: ;
+					LA351: ;
 					{
-						if (!(res_146015 < ((NI) 10000))) goto LA324;
+						if (!(res_146015 < ((NI) 10000))) goto LA356;
 						res_146015 += ((NI) 1);
 					}
-					goto LA322;
-					LA324: ;
+					goto LA354;
+					LA356: ;
 					{
 						res_146015 += ((NI) 1);
 					}
-					LA322: ;
-				} LA305: ;
+					LA354: ;
+				} LA333: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP97), resultstring_145847);
-		LOC327 = 0;
-		LOC327 = resultstring_145847; resultstring_145847 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC327) nimGCunrefNoCycle(LOC327);
+		LOC359 = 0;
+		LOC359 = resultstring_145847; resultstring_145847 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC359) nimGCunrefNoCycle(LOC359);
 		nosremoveFile(((NimStringDesc*) &TMP96));
 	}
-	LA301: ;
+	LA329: ;
 	beginat_146045 = preparebench_131012(((NimStringDesc*) &TMP98), ((NI) 1), ((NI) 1));
-	LOC328 = 0;
-	LOC328 = resultstring_146047; resultstring_146047 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC328) nimGCunrefNoCycle(LOC328);
+	LOC360 = 0;
+	LOC360 = resultstring_146047; resultstring_146047 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC360) nimGCunrefNoCycle(LOC360);
 	{
-		NIM_BOOL LOC331;
-		NIM_BOOL LOC332;
-		NimStringDesc* LOC360;
-		LOC331 = 0;
-		LOC332 = 0;
-		LOC332 = nosexistsFile(((NimStringDesc*) &TMP99));
-		LOC331 = !(LOC332);
-		if (!(LOC331)) goto LA333;
-		LOC331 = (beginat_146045 < ((NI) 100000));
-		LA333: ;
-		if (!LOC331) goto LA334;
+		NIM_BOOL LOC363;
+		NIM_BOOL LOC364;
+		NimStringDesc* LOC396;
+		LOC363 = 0;
+		LOC364 = 0;
+		LOC364 = nosexistsFile(((NimStringDesc*) &TMP99));
+		LOC363 = !(LOC364);
+		if (!(LOC363)) goto LA365;
+		LOC363 = (beginat_146045 < ((NI) 100000));
+		LA365: ;
+		if (!LOC363) goto LA366;
 		createfile_129068(((NimStringDesc*) &TMP99));
 		{
 			NI res_146215;
 			res_146215 = beginat_146045;
 			{
 				while (1) {
-					if (!(res_146215 <= ((NI) 100000))) goto LA338;
+					if (!(res_146215 <= ((NI) 100000))) goto LA370;
 					i_146049 = res_146215;
 					{
 						NI res_146209;
@@ -1870,102 +1910,107 @@ appendString(resultstring_145847, LOC315);
 						res_146209 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC342;
-								NimStringDesc* LOC343;
+								NimStringDesc* LOC379;
+								NimStringDesc* LOC380;
 								NF t_146053;
-								NimStringDesc* LOC347;
-								NimStringDesc* LOC348;
-								if (!(res_146209 <= ((NI) 1))) goto LA341;
+								NimStringDesc* LOC384;
+								if (!(res_146209 <= ((NI) 1))) goto LA373;
 								j_146051 = res_146209;
-								LOC342 = 0;
-								LOC343 = 0;
-								LOC343 = nimIntToStr(i_146049);
-								LOC342 = rawNewString(LOC343->Sup.len + 2);
-appendString(LOC342, ((NimStringDesc*) &TMP61));
-appendString(LOC342, LOC343);
-appendString(LOC342, ((NimStringDesc*) &TMP75));
-								resultstring_146047 = resizeString(resultstring_146047, LOC342->Sup.len + 0);
-appendString(resultstring_146047, LOC342);
+								{
+									NIM_BOOL LOC376;
+									LOC376 = 0;
+									LOC376 = likely(!((i_146049 == ((NI) 0))));
+									if (!LOC376) goto LA377;
+									resultstring_146047 = resizeString(resultstring_146047, 1);
+appendString(resultstring_146047, ((NimStringDesc*) &TMP61));
+								}
+								LA377: ;
+								LOC379 = 0;
+								LOC380 = 0;
+								LOC380 = nimIntToStr(i_146049);
+								LOC379 = rawNewString(LOC380->Sup.len + 1);
+appendString(LOC379, LOC380);
+appendString(LOC379, ((NimStringDesc*) &TMP75));
+								resultstring_146047 = resizeString(resultstring_146047, LOC379->Sup.len + 0);
+appendString(resultstring_146047, LOC379);
 								t_146053 = 0.0;
 								{
 									while (1) {
 										TY139293* a_146055;
 										NF t0_146093;
-										NF LOC346;
-										if (!(t_146053 <= 0.0)) goto LA345;
+										NF LOC383;
+										if (!(t_146053 <= 0.0)) goto LA382;
 										a_146055 = shuffledkeys_139278(i_146049);
 										t0_146093 = ntcpuTime();
 										radixsort_141063((&a_146055), ((NI) 32));
-										LOC346 = 0;
-										LOC346 = ntcpuTime();
-										t_146053 = ((NF)(LOC346) - (NF)(t0_146093));
-									} LA345: ;
+										LOC383 = 0;
+										LOC383 = ntcpuTime();
+										t_146053 = ((NF)(LOC383) - (NF)(t0_146093));
+									} LA382: ;
 								}
-								LOC347 = 0;
-								LOC347 = nsuformatFloat(t_146053, ((NU8) 2), ((NI) 32));
-								LOC348 = 0;
-								LOC348 = nsuReplaceStr(LOC347, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_146047 = resizeString(resultstring_146047, LOC348->Sup.len + 0);
-appendString(resultstring_146047, LOC348);
+								LOC384 = 0;
+								LOC384 = nsuformatFloat(t_146053, ((NU8) 2), ((NI) 32));
+								resultstring_146047 = resizeString(resultstring_146047, LOC384->Sup.len + 0);
+appendString(resultstring_146047, LOC384);
 								res_146209 += ((NI) 1);
-							} LA341: ;
+							} LA373: ;
 						}
 					}
 					{
-						NIM_BOOL LOC351;
-						NimStringDesc* LOC354;
-						LOC351 = 0;
-						LOC351 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146049 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC351) goto LA352;
+						NIM_BOOL LOC387;
+						NimStringDesc* LOC390;
+						LOC387 = 0;
+						LOC387 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146049 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC387) goto LA388;
 						appenddatato_129003(((NimStringDesc*) &TMP100), resultstring_146047);
-						LOC354 = 0;
-						LOC354 = resultstring_146047; resultstring_146047 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC354) nimGCunrefNoCycle(LOC354);
+						LOC390 = 0;
+						LOC390 = resultstring_146047; resultstring_146047 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC390) nimGCunrefNoCycle(LOC390);
 					}
-					LA352: ;
+					LA388: ;
 					{
-						if (!(res_146215 < ((NI) 10000))) goto LA357;
+						if (!(res_146215 < ((NI) 10000))) goto LA393;
 						res_146215 += ((NI) 1);
 					}
-					goto LA355;
-					LA357: ;
+					goto LA391;
+					LA393: ;
 					{
 						res_146215 += ((NI) 1);
 					}
-					LA355: ;
-				} LA338: ;
+					LA391: ;
+				} LA370: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP100), resultstring_146047);
-		LOC360 = 0;
-		LOC360 = resultstring_146047; resultstring_146047 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC360) nimGCunrefNoCycle(LOC360);
+		LOC396 = 0;
+		LOC396 = resultstring_146047; resultstring_146047 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC396) nimGCunrefNoCycle(LOC396);
 		nosremoveFile(((NimStringDesc*) &TMP99));
 	}
-	LA334: ;
+	LA366: ;
 	beginat_146245 = preparebench_131012(((NimStringDesc*) &TMP101), ((NI) 1), ((NI) 1));
-	LOC361 = 0;
-	LOC361 = resultstring_146247; resultstring_146247 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC361) nimGCunrefNoCycle(LOC361);
+	LOC397 = 0;
+	LOC397 = resultstring_146247; resultstring_146247 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC397) nimGCunrefNoCycle(LOC397);
 	{
-		NIM_BOOL LOC364;
-		NIM_BOOL LOC365;
-		NimStringDesc* LOC393;
-		LOC364 = 0;
-		LOC365 = 0;
-		LOC365 = nosexistsFile(((NimStringDesc*) &TMP102));
-		LOC364 = !(LOC365);
-		if (!(LOC364)) goto LA366;
-		LOC364 = (beginat_146245 < ((NI) 100000));
-		LA366: ;
-		if (!LOC364) goto LA367;
+		NIM_BOOL LOC400;
+		NIM_BOOL LOC401;
+		NimStringDesc* LOC433;
+		LOC400 = 0;
+		LOC401 = 0;
+		LOC401 = nosexistsFile(((NimStringDesc*) &TMP102));
+		LOC400 = !(LOC401);
+		if (!(LOC400)) goto LA402;
+		LOC400 = (beginat_146245 < ((NI) 100000));
+		LA402: ;
+		if (!LOC400) goto LA403;
 		createfile_129068(((NimStringDesc*) &TMP102));
 		{
 			NI res_146415;
 			res_146415 = beginat_146245;
 			{
 				while (1) {
-					if (!(res_146415 <= ((NI) 100000))) goto LA371;
+					if (!(res_146415 <= ((NI) 100000))) goto LA407;
 					i_146249 = res_146415;
 					{
 						NI res_146409;
@@ -1973,102 +2018,107 @@ appendString(resultstring_146047, LOC348);
 						res_146409 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC375;
-								NimStringDesc* LOC376;
+								NimStringDesc* LOC416;
+								NimStringDesc* LOC417;
 								NF t_146253;
-								NimStringDesc* LOC380;
-								NimStringDesc* LOC381;
-								if (!(res_146409 <= ((NI) 1))) goto LA374;
+								NimStringDesc* LOC421;
+								if (!(res_146409 <= ((NI) 1))) goto LA410;
 								j_146251 = res_146409;
-								LOC375 = 0;
-								LOC376 = 0;
-								LOC376 = nimIntToStr(i_146249);
-								LOC375 = rawNewString(LOC376->Sup.len + 2);
-appendString(LOC375, ((NimStringDesc*) &TMP61));
-appendString(LOC375, LOC376);
-appendString(LOC375, ((NimStringDesc*) &TMP75));
-								resultstring_146247 = resizeString(resultstring_146247, LOC375->Sup.len + 0);
-appendString(resultstring_146247, LOC375);
+								{
+									NIM_BOOL LOC413;
+									LOC413 = 0;
+									LOC413 = likely(!((i_146249 == ((NI) 0))));
+									if (!LOC413) goto LA414;
+									resultstring_146247 = resizeString(resultstring_146247, 1);
+appendString(resultstring_146247, ((NimStringDesc*) &TMP61));
+								}
+								LA414: ;
+								LOC416 = 0;
+								LOC417 = 0;
+								LOC417 = nimIntToStr(i_146249);
+								LOC416 = rawNewString(LOC417->Sup.len + 1);
+appendString(LOC416, LOC417);
+appendString(LOC416, ((NimStringDesc*) &TMP75));
+								resultstring_146247 = resizeString(resultstring_146247, LOC416->Sup.len + 0);
+appendString(resultstring_146247, LOC416);
 								t_146253 = 0.0;
 								{
 									while (1) {
 										TY139293* a_146255;
 										NF t0_146293;
-										NF LOC379;
-										if (!(t_146253 <= 0.0)) goto LA378;
+										NF LOC420;
+										if (!(t_146253 <= 0.0)) goto LA419;
 										a_146255 = shuffledkeysx32_140208(i_146249);
 										t0_146293 = ntcpuTime();
 										radixsort_141063((&a_146255), ((NI) 32));
-										LOC379 = 0;
-										LOC379 = ntcpuTime();
-										t_146253 = ((NF)(LOC379) - (NF)(t0_146293));
-									} LA378: ;
+										LOC420 = 0;
+										LOC420 = ntcpuTime();
+										t_146253 = ((NF)(LOC420) - (NF)(t0_146293));
+									} LA419: ;
 								}
-								LOC380 = 0;
-								LOC380 = nsuformatFloat(t_146253, ((NU8) 2), ((NI) 32));
-								LOC381 = 0;
-								LOC381 = nsuReplaceStr(LOC380, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_146247 = resizeString(resultstring_146247, LOC381->Sup.len + 0);
-appendString(resultstring_146247, LOC381);
+								LOC421 = 0;
+								LOC421 = nsuformatFloat(t_146253, ((NU8) 2), ((NI) 32));
+								resultstring_146247 = resizeString(resultstring_146247, LOC421->Sup.len + 0);
+appendString(resultstring_146247, LOC421);
 								res_146409 += ((NI) 1);
-							} LA374: ;
+							} LA410: ;
 						}
 					}
 					{
-						NIM_BOOL LOC384;
-						NimStringDesc* LOC387;
-						LOC384 = 0;
-						LOC384 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC384) goto LA385;
+						NIM_BOOL LOC424;
+						NimStringDesc* LOC427;
+						LOC424 = 0;
+						LOC424 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC424) goto LA425;
 						appenddatato_129003(((NimStringDesc*) &TMP103), resultstring_146247);
-						LOC387 = 0;
-						LOC387 = resultstring_146247; resultstring_146247 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC387) nimGCunrefNoCycle(LOC387);
+						LOC427 = 0;
+						LOC427 = resultstring_146247; resultstring_146247 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC427) nimGCunrefNoCycle(LOC427);
 					}
-					LA385: ;
+					LA425: ;
 					{
-						if (!(res_146415 < ((NI) 10000))) goto LA390;
+						if (!(res_146415 < ((NI) 10000))) goto LA430;
 						res_146415 += ((NI) 1);
 					}
-					goto LA388;
-					LA390: ;
+					goto LA428;
+					LA430: ;
 					{
 						res_146415 += ((NI) 1);
 					}
-					LA388: ;
-				} LA371: ;
+					LA428: ;
+				} LA407: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP103), resultstring_146247);
-		LOC393 = 0;
-		LOC393 = resultstring_146247; resultstring_146247 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC393) nimGCunrefNoCycle(LOC393);
+		LOC433 = 0;
+		LOC433 = resultstring_146247; resultstring_146247 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC433) nimGCunrefNoCycle(LOC433);
 		nosremoveFile(((NimStringDesc*) &TMP102));
 	}
-	LA367: ;
+	LA403: ;
 	beginat_146445 = preparebench_131012(((NimStringDesc*) &TMP104), ((NI) 1), ((NI) 1));
-	LOC394 = 0;
-	LOC394 = resultstring_146447; resultstring_146447 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC394) nimGCunrefNoCycle(LOC394);
+	LOC434 = 0;
+	LOC434 = resultstring_146447; resultstring_146447 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC434) nimGCunrefNoCycle(LOC434);
 	{
-		NIM_BOOL LOC397;
-		NIM_BOOL LOC398;
-		NimStringDesc* LOC426;
-		LOC397 = 0;
-		LOC398 = 0;
-		LOC398 = nosexistsFile(((NimStringDesc*) &TMP105));
-		LOC397 = !(LOC398);
-		if (!(LOC397)) goto LA399;
-		LOC397 = (beginat_146445 < ((NI) 100000));
-		LA399: ;
-		if (!LOC397) goto LA400;
+		NIM_BOOL LOC437;
+		NIM_BOOL LOC438;
+		NimStringDesc* LOC470;
+		LOC437 = 0;
+		LOC438 = 0;
+		LOC438 = nosexistsFile(((NimStringDesc*) &TMP105));
+		LOC437 = !(LOC438);
+		if (!(LOC437)) goto LA439;
+		LOC437 = (beginat_146445 < ((NI) 100000));
+		LA439: ;
+		if (!LOC437) goto LA440;
 		createfile_129068(((NimStringDesc*) &TMP105));
 		{
 			NI res_146615;
 			res_146615 = beginat_146445;
 			{
 				while (1) {
-					if (!(res_146615 <= ((NI) 100000))) goto LA404;
+					if (!(res_146615 <= ((NI) 100000))) goto LA444;
 					i_146449 = res_146615;
 					{
 						NI res_146609;
@@ -2076,102 +2126,107 @@ appendString(resultstring_146247, LOC381);
 						res_146609 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC408;
-								NimStringDesc* LOC409;
+								NimStringDesc* LOC453;
+								NimStringDesc* LOC454;
 								NF t_146453;
-								NimStringDesc* LOC413;
-								NimStringDesc* LOC414;
-								if (!(res_146609 <= ((NI) 1))) goto LA407;
+								NimStringDesc* LOC458;
+								if (!(res_146609 <= ((NI) 1))) goto LA447;
 								j_146451 = res_146609;
-								LOC408 = 0;
-								LOC409 = 0;
-								LOC409 = nimIntToStr(i_146449);
-								LOC408 = rawNewString(LOC409->Sup.len + 2);
-appendString(LOC408, ((NimStringDesc*) &TMP61));
-appendString(LOC408, LOC409);
-appendString(LOC408, ((NimStringDesc*) &TMP75));
-								resultstring_146447 = resizeString(resultstring_146447, LOC408->Sup.len + 0);
-appendString(resultstring_146447, LOC408);
+								{
+									NIM_BOOL LOC450;
+									LOC450 = 0;
+									LOC450 = likely(!((i_146449 == ((NI) 0))));
+									if (!LOC450) goto LA451;
+									resultstring_146447 = resizeString(resultstring_146447, 1);
+appendString(resultstring_146447, ((NimStringDesc*) &TMP61));
+								}
+								LA451: ;
+								LOC453 = 0;
+								LOC454 = 0;
+								LOC454 = nimIntToStr(i_146449);
+								LOC453 = rawNewString(LOC454->Sup.len + 1);
+appendString(LOC453, LOC454);
+appendString(LOC453, ((NimStringDesc*) &TMP75));
+								resultstring_146447 = resizeString(resultstring_146447, LOC453->Sup.len + 0);
+appendString(resultstring_146447, LOC453);
 								t_146453 = 0.0;
 								{
 									while (1) {
 										TY139293* a_146455;
 										NF t0_146493;
-										NF LOC412;
-										if (!(t_146453 <= 0.0)) goto LA411;
+										NF LOC457;
+										if (!(t_146453 <= 0.0)) goto LA456;
 										a_146455 = randkeys_139290(i_146449);
 										t0_146493 = ntcpuTime();
 										radixsort_141063((&a_146455), ((NI) 32));
-										LOC412 = 0;
-										LOC412 = ntcpuTime();
-										t_146453 = ((NF)(LOC412) - (NF)(t0_146493));
-									} LA411: ;
+										LOC457 = 0;
+										LOC457 = ntcpuTime();
+										t_146453 = ((NF)(LOC457) - (NF)(t0_146493));
+									} LA456: ;
 								}
-								LOC413 = 0;
-								LOC413 = nsuformatFloat(t_146453, ((NU8) 2), ((NI) 32));
-								LOC414 = 0;
-								LOC414 = nsuReplaceStr(LOC413, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_146447 = resizeString(resultstring_146447, LOC414->Sup.len + 0);
-appendString(resultstring_146447, LOC414);
+								LOC458 = 0;
+								LOC458 = nsuformatFloat(t_146453, ((NU8) 2), ((NI) 32));
+								resultstring_146447 = resizeString(resultstring_146447, LOC458->Sup.len + 0);
+appendString(resultstring_146447, LOC458);
 								res_146609 += ((NI) 1);
-							} LA407: ;
+							} LA447: ;
 						}
 					}
 					{
-						NIM_BOOL LOC417;
-						NimStringDesc* LOC420;
-						LOC417 = 0;
-						LOC417 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC417) goto LA418;
+						NIM_BOOL LOC461;
+						NimStringDesc* LOC464;
+						LOC461 = 0;
+						LOC461 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC461) goto LA462;
 						appenddatato_129003(((NimStringDesc*) &TMP106), resultstring_146447);
-						LOC420 = 0;
-						LOC420 = resultstring_146447; resultstring_146447 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC420) nimGCunrefNoCycle(LOC420);
+						LOC464 = 0;
+						LOC464 = resultstring_146447; resultstring_146447 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC464) nimGCunrefNoCycle(LOC464);
 					}
-					LA418: ;
+					LA462: ;
 					{
-						if (!(res_146615 < ((NI) 10000))) goto LA423;
+						if (!(res_146615 < ((NI) 10000))) goto LA467;
 						res_146615 += ((NI) 1);
 					}
-					goto LA421;
-					LA423: ;
+					goto LA465;
+					LA467: ;
 					{
 						res_146615 += ((NI) 1);
 					}
-					LA421: ;
-				} LA404: ;
+					LA465: ;
+				} LA444: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP106), resultstring_146447);
-		LOC426 = 0;
-		LOC426 = resultstring_146447; resultstring_146447 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC426) nimGCunrefNoCycle(LOC426);
+		LOC470 = 0;
+		LOC470 = resultstring_146447; resultstring_146447 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC470) nimGCunrefNoCycle(LOC470);
 		nosremoveFile(((NimStringDesc*) &TMP105));
 	}
-	LA400: ;
+	LA440: ;
 	beginat_146645 = preparebench_131012(((NimStringDesc*) &TMP107), ((NI) 1), ((NI) 1));
-	LOC427 = 0;
-	LOC427 = resultstring_146647; resultstring_146647 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC427) nimGCunrefNoCycle(LOC427);
+	LOC471 = 0;
+	LOC471 = resultstring_146647; resultstring_146647 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC471) nimGCunrefNoCycle(LOC471);
 	{
-		NIM_BOOL LOC430;
-		NIM_BOOL LOC431;
-		NimStringDesc* LOC459;
-		LOC430 = 0;
-		LOC431 = 0;
-		LOC431 = nosexistsFile(((NimStringDesc*) &TMP108));
-		LOC430 = !(LOC431);
-		if (!(LOC430)) goto LA432;
-		LOC430 = (beginat_146645 < ((NI) 100000));
-		LA432: ;
-		if (!LOC430) goto LA433;
+		NIM_BOOL LOC474;
+		NIM_BOOL LOC475;
+		NimStringDesc* LOC507;
+		LOC474 = 0;
+		LOC475 = 0;
+		LOC475 = nosexistsFile(((NimStringDesc*) &TMP108));
+		LOC474 = !(LOC475);
+		if (!(LOC474)) goto LA476;
+		LOC474 = (beginat_146645 < ((NI) 100000));
+		LA476: ;
+		if (!LOC474) goto LA477;
 		createfile_129068(((NimStringDesc*) &TMP108));
 		{
 			NI res_146815;
 			res_146815 = beginat_146645;
 			{
 				while (1) {
-					if (!(res_146815 <= ((NI) 100000))) goto LA437;
+					if (!(res_146815 <= ((NI) 100000))) goto LA481;
 					i_146649 = res_146815;
 					{
 						NI res_146809;
@@ -2179,102 +2234,107 @@ appendString(resultstring_146447, LOC414);
 						res_146809 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC441;
-								NimStringDesc* LOC442;
+								NimStringDesc* LOC490;
+								NimStringDesc* LOC491;
 								NF t_146653;
-								NimStringDesc* LOC446;
-								NimStringDesc* LOC447;
-								if (!(res_146809 <= ((NI) 1))) goto LA440;
+								NimStringDesc* LOC495;
+								if (!(res_146809 <= ((NI) 1))) goto LA484;
 								j_146651 = res_146809;
-								LOC441 = 0;
-								LOC442 = 0;
-								LOC442 = nimIntToStr(i_146649);
-								LOC441 = rawNewString(LOC442->Sup.len + 2);
-appendString(LOC441, ((NimStringDesc*) &TMP61));
-appendString(LOC441, LOC442);
-appendString(LOC441, ((NimStringDesc*) &TMP75));
-								resultstring_146647 = resizeString(resultstring_146647, LOC441->Sup.len + 0);
-appendString(resultstring_146647, LOC441);
+								{
+									NIM_BOOL LOC487;
+									LOC487 = 0;
+									LOC487 = likely(!((i_146649 == ((NI) 0))));
+									if (!LOC487) goto LA488;
+									resultstring_146647 = resizeString(resultstring_146647, 1);
+appendString(resultstring_146647, ((NimStringDesc*) &TMP61));
+								}
+								LA488: ;
+								LOC490 = 0;
+								LOC491 = 0;
+								LOC491 = nimIntToStr(i_146649);
+								LOC490 = rawNewString(LOC491->Sup.len + 1);
+appendString(LOC490, LOC491);
+appendString(LOC490, ((NimStringDesc*) &TMP75));
+								resultstring_146647 = resizeString(resultstring_146647, LOC490->Sup.len + 0);
+appendString(resultstring_146647, LOC490);
 								t_146653 = 0.0;
 								{
 									while (1) {
 										TY139293* a_146655;
 										NF t0_146693;
-										NF LOC445;
-										if (!(t_146653 <= 0.0)) goto LA444;
+										NF LOC494;
+										if (!(t_146653 <= 0.0)) goto LA493;
 										a_146655 = randkeysx32_140306(i_146649);
 										t0_146693 = ntcpuTime();
 										radixsort_141063((&a_146655), ((NI) 32));
-										LOC445 = 0;
-										LOC445 = ntcpuTime();
-										t_146653 = ((NF)(LOC445) - (NF)(t0_146693));
-									} LA444: ;
+										LOC494 = 0;
+										LOC494 = ntcpuTime();
+										t_146653 = ((NF)(LOC494) - (NF)(t0_146693));
+									} LA493: ;
 								}
-								LOC446 = 0;
-								LOC446 = nsuformatFloat(t_146653, ((NU8) 2), ((NI) 32));
-								LOC447 = 0;
-								LOC447 = nsuReplaceStr(LOC446, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_146647 = resizeString(resultstring_146647, LOC447->Sup.len + 0);
-appendString(resultstring_146647, LOC447);
+								LOC495 = 0;
+								LOC495 = nsuformatFloat(t_146653, ((NU8) 2), ((NI) 32));
+								resultstring_146647 = resizeString(resultstring_146647, LOC495->Sup.len + 0);
+appendString(resultstring_146647, LOC495);
 								res_146809 += ((NI) 1);
-							} LA440: ;
+							} LA484: ;
 						}
 					}
 					{
-						NIM_BOOL LOC450;
-						NimStringDesc* LOC453;
-						LOC450 = 0;
-						LOC450 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC450) goto LA451;
+						NIM_BOOL LOC498;
+						NimStringDesc* LOC501;
+						LOC498 = 0;
+						LOC498 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC498) goto LA499;
 						appenddatato_129003(((NimStringDesc*) &TMP109), resultstring_146647);
-						LOC453 = 0;
-						LOC453 = resultstring_146647; resultstring_146647 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC453) nimGCunrefNoCycle(LOC453);
+						LOC501 = 0;
+						LOC501 = resultstring_146647; resultstring_146647 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC501) nimGCunrefNoCycle(LOC501);
 					}
-					LA451: ;
+					LA499: ;
 					{
-						if (!(res_146815 < ((NI) 10000))) goto LA456;
+						if (!(res_146815 < ((NI) 10000))) goto LA504;
 						res_146815 += ((NI) 1);
 					}
-					goto LA454;
-					LA456: ;
+					goto LA502;
+					LA504: ;
 					{
 						res_146815 += ((NI) 1);
 					}
-					LA454: ;
-				} LA437: ;
+					LA502: ;
+				} LA481: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP109), resultstring_146647);
-		LOC459 = 0;
-		LOC459 = resultstring_146647; resultstring_146647 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC459) nimGCunrefNoCycle(LOC459);
+		LOC507 = 0;
+		LOC507 = resultstring_146647; resultstring_146647 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC507) nimGCunrefNoCycle(LOC507);
 		nosremoveFile(((NimStringDesc*) &TMP108));
 	}
-	LA433: ;
+	LA477: ;
 	beginat_146845 = preparebench_131012(((NimStringDesc*) &TMP110), ((NI) 1), ((NI) 1));
-	LOC460 = 0;
-	LOC460 = resultstring_146847; resultstring_146847 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC460) nimGCunrefNoCycle(LOC460);
+	LOC508 = 0;
+	LOC508 = resultstring_146847; resultstring_146847 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC508) nimGCunrefNoCycle(LOC508);
 	{
-		NIM_BOOL LOC463;
-		NIM_BOOL LOC464;
-		NimStringDesc* LOC492;
-		LOC463 = 0;
-		LOC464 = 0;
-		LOC464 = nosexistsFile(((NimStringDesc*) &TMP111));
-		LOC463 = !(LOC464);
-		if (!(LOC463)) goto LA465;
-		LOC463 = (beginat_146845 < ((NI) 100000));
-		LA465: ;
-		if (!LOC463) goto LA466;
+		NIM_BOOL LOC511;
+		NIM_BOOL LOC512;
+		NimStringDesc* LOC544;
+		LOC511 = 0;
+		LOC512 = 0;
+		LOC512 = nosexistsFile(((NimStringDesc*) &TMP111));
+		LOC511 = !(LOC512);
+		if (!(LOC511)) goto LA513;
+		LOC511 = (beginat_146845 < ((NI) 100000));
+		LA513: ;
+		if (!LOC511) goto LA514;
 		createfile_129068(((NimStringDesc*) &TMP111));
 		{
 			NI res_147015;
 			res_147015 = beginat_146845;
 			{
 				while (1) {
-					if (!(res_147015 <= ((NI) 100000))) goto LA470;
+					if (!(res_147015 <= ((NI) 100000))) goto LA518;
 					i_146849 = res_147015;
 					{
 						NI res_147009;
@@ -2282,102 +2342,107 @@ appendString(resultstring_146647, LOC447);
 						res_147009 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC474;
-								NimStringDesc* LOC475;
+								NimStringDesc* LOC527;
+								NimStringDesc* LOC528;
 								NF t_146853;
-								NimStringDesc* LOC479;
-								NimStringDesc* LOC480;
-								if (!(res_147009 <= ((NI) 1))) goto LA473;
+								NimStringDesc* LOC532;
+								if (!(res_147009 <= ((NI) 1))) goto LA521;
 								j_146851 = res_147009;
-								LOC474 = 0;
-								LOC475 = 0;
-								LOC475 = nimIntToStr(i_146849);
-								LOC474 = rawNewString(LOC475->Sup.len + 2);
-appendString(LOC474, ((NimStringDesc*) &TMP61));
-appendString(LOC474, LOC475);
-appendString(LOC474, ((NimStringDesc*) &TMP75));
-								resultstring_146847 = resizeString(resultstring_146847, LOC474->Sup.len + 0);
-appendString(resultstring_146847, LOC474);
+								{
+									NIM_BOOL LOC524;
+									LOC524 = 0;
+									LOC524 = likely(!((i_146849 == ((NI) 0))));
+									if (!LOC524) goto LA525;
+									resultstring_146847 = resizeString(resultstring_146847, 1);
+appendString(resultstring_146847, ((NimStringDesc*) &TMP61));
+								}
+								LA525: ;
+								LOC527 = 0;
+								LOC528 = 0;
+								LOC528 = nimIntToStr(i_146849);
+								LOC527 = rawNewString(LOC528->Sup.len + 1);
+appendString(LOC527, LOC528);
+appendString(LOC527, ((NimStringDesc*) &TMP75));
+								resultstring_146847 = resizeString(resultstring_146847, LOC527->Sup.len + 0);
+appendString(resultstring_146847, LOC527);
 								t_146853 = 0.0;
 								{
 									while (1) {
 										TY139293* a_146855;
 										NF t0_146893;
-										NF LOC478;
-										if (!(t_146853 <= 0.0)) goto LA477;
+										NF LOC531;
+										if (!(t_146853 <= 0.0)) goto LA530;
 										a_146855 = normalkeys_139357(i_146849);
 										t0_146893 = ntcpuTime();
 										radixsort_141063((&a_146855), ((NI) 32));
-										LOC478 = 0;
-										LOC478 = ntcpuTime();
-										t_146853 = ((NF)(LOC478) - (NF)(t0_146893));
-									} LA477: ;
+										LOC531 = 0;
+										LOC531 = ntcpuTime();
+										t_146853 = ((NF)(LOC531) - (NF)(t0_146893));
+									} LA530: ;
 								}
-								LOC479 = 0;
-								LOC479 = nsuformatFloat(t_146853, ((NU8) 2), ((NI) 32));
-								LOC480 = 0;
-								LOC480 = nsuReplaceStr(LOC479, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_146847 = resizeString(resultstring_146847, LOC480->Sup.len + 0);
-appendString(resultstring_146847, LOC480);
+								LOC532 = 0;
+								LOC532 = nsuformatFloat(t_146853, ((NU8) 2), ((NI) 32));
+								resultstring_146847 = resizeString(resultstring_146847, LOC532->Sup.len + 0);
+appendString(resultstring_146847, LOC532);
 								res_147009 += ((NI) 1);
-							} LA473: ;
+							} LA521: ;
 						}
 					}
 					{
-						NIM_BOOL LOC483;
-						NimStringDesc* LOC486;
-						LOC483 = 0;
-						LOC483 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC483) goto LA484;
+						NIM_BOOL LOC535;
+						NimStringDesc* LOC538;
+						LOC535 = 0;
+						LOC535 = unlikely((((NI) ((NI)(((NI) ((NI)(i_146849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC535) goto LA536;
 						appenddatato_129003(((NimStringDesc*) &TMP112), resultstring_146847);
-						LOC486 = 0;
-						LOC486 = resultstring_146847; resultstring_146847 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC486) nimGCunrefNoCycle(LOC486);
+						LOC538 = 0;
+						LOC538 = resultstring_146847; resultstring_146847 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC538) nimGCunrefNoCycle(LOC538);
 					}
-					LA484: ;
+					LA536: ;
 					{
-						if (!(res_147015 < ((NI) 10000))) goto LA489;
+						if (!(res_147015 < ((NI) 10000))) goto LA541;
 						res_147015 += ((NI) 1);
 					}
-					goto LA487;
-					LA489: ;
+					goto LA539;
+					LA541: ;
 					{
 						res_147015 += ((NI) 1);
 					}
-					LA487: ;
-				} LA470: ;
+					LA539: ;
+				} LA518: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP112), resultstring_146847);
-		LOC492 = 0;
-		LOC492 = resultstring_146847; resultstring_146847 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC492) nimGCunrefNoCycle(LOC492);
+		LOC544 = 0;
+		LOC544 = resultstring_146847; resultstring_146847 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC544) nimGCunrefNoCycle(LOC544);
 		nosremoveFile(((NimStringDesc*) &TMP111));
 	}
-	LA466: ;
+	LA514: ;
 	beginat_147045 = preparebench_131012(((NimStringDesc*) &TMP113), ((NI) 1), ((NI) 1));
-	LOC493 = 0;
-	LOC493 = resultstring_147047; resultstring_147047 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC493) nimGCunrefNoCycle(LOC493);
+	LOC545 = 0;
+	LOC545 = resultstring_147047; resultstring_147047 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC545) nimGCunrefNoCycle(LOC545);
 	{
-		NIM_BOOL LOC496;
-		NIM_BOOL LOC497;
-		NimStringDesc* LOC525;
-		LOC496 = 0;
-		LOC497 = 0;
-		LOC497 = nosexistsFile(((NimStringDesc*) &TMP114));
-		LOC496 = !(LOC497);
-		if (!(LOC496)) goto LA498;
-		LOC496 = (beginat_147045 < ((NI) 100000));
-		LA498: ;
-		if (!LOC496) goto LA499;
+		NIM_BOOL LOC548;
+		NIM_BOOL LOC549;
+		NimStringDesc* LOC581;
+		LOC548 = 0;
+		LOC549 = 0;
+		LOC549 = nosexistsFile(((NimStringDesc*) &TMP114));
+		LOC548 = !(LOC549);
+		if (!(LOC548)) goto LA550;
+		LOC548 = (beginat_147045 < ((NI) 100000));
+		LA550: ;
+		if (!LOC548) goto LA551;
 		createfile_129068(((NimStringDesc*) &TMP114));
 		{
 			NI res_147215;
 			res_147215 = beginat_147045;
 			{
 				while (1) {
-					if (!(res_147215 <= ((NI) 100000))) goto LA503;
+					if (!(res_147215 <= ((NI) 100000))) goto LA555;
 					i_147049 = res_147215;
 					{
 						NI res_147209;
@@ -2385,102 +2450,107 @@ appendString(resultstring_146847, LOC480);
 						res_147209 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC507;
-								NimStringDesc* LOC508;
+								NimStringDesc* LOC564;
+								NimStringDesc* LOC565;
 								NF t_147053;
-								NimStringDesc* LOC512;
-								NimStringDesc* LOC513;
-								if (!(res_147209 <= ((NI) 1))) goto LA506;
+								NimStringDesc* LOC569;
+								if (!(res_147209 <= ((NI) 1))) goto LA558;
 								j_147051 = res_147209;
-								LOC507 = 0;
-								LOC508 = 0;
-								LOC508 = nimIntToStr(i_147049);
-								LOC507 = rawNewString(LOC508->Sup.len + 2);
-appendString(LOC507, ((NimStringDesc*) &TMP61));
-appendString(LOC507, LOC508);
-appendString(LOC507, ((NimStringDesc*) &TMP75));
-								resultstring_147047 = resizeString(resultstring_147047, LOC507->Sup.len + 0);
-appendString(resultstring_147047, LOC507);
+								{
+									NIM_BOOL LOC561;
+									LOC561 = 0;
+									LOC561 = likely(!((i_147049 == ((NI) 0))));
+									if (!LOC561) goto LA562;
+									resultstring_147047 = resizeString(resultstring_147047, 1);
+appendString(resultstring_147047, ((NimStringDesc*) &TMP61));
+								}
+								LA562: ;
+								LOC564 = 0;
+								LOC565 = 0;
+								LOC565 = nimIntToStr(i_147049);
+								LOC564 = rawNewString(LOC565->Sup.len + 1);
+appendString(LOC564, LOC565);
+appendString(LOC564, ((NimStringDesc*) &TMP75));
+								resultstring_147047 = resizeString(resultstring_147047, LOC564->Sup.len + 0);
+appendString(resultstring_147047, LOC564);
 								t_147053 = 0.0;
 								{
 									while (1) {
 										TY139293* a_147055;
 										NF t0_147093;
-										NF LOC511;
-										if (!(t_147053 <= 0.0)) goto LA510;
+										NF LOC568;
+										if (!(t_147053 <= 0.0)) goto LA567;
 										a_147055 = normalkeysx32_140257(i_147049);
 										t0_147093 = ntcpuTime();
 										radixsort_141063((&a_147055), ((NI) 32));
-										LOC511 = 0;
-										LOC511 = ntcpuTime();
-										t_147053 = ((NF)(LOC511) - (NF)(t0_147093));
-									} LA510: ;
+										LOC568 = 0;
+										LOC568 = ntcpuTime();
+										t_147053 = ((NF)(LOC568) - (NF)(t0_147093));
+									} LA567: ;
 								}
-								LOC512 = 0;
-								LOC512 = nsuformatFloat(t_147053, ((NU8) 2), ((NI) 32));
-								LOC513 = 0;
-								LOC513 = nsuReplaceStr(LOC512, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_147047 = resizeString(resultstring_147047, LOC513->Sup.len + 0);
-appendString(resultstring_147047, LOC513);
+								LOC569 = 0;
+								LOC569 = nsuformatFloat(t_147053, ((NU8) 2), ((NI) 32));
+								resultstring_147047 = resizeString(resultstring_147047, LOC569->Sup.len + 0);
+appendString(resultstring_147047, LOC569);
 								res_147209 += ((NI) 1);
-							} LA506: ;
+							} LA558: ;
 						}
 					}
 					{
-						NIM_BOOL LOC516;
-						NimStringDesc* LOC519;
-						LOC516 = 0;
-						LOC516 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147049 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC516) goto LA517;
+						NIM_BOOL LOC572;
+						NimStringDesc* LOC575;
+						LOC572 = 0;
+						LOC572 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147049 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC572) goto LA573;
 						appenddatato_129003(((NimStringDesc*) &TMP115), resultstring_147047);
-						LOC519 = 0;
-						LOC519 = resultstring_147047; resultstring_147047 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC519) nimGCunrefNoCycle(LOC519);
+						LOC575 = 0;
+						LOC575 = resultstring_147047; resultstring_147047 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC575) nimGCunrefNoCycle(LOC575);
 					}
-					LA517: ;
+					LA573: ;
 					{
-						if (!(res_147215 < ((NI) 10000))) goto LA522;
+						if (!(res_147215 < ((NI) 10000))) goto LA578;
 						res_147215 += ((NI) 1);
 					}
-					goto LA520;
-					LA522: ;
+					goto LA576;
+					LA578: ;
 					{
 						res_147215 += ((NI) 1);
 					}
-					LA520: ;
-				} LA503: ;
+					LA576: ;
+				} LA555: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP115), resultstring_147047);
-		LOC525 = 0;
-		LOC525 = resultstring_147047; resultstring_147047 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC525) nimGCunrefNoCycle(LOC525);
+		LOC581 = 0;
+		LOC581 = resultstring_147047; resultstring_147047 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC581) nimGCunrefNoCycle(LOC581);
 		nosremoveFile(((NimStringDesc*) &TMP114));
 	}
-	LA499: ;
+	LA551: ;
 	beginat_147245 = preparebench_131012(((NimStringDesc*) &TMP116), ((NI) 1), ((NI) 1));
-	LOC526 = 0;
-	LOC526 = resultstring_147247; resultstring_147247 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC526) nimGCunrefNoCycle(LOC526);
+	LOC582 = 0;
+	LOC582 = resultstring_147247; resultstring_147247 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC582) nimGCunrefNoCycle(LOC582);
 	{
-		NIM_BOOL LOC529;
-		NIM_BOOL LOC530;
-		NimStringDesc* LOC558;
-		LOC529 = 0;
-		LOC530 = 0;
-		LOC530 = nosexistsFile(((NimStringDesc*) &TMP117));
-		LOC529 = !(LOC530);
-		if (!(LOC529)) goto LA531;
-		LOC529 = (beginat_147245 < ((NI) 100000));
-		LA531: ;
-		if (!LOC529) goto LA532;
+		NIM_BOOL LOC585;
+		NIM_BOOL LOC586;
+		NimStringDesc* LOC618;
+		LOC585 = 0;
+		LOC586 = 0;
+		LOC586 = nosexistsFile(((NimStringDesc*) &TMP117));
+		LOC585 = !(LOC586);
+		if (!(LOC585)) goto LA587;
+		LOC585 = (beginat_147245 < ((NI) 100000));
+		LA587: ;
+		if (!LOC585) goto LA588;
 		createfile_129068(((NimStringDesc*) &TMP117));
 		{
 			NI res_147415;
 			res_147415 = beginat_147245;
 			{
 				while (1) {
-					if (!(res_147415 <= ((NI) 100000))) goto LA536;
+					if (!(res_147415 <= ((NI) 100000))) goto LA592;
 					i_147249 = res_147415;
 					{
 						NI res_147409;
@@ -2488,102 +2558,107 @@ appendString(resultstring_147047, LOC513);
 						res_147409 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC540;
-								NimStringDesc* LOC541;
+								NimStringDesc* LOC601;
+								NimStringDesc* LOC602;
 								NF t_147253;
-								NimStringDesc* LOC545;
-								NimStringDesc* LOC546;
-								if (!(res_147409 <= ((NI) 1))) goto LA539;
+								NimStringDesc* LOC606;
+								if (!(res_147409 <= ((NI) 1))) goto LA595;
 								j_147251 = res_147409;
-								LOC540 = 0;
-								LOC541 = 0;
-								LOC541 = nimIntToStr(i_147249);
-								LOC540 = rawNewString(LOC541->Sup.len + 2);
-appendString(LOC540, ((NimStringDesc*) &TMP61));
-appendString(LOC540, LOC541);
-appendString(LOC540, ((NimStringDesc*) &TMP75));
-								resultstring_147247 = resizeString(resultstring_147247, LOC540->Sup.len + 0);
-appendString(resultstring_147247, LOC540);
+								{
+									NIM_BOOL LOC598;
+									LOC598 = 0;
+									LOC598 = likely(!((i_147249 == ((NI) 0))));
+									if (!LOC598) goto LA599;
+									resultstring_147247 = resizeString(resultstring_147247, 1);
+appendString(resultstring_147247, ((NimStringDesc*) &TMP61));
+								}
+								LA599: ;
+								LOC601 = 0;
+								LOC602 = 0;
+								LOC602 = nimIntToStr(i_147249);
+								LOC601 = rawNewString(LOC602->Sup.len + 1);
+appendString(LOC601, LOC602);
+appendString(LOC601, ((NimStringDesc*) &TMP75));
+								resultstring_147247 = resizeString(resultstring_147247, LOC601->Sup.len + 0);
+appendString(resultstring_147247, LOC601);
 								t_147253 = 0.0;
 								{
 									while (1) {
 										TY139293* a_147255;
 										NF t0_147292;
-										NF LOC544;
-										if (!(t_147253 <= 0.0)) goto LA543;
+										NF LOC605;
+										if (!(t_147253 <= 0.0)) goto LA604;
 										a_147255 = almostsortedkeys_139188(i_147249);
 										t0_147292 = ntcpuTime();
 										quicksort_143492(a_147255->data, a_147255->Sup.len);
-										LOC544 = 0;
-										LOC544 = ntcpuTime();
-										t_147253 = ((NF)(LOC544) - (NF)(t0_147292));
-									} LA543: ;
+										LOC605 = 0;
+										LOC605 = ntcpuTime();
+										t_147253 = ((NF)(LOC605) - (NF)(t0_147292));
+									} LA604: ;
 								}
-								LOC545 = 0;
-								LOC545 = nsuformatFloat(t_147253, ((NU8) 2), ((NI) 32));
-								LOC546 = 0;
-								LOC546 = nsuReplaceStr(LOC545, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_147247 = resizeString(resultstring_147247, LOC546->Sup.len + 0);
-appendString(resultstring_147247, LOC546);
+								LOC606 = 0;
+								LOC606 = nsuformatFloat(t_147253, ((NU8) 2), ((NI) 32));
+								resultstring_147247 = resizeString(resultstring_147247, LOC606->Sup.len + 0);
+appendString(resultstring_147247, LOC606);
 								res_147409 += ((NI) 1);
-							} LA539: ;
+							} LA595: ;
 						}
 					}
 					{
-						NIM_BOOL LOC549;
-						NimStringDesc* LOC552;
-						LOC549 = 0;
-						LOC549 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC549) goto LA550;
+						NIM_BOOL LOC609;
+						NimStringDesc* LOC612;
+						LOC609 = 0;
+						LOC609 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC609) goto LA610;
 						appenddatato_129003(((NimStringDesc*) &TMP118), resultstring_147247);
-						LOC552 = 0;
-						LOC552 = resultstring_147247; resultstring_147247 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC552) nimGCunrefNoCycle(LOC552);
+						LOC612 = 0;
+						LOC612 = resultstring_147247; resultstring_147247 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC612) nimGCunrefNoCycle(LOC612);
 					}
-					LA550: ;
+					LA610: ;
 					{
-						if (!(res_147415 < ((NI) 10000))) goto LA555;
+						if (!(res_147415 < ((NI) 10000))) goto LA615;
 						res_147415 += ((NI) 1);
 					}
-					goto LA553;
-					LA555: ;
+					goto LA613;
+					LA615: ;
 					{
 						res_147415 += ((NI) 1);
 					}
-					LA553: ;
-				} LA536: ;
+					LA613: ;
+				} LA592: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP118), resultstring_147247);
-		LOC558 = 0;
-		LOC558 = resultstring_147247; resultstring_147247 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC558) nimGCunrefNoCycle(LOC558);
+		LOC618 = 0;
+		LOC618 = resultstring_147247; resultstring_147247 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC618) nimGCunrefNoCycle(LOC618);
 		nosremoveFile(((NimStringDesc*) &TMP117));
 	}
-	LA532: ;
+	LA588: ;
 	beginat_147445 = preparebench_131012(((NimStringDesc*) &TMP119), ((NI) 1), ((NI) 1));
-	LOC559 = 0;
-	LOC559 = resultstring_147447; resultstring_147447 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC559) nimGCunrefNoCycle(LOC559);
+	LOC619 = 0;
+	LOC619 = resultstring_147447; resultstring_147447 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC619) nimGCunrefNoCycle(LOC619);
 	{
-		NIM_BOOL LOC562;
-		NIM_BOOL LOC563;
-		NimStringDesc* LOC591;
-		LOC562 = 0;
-		LOC563 = 0;
-		LOC563 = nosexistsFile(((NimStringDesc*) &TMP120));
-		LOC562 = !(LOC563);
-		if (!(LOC562)) goto LA564;
-		LOC562 = (beginat_147445 < ((NI) 100000));
-		LA564: ;
-		if (!LOC562) goto LA565;
+		NIM_BOOL LOC622;
+		NIM_BOOL LOC623;
+		NimStringDesc* LOC655;
+		LOC622 = 0;
+		LOC623 = 0;
+		LOC623 = nosexistsFile(((NimStringDesc*) &TMP120));
+		LOC622 = !(LOC623);
+		if (!(LOC622)) goto LA624;
+		LOC622 = (beginat_147445 < ((NI) 100000));
+		LA624: ;
+		if (!LOC622) goto LA625;
 		createfile_129068(((NimStringDesc*) &TMP120));
 		{
 			NI res_147615;
 			res_147615 = beginat_147445;
 			{
 				while (1) {
-					if (!(res_147615 <= ((NI) 100000))) goto LA569;
+					if (!(res_147615 <= ((NI) 100000))) goto LA629;
 					i_147449 = res_147615;
 					{
 						NI res_147609;
@@ -2591,102 +2666,107 @@ appendString(resultstring_147247, LOC546);
 						res_147609 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC573;
-								NimStringDesc* LOC574;
+								NimStringDesc* LOC638;
+								NimStringDesc* LOC639;
 								NF t_147453;
-								NimStringDesc* LOC578;
-								NimStringDesc* LOC579;
-								if (!(res_147609 <= ((NI) 1))) goto LA572;
+								NimStringDesc* LOC643;
+								if (!(res_147609 <= ((NI) 1))) goto LA632;
 								j_147451 = res_147609;
-								LOC573 = 0;
-								LOC574 = 0;
-								LOC574 = nimIntToStr(i_147449);
-								LOC573 = rawNewString(LOC574->Sup.len + 2);
-appendString(LOC573, ((NimStringDesc*) &TMP61));
-appendString(LOC573, LOC574);
-appendString(LOC573, ((NimStringDesc*) &TMP75));
-								resultstring_147447 = resizeString(resultstring_147447, LOC573->Sup.len + 0);
-appendString(resultstring_147447, LOC573);
+								{
+									NIM_BOOL LOC635;
+									LOC635 = 0;
+									LOC635 = likely(!((i_147449 == ((NI) 0))));
+									if (!LOC635) goto LA636;
+									resultstring_147447 = resizeString(resultstring_147447, 1);
+appendString(resultstring_147447, ((NimStringDesc*) &TMP61));
+								}
+								LA636: ;
+								LOC638 = 0;
+								LOC639 = 0;
+								LOC639 = nimIntToStr(i_147449);
+								LOC638 = rawNewString(LOC639->Sup.len + 1);
+appendString(LOC638, LOC639);
+appendString(LOC638, ((NimStringDesc*) &TMP75));
+								resultstring_147447 = resizeString(resultstring_147447, LOC638->Sup.len + 0);
+appendString(resultstring_147447, LOC638);
 								t_147453 = 0.0;
 								{
 									while (1) {
 										TY139293* a_147455;
 										NF t0_147492;
-										NF LOC577;
-										if (!(t_147453 <= 0.0)) goto LA576;
+										NF LOC642;
+										if (!(t_147453 <= 0.0)) goto LA641;
 										a_147455 = almostreversekeys_139266(i_147449);
 										t0_147492 = ntcpuTime();
 										quicksort_143492(a_147455->data, a_147455->Sup.len);
-										LOC577 = 0;
-										LOC577 = ntcpuTime();
-										t_147453 = ((NF)(LOC577) - (NF)(t0_147492));
-									} LA576: ;
+										LOC642 = 0;
+										LOC642 = ntcpuTime();
+										t_147453 = ((NF)(LOC642) - (NF)(t0_147492));
+									} LA641: ;
 								}
-								LOC578 = 0;
-								LOC578 = nsuformatFloat(t_147453, ((NU8) 2), ((NI) 32));
-								LOC579 = 0;
-								LOC579 = nsuReplaceStr(LOC578, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_147447 = resizeString(resultstring_147447, LOC579->Sup.len + 0);
-appendString(resultstring_147447, LOC579);
+								LOC643 = 0;
+								LOC643 = nsuformatFloat(t_147453, ((NU8) 2), ((NI) 32));
+								resultstring_147447 = resizeString(resultstring_147447, LOC643->Sup.len + 0);
+appendString(resultstring_147447, LOC643);
 								res_147609 += ((NI) 1);
-							} LA572: ;
+							} LA632: ;
 						}
 					}
 					{
-						NIM_BOOL LOC582;
-						NimStringDesc* LOC585;
-						LOC582 = 0;
-						LOC582 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC582) goto LA583;
+						NIM_BOOL LOC646;
+						NimStringDesc* LOC649;
+						LOC646 = 0;
+						LOC646 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC646) goto LA647;
 						appenddatato_129003(((NimStringDesc*) &TMP121), resultstring_147447);
-						LOC585 = 0;
-						LOC585 = resultstring_147447; resultstring_147447 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC585) nimGCunrefNoCycle(LOC585);
+						LOC649 = 0;
+						LOC649 = resultstring_147447; resultstring_147447 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC649) nimGCunrefNoCycle(LOC649);
 					}
-					LA583: ;
+					LA647: ;
 					{
-						if (!(res_147615 < ((NI) 10000))) goto LA588;
+						if (!(res_147615 < ((NI) 10000))) goto LA652;
 						res_147615 += ((NI) 1);
 					}
-					goto LA586;
-					LA588: ;
+					goto LA650;
+					LA652: ;
 					{
 						res_147615 += ((NI) 1);
 					}
-					LA586: ;
-				} LA569: ;
+					LA650: ;
+				} LA629: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP121), resultstring_147447);
-		LOC591 = 0;
-		LOC591 = resultstring_147447; resultstring_147447 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC591) nimGCunrefNoCycle(LOC591);
+		LOC655 = 0;
+		LOC655 = resultstring_147447; resultstring_147447 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC655) nimGCunrefNoCycle(LOC655);
 		nosremoveFile(((NimStringDesc*) &TMP120));
 	}
-	LA565: ;
+	LA625: ;
 	beginat_147645 = preparebench_131012(((NimStringDesc*) &TMP122), ((NI) 1), ((NI) 1));
-	LOC592 = 0;
-	LOC592 = resultstring_147647; resultstring_147647 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC592) nimGCunrefNoCycle(LOC592);
+	LOC656 = 0;
+	LOC656 = resultstring_147647; resultstring_147647 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC656) nimGCunrefNoCycle(LOC656);
 	{
-		NIM_BOOL LOC595;
-		NIM_BOOL LOC596;
-		NimStringDesc* LOC624;
-		LOC595 = 0;
-		LOC596 = 0;
-		LOC596 = nosexistsFile(((NimStringDesc*) &TMP123));
-		LOC595 = !(LOC596);
-		if (!(LOC595)) goto LA597;
-		LOC595 = (beginat_147645 < ((NI) 100000));
-		LA597: ;
-		if (!LOC595) goto LA598;
+		NIM_BOOL LOC659;
+		NIM_BOOL LOC660;
+		NimStringDesc* LOC692;
+		LOC659 = 0;
+		LOC660 = 0;
+		LOC660 = nosexistsFile(((NimStringDesc*) &TMP123));
+		LOC659 = !(LOC660);
+		if (!(LOC659)) goto LA661;
+		LOC659 = (beginat_147645 < ((NI) 100000));
+		LA661: ;
+		if (!LOC659) goto LA662;
 		createfile_129068(((NimStringDesc*) &TMP123));
 		{
 			NI res_147815;
 			res_147815 = beginat_147645;
 			{
 				while (1) {
-					if (!(res_147815 <= ((NI) 100000))) goto LA602;
+					if (!(res_147815 <= ((NI) 100000))) goto LA666;
 					i_147649 = res_147815;
 					{
 						NI res_147809;
@@ -2694,102 +2774,107 @@ appendString(resultstring_147447, LOC579);
 						res_147809 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC606;
-								NimStringDesc* LOC607;
+								NimStringDesc* LOC675;
+								NimStringDesc* LOC676;
 								NF t_147653;
-								NimStringDesc* LOC611;
-								NimStringDesc* LOC612;
-								if (!(res_147809 <= ((NI) 1))) goto LA605;
+								NimStringDesc* LOC680;
+								if (!(res_147809 <= ((NI) 1))) goto LA669;
 								j_147651 = res_147809;
-								LOC606 = 0;
-								LOC607 = 0;
-								LOC607 = nimIntToStr(i_147649);
-								LOC606 = rawNewString(LOC607->Sup.len + 2);
-appendString(LOC606, ((NimStringDesc*) &TMP61));
-appendString(LOC606, LOC607);
-appendString(LOC606, ((NimStringDesc*) &TMP75));
-								resultstring_147647 = resizeString(resultstring_147647, LOC606->Sup.len + 0);
-appendString(resultstring_147647, LOC606);
+								{
+									NIM_BOOL LOC672;
+									LOC672 = 0;
+									LOC672 = likely(!((i_147649 == ((NI) 0))));
+									if (!LOC672) goto LA673;
+									resultstring_147647 = resizeString(resultstring_147647, 1);
+appendString(resultstring_147647, ((NimStringDesc*) &TMP61));
+								}
+								LA673: ;
+								LOC675 = 0;
+								LOC676 = 0;
+								LOC676 = nimIntToStr(i_147649);
+								LOC675 = rawNewString(LOC676->Sup.len + 1);
+appendString(LOC675, LOC676);
+appendString(LOC675, ((NimStringDesc*) &TMP75));
+								resultstring_147647 = resizeString(resultstring_147647, LOC675->Sup.len + 0);
+appendString(resultstring_147647, LOC675);
 								t_147653 = 0.0;
 								{
 									while (1) {
 										TY139293* a_147655;
 										NF t0_147692;
-										NF LOC610;
-										if (!(t_147653 <= 0.0)) goto LA609;
+										NF LOC679;
+										if (!(t_147653 <= 0.0)) goto LA678;
 										a_147655 = equalkeys_139083(i_147649);
 										t0_147692 = ntcpuTime();
 										quicksort_143492(a_147655->data, a_147655->Sup.len);
-										LOC610 = 0;
-										LOC610 = ntcpuTime();
-										t_147653 = ((NF)(LOC610) - (NF)(t0_147692));
-									} LA609: ;
+										LOC679 = 0;
+										LOC679 = ntcpuTime();
+										t_147653 = ((NF)(LOC679) - (NF)(t0_147692));
+									} LA678: ;
 								}
-								LOC611 = 0;
-								LOC611 = nsuformatFloat(t_147653, ((NU8) 2), ((NI) 32));
-								LOC612 = 0;
-								LOC612 = nsuReplaceStr(LOC611, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_147647 = resizeString(resultstring_147647, LOC612->Sup.len + 0);
-appendString(resultstring_147647, LOC612);
+								LOC680 = 0;
+								LOC680 = nsuformatFloat(t_147653, ((NU8) 2), ((NI) 32));
+								resultstring_147647 = resizeString(resultstring_147647, LOC680->Sup.len + 0);
+appendString(resultstring_147647, LOC680);
 								res_147809 += ((NI) 1);
-							} LA605: ;
+							} LA669: ;
 						}
 					}
 					{
-						NIM_BOOL LOC615;
-						NimStringDesc* LOC618;
-						LOC615 = 0;
-						LOC615 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC615) goto LA616;
+						NIM_BOOL LOC683;
+						NimStringDesc* LOC686;
+						LOC683 = 0;
+						LOC683 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147649 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC683) goto LA684;
 						appenddatato_129003(((NimStringDesc*) &TMP124), resultstring_147647);
-						LOC618 = 0;
-						LOC618 = resultstring_147647; resultstring_147647 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC618) nimGCunrefNoCycle(LOC618);
+						LOC686 = 0;
+						LOC686 = resultstring_147647; resultstring_147647 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC686) nimGCunrefNoCycle(LOC686);
 					}
-					LA616: ;
+					LA684: ;
 					{
-						if (!(res_147815 < ((NI) 10000))) goto LA621;
+						if (!(res_147815 < ((NI) 10000))) goto LA689;
 						res_147815 += ((NI) 1);
 					}
-					goto LA619;
-					LA621: ;
+					goto LA687;
+					LA689: ;
 					{
 						res_147815 += ((NI) 1);
 					}
-					LA619: ;
-				} LA602: ;
+					LA687: ;
+				} LA666: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP124), resultstring_147647);
-		LOC624 = 0;
-		LOC624 = resultstring_147647; resultstring_147647 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC624) nimGCunrefNoCycle(LOC624);
+		LOC692 = 0;
+		LOC692 = resultstring_147647; resultstring_147647 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC692) nimGCunrefNoCycle(LOC692);
 		nosremoveFile(((NimStringDesc*) &TMP123));
 	}
-	LA598: ;
+	LA662: ;
 	beginat_147845 = preparebench_131012(((NimStringDesc*) &TMP125), ((NI) 1), ((NI) 1));
-	LOC625 = 0;
-	LOC625 = resultstring_147847; resultstring_147847 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC625) nimGCunrefNoCycle(LOC625);
+	LOC693 = 0;
+	LOC693 = resultstring_147847; resultstring_147847 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC693) nimGCunrefNoCycle(LOC693);
 	{
-		NIM_BOOL LOC628;
-		NIM_BOOL LOC629;
-		NimStringDesc* LOC657;
-		LOC628 = 0;
-		LOC629 = 0;
-		LOC629 = nosexistsFile(((NimStringDesc*) &TMP126));
-		LOC628 = !(LOC629);
-		if (!(LOC628)) goto LA630;
-		LOC628 = (beginat_147845 < ((NI) 100000));
-		LA630: ;
-		if (!LOC628) goto LA631;
+		NIM_BOOL LOC696;
+		NIM_BOOL LOC697;
+		NimStringDesc* LOC729;
+		LOC696 = 0;
+		LOC697 = 0;
+		LOC697 = nosexistsFile(((NimStringDesc*) &TMP126));
+		LOC696 = !(LOC697);
+		if (!(LOC696)) goto LA698;
+		LOC696 = (beginat_147845 < ((NI) 100000));
+		LA698: ;
+		if (!LOC696) goto LA699;
 		createfile_129068(((NimStringDesc*) &TMP126));
 		{
 			NI res_148015;
 			res_148015 = beginat_147845;
 			{
 				while (1) {
-					if (!(res_148015 <= ((NI) 100000))) goto LA635;
+					if (!(res_148015 <= ((NI) 100000))) goto LA703;
 					i_147849 = res_148015;
 					{
 						NI res_148009;
@@ -2797,102 +2882,107 @@ appendString(resultstring_147647, LOC612);
 						res_148009 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC639;
-								NimStringDesc* LOC640;
+								NimStringDesc* LOC712;
+								NimStringDesc* LOC713;
 								NF t_147853;
-								NimStringDesc* LOC644;
-								NimStringDesc* LOC645;
-								if (!(res_148009 <= ((NI) 1))) goto LA638;
+								NimStringDesc* LOC717;
+								if (!(res_148009 <= ((NI) 1))) goto LA706;
 								j_147851 = res_148009;
-								LOC639 = 0;
-								LOC640 = 0;
-								LOC640 = nimIntToStr(i_147849);
-								LOC639 = rawNewString(LOC640->Sup.len + 2);
-appendString(LOC639, ((NimStringDesc*) &TMP61));
-appendString(LOC639, LOC640);
-appendString(LOC639, ((NimStringDesc*) &TMP75));
-								resultstring_147847 = resizeString(resultstring_147847, LOC639->Sup.len + 0);
-appendString(resultstring_147847, LOC639);
+								{
+									NIM_BOOL LOC709;
+									LOC709 = 0;
+									LOC709 = likely(!((i_147849 == ((NI) 0))));
+									if (!LOC709) goto LA710;
+									resultstring_147847 = resizeString(resultstring_147847, 1);
+appendString(resultstring_147847, ((NimStringDesc*) &TMP61));
+								}
+								LA710: ;
+								LOC712 = 0;
+								LOC713 = 0;
+								LOC713 = nimIntToStr(i_147849);
+								LOC712 = rawNewString(LOC713->Sup.len + 1);
+appendString(LOC712, LOC713);
+appendString(LOC712, ((NimStringDesc*) &TMP75));
+								resultstring_147847 = resizeString(resultstring_147847, LOC712->Sup.len + 0);
+appendString(resultstring_147847, LOC712);
 								t_147853 = 0.0;
 								{
 									while (1) {
 										TY139293* a_147855;
 										NF t0_147892;
-										NF LOC643;
-										if (!(t_147853 <= 0.0)) goto LA642;
+										NF LOC716;
+										if (!(t_147853 <= 0.0)) goto LA715;
 										a_147855 = fewuniquekeys_139121(i_147849);
 										t0_147892 = ntcpuTime();
 										quicksort_143492(a_147855->data, a_147855->Sup.len);
-										LOC643 = 0;
-										LOC643 = ntcpuTime();
-										t_147853 = ((NF)(LOC643) - (NF)(t0_147892));
-									} LA642: ;
+										LOC716 = 0;
+										LOC716 = ntcpuTime();
+										t_147853 = ((NF)(LOC716) - (NF)(t0_147892));
+									} LA715: ;
 								}
-								LOC644 = 0;
-								LOC644 = nsuformatFloat(t_147853, ((NU8) 2), ((NI) 32));
-								LOC645 = 0;
-								LOC645 = nsuReplaceStr(LOC644, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_147847 = resizeString(resultstring_147847, LOC645->Sup.len + 0);
-appendString(resultstring_147847, LOC645);
+								LOC717 = 0;
+								LOC717 = nsuformatFloat(t_147853, ((NU8) 2), ((NI) 32));
+								resultstring_147847 = resizeString(resultstring_147847, LOC717->Sup.len + 0);
+appendString(resultstring_147847, LOC717);
 								res_148009 += ((NI) 1);
-							} LA638: ;
+							} LA706: ;
 						}
 					}
 					{
-						NIM_BOOL LOC648;
-						NimStringDesc* LOC651;
-						LOC648 = 0;
-						LOC648 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC648) goto LA649;
+						NIM_BOOL LOC720;
+						NimStringDesc* LOC723;
+						LOC720 = 0;
+						LOC720 = unlikely((((NI) ((NI)(((NI) ((NI)(i_147849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC720) goto LA721;
 						appenddatato_129003(((NimStringDesc*) &TMP127), resultstring_147847);
-						LOC651 = 0;
-						LOC651 = resultstring_147847; resultstring_147847 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC651) nimGCunrefNoCycle(LOC651);
+						LOC723 = 0;
+						LOC723 = resultstring_147847; resultstring_147847 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC723) nimGCunrefNoCycle(LOC723);
 					}
-					LA649: ;
+					LA721: ;
 					{
-						if (!(res_148015 < ((NI) 10000))) goto LA654;
+						if (!(res_148015 < ((NI) 10000))) goto LA726;
 						res_148015 += ((NI) 1);
 					}
-					goto LA652;
-					LA654: ;
+					goto LA724;
+					LA726: ;
 					{
 						res_148015 += ((NI) 1);
 					}
-					LA652: ;
-				} LA635: ;
+					LA724: ;
+				} LA703: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP127), resultstring_147847);
-		LOC657 = 0;
-		LOC657 = resultstring_147847; resultstring_147847 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC657) nimGCunrefNoCycle(LOC657);
+		LOC729 = 0;
+		LOC729 = resultstring_147847; resultstring_147847 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC729) nimGCunrefNoCycle(LOC729);
 		nosremoveFile(((NimStringDesc*) &TMP126));
 	}
-	LA631: ;
+	LA699: ;
 	beginat_148045 = preparebench_131012(((NimStringDesc*) &TMP128), ((NI) 5), ((NI) 1));
-	LOC658 = 0;
-	LOC658 = resultstring_148047; resultstring_148047 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC658) nimGCunrefNoCycle(LOC658);
+	LOC730 = 0;
+	LOC730 = resultstring_148047; resultstring_148047 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC730) nimGCunrefNoCycle(LOC730);
 	{
-		NIM_BOOL LOC661;
-		NIM_BOOL LOC662;
-		NimStringDesc* LOC690;
-		LOC661 = 0;
-		LOC662 = 0;
-		LOC662 = nosexistsFile(((NimStringDesc*) &TMP129));
-		LOC661 = !(LOC662);
-		if (!(LOC661)) goto LA663;
-		LOC661 = (beginat_148045 < ((NI) 100000));
-		LA663: ;
-		if (!LOC661) goto LA664;
+		NIM_BOOL LOC733;
+		NIM_BOOL LOC734;
+		NimStringDesc* LOC766;
+		LOC733 = 0;
+		LOC734 = 0;
+		LOC734 = nosexistsFile(((NimStringDesc*) &TMP129));
+		LOC733 = !(LOC734);
+		if (!(LOC733)) goto LA735;
+		LOC733 = (beginat_148045 < ((NI) 100000));
+		LA735: ;
+		if (!LOC733) goto LA736;
 		createfile_129068(((NimStringDesc*) &TMP129));
 		{
 			NI res_148215;
 			res_148215 = beginat_148045;
 			{
 				while (1) {
-					if (!(res_148215 <= ((NI) 100000))) goto LA668;
+					if (!(res_148215 <= ((NI) 100000))) goto LA740;
 					i_148049 = res_148215;
 					{
 						NI res_148209;
@@ -2900,102 +2990,107 @@ appendString(resultstring_147847, LOC645);
 						res_148209 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC672;
-								NimStringDesc* LOC673;
+								NimStringDesc* LOC749;
+								NimStringDesc* LOC750;
 								NF t_148053;
-								NimStringDesc* LOC677;
-								NimStringDesc* LOC678;
-								if (!(res_148209 <= ((NI) 5))) goto LA671;
+								NimStringDesc* LOC754;
+								if (!(res_148209 <= ((NI) 5))) goto LA743;
 								j_148051 = res_148209;
-								LOC672 = 0;
-								LOC673 = 0;
-								LOC673 = nimIntToStr(i_148049);
-								LOC672 = rawNewString(LOC673->Sup.len + 2);
-appendString(LOC672, ((NimStringDesc*) &TMP61));
-appendString(LOC672, LOC673);
-appendString(LOC672, ((NimStringDesc*) &TMP75));
-								resultstring_148047 = resizeString(resultstring_148047, LOC672->Sup.len + 0);
-appendString(resultstring_148047, LOC672);
+								{
+									NIM_BOOL LOC746;
+									LOC746 = 0;
+									LOC746 = likely(!((i_148049 == ((NI) 0))));
+									if (!LOC746) goto LA747;
+									resultstring_148047 = resizeString(resultstring_148047, 1);
+appendString(resultstring_148047, ((NimStringDesc*) &TMP61));
+								}
+								LA747: ;
+								LOC749 = 0;
+								LOC750 = 0;
+								LOC750 = nimIntToStr(i_148049);
+								LOC749 = rawNewString(LOC750->Sup.len + 1);
+appendString(LOC749, LOC750);
+appendString(LOC749, ((NimStringDesc*) &TMP75));
+								resultstring_148047 = resizeString(resultstring_148047, LOC749->Sup.len + 0);
+appendString(resultstring_148047, LOC749);
 								t_148053 = 0.0;
 								{
 									while (1) {
 										TY139293* a_148055;
 										NF t0_148092;
-										NF LOC676;
-										if (!(t_148053 <= 0.0)) goto LA675;
+										NF LOC753;
+										if (!(t_148053 <= 0.0)) goto LA752;
 										a_148055 = shuffledkeys_139278(i_148049);
 										t0_148092 = ntcpuTime();
 										quicksort_143492(a_148055->data, a_148055->Sup.len);
-										LOC676 = 0;
-										LOC676 = ntcpuTime();
-										t_148053 = ((NF)(LOC676) - (NF)(t0_148092));
-									} LA675: ;
+										LOC753 = 0;
+										LOC753 = ntcpuTime();
+										t_148053 = ((NF)(LOC753) - (NF)(t0_148092));
+									} LA752: ;
 								}
-								LOC677 = 0;
-								LOC677 = nsuformatFloat(t_148053, ((NU8) 2), ((NI) 32));
-								LOC678 = 0;
-								LOC678 = nsuReplaceStr(LOC677, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_148047 = resizeString(resultstring_148047, LOC678->Sup.len + 0);
-appendString(resultstring_148047, LOC678);
+								LOC754 = 0;
+								LOC754 = nsuformatFloat(t_148053, ((NU8) 2), ((NI) 32));
+								resultstring_148047 = resizeString(resultstring_148047, LOC754->Sup.len + 0);
+appendString(resultstring_148047, LOC754);
 								res_148209 += ((NI) 1);
-							} LA671: ;
+							} LA743: ;
 						}
 					}
 					{
-						NIM_BOOL LOC681;
-						NimStringDesc* LOC684;
-						LOC681 = 0;
-						LOC681 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148049 % ((NI) 10000)))) / ((NI) 5)))) == ((NI) 0)));
-						if (!LOC681) goto LA682;
+						NIM_BOOL LOC757;
+						NimStringDesc* LOC760;
+						LOC757 = 0;
+						LOC757 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148049 % ((NI) 10000)))) / ((NI) 5)))) == ((NI) 0)));
+						if (!LOC757) goto LA758;
 						appenddatato_129003(((NimStringDesc*) &TMP130), resultstring_148047);
-						LOC684 = 0;
-						LOC684 = resultstring_148047; resultstring_148047 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC684) nimGCunrefNoCycle(LOC684);
+						LOC760 = 0;
+						LOC760 = resultstring_148047; resultstring_148047 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC760) nimGCunrefNoCycle(LOC760);
 					}
-					LA682: ;
+					LA758: ;
 					{
-						if (!(res_148215 < ((NI) 10000))) goto LA687;
+						if (!(res_148215 < ((NI) 10000))) goto LA763;
 						res_148215 += ((NI) 1);
 					}
-					goto LA685;
-					LA687: ;
+					goto LA761;
+					LA763: ;
 					{
 						res_148215 += ((NI) 1);
 					}
-					LA685: ;
-				} LA668: ;
+					LA761: ;
+				} LA740: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP130), resultstring_148047);
-		LOC690 = 0;
-		LOC690 = resultstring_148047; resultstring_148047 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC690) nimGCunrefNoCycle(LOC690);
+		LOC766 = 0;
+		LOC766 = resultstring_148047; resultstring_148047 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC766) nimGCunrefNoCycle(LOC766);
 		nosremoveFile(((NimStringDesc*) &TMP129));
 	}
-	LA664: ;
+	LA736: ;
 	beginat_148245 = preparebench_131012(((NimStringDesc*) &TMP131), ((NI) 1), ((NI) 1));
-	LOC691 = 0;
-	LOC691 = resultstring_148247; resultstring_148247 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC691) nimGCunrefNoCycle(LOC691);
+	LOC767 = 0;
+	LOC767 = resultstring_148247; resultstring_148247 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC767) nimGCunrefNoCycle(LOC767);
 	{
-		NIM_BOOL LOC694;
-		NIM_BOOL LOC695;
-		NimStringDesc* LOC723;
-		LOC694 = 0;
-		LOC695 = 0;
-		LOC695 = nosexistsFile(((NimStringDesc*) &TMP132));
-		LOC694 = !(LOC695);
-		if (!(LOC694)) goto LA696;
-		LOC694 = (beginat_148245 < ((NI) 100000));
-		LA696: ;
-		if (!LOC694) goto LA697;
+		NIM_BOOL LOC770;
+		NIM_BOOL LOC771;
+		NimStringDesc* LOC803;
+		LOC770 = 0;
+		LOC771 = 0;
+		LOC771 = nosexistsFile(((NimStringDesc*) &TMP132));
+		LOC770 = !(LOC771);
+		if (!(LOC770)) goto LA772;
+		LOC770 = (beginat_148245 < ((NI) 100000));
+		LA772: ;
+		if (!LOC770) goto LA773;
 		createfile_129068(((NimStringDesc*) &TMP132));
 		{
 			NI res_148415;
 			res_148415 = beginat_148245;
 			{
 				while (1) {
-					if (!(res_148415 <= ((NI) 100000))) goto LA701;
+					if (!(res_148415 <= ((NI) 100000))) goto LA777;
 					i_148249 = res_148415;
 					{
 						NI res_148409;
@@ -3003,102 +3098,107 @@ appendString(resultstring_148047, LOC678);
 						res_148409 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC705;
-								NimStringDesc* LOC706;
+								NimStringDesc* LOC786;
+								NimStringDesc* LOC787;
 								NF t_148253;
-								NimStringDesc* LOC710;
-								NimStringDesc* LOC711;
-								if (!(res_148409 <= ((NI) 1))) goto LA704;
+								NimStringDesc* LOC791;
+								if (!(res_148409 <= ((NI) 1))) goto LA780;
 								j_148251 = res_148409;
-								LOC705 = 0;
-								LOC706 = 0;
-								LOC706 = nimIntToStr(i_148249);
-								LOC705 = rawNewString(LOC706->Sup.len + 2);
-appendString(LOC705, ((NimStringDesc*) &TMP61));
-appendString(LOC705, LOC706);
-appendString(LOC705, ((NimStringDesc*) &TMP75));
-								resultstring_148247 = resizeString(resultstring_148247, LOC705->Sup.len + 0);
-appendString(resultstring_148247, LOC705);
+								{
+									NIM_BOOL LOC783;
+									LOC783 = 0;
+									LOC783 = likely(!((i_148249 == ((NI) 0))));
+									if (!LOC783) goto LA784;
+									resultstring_148247 = resizeString(resultstring_148247, 1);
+appendString(resultstring_148247, ((NimStringDesc*) &TMP61));
+								}
+								LA784: ;
+								LOC786 = 0;
+								LOC787 = 0;
+								LOC787 = nimIntToStr(i_148249);
+								LOC786 = rawNewString(LOC787->Sup.len + 1);
+appendString(LOC786, LOC787);
+appendString(LOC786, ((NimStringDesc*) &TMP75));
+								resultstring_148247 = resizeString(resultstring_148247, LOC786->Sup.len + 0);
+appendString(resultstring_148247, LOC786);
 								t_148253 = 0.0;
 								{
 									while (1) {
 										TY139293* a_148255;
 										NF t0_148292;
-										NF LOC709;
-										if (!(t_148253 <= 0.0)) goto LA708;
+										NF LOC790;
+										if (!(t_148253 <= 0.0)) goto LA789;
 										a_148255 = randkeys_139290(i_148249);
 										t0_148292 = ntcpuTime();
 										quicksort_143492(a_148255->data, a_148255->Sup.len);
-										LOC709 = 0;
-										LOC709 = ntcpuTime();
-										t_148253 = ((NF)(LOC709) - (NF)(t0_148292));
-									} LA708: ;
+										LOC790 = 0;
+										LOC790 = ntcpuTime();
+										t_148253 = ((NF)(LOC790) - (NF)(t0_148292));
+									} LA789: ;
 								}
-								LOC710 = 0;
-								LOC710 = nsuformatFloat(t_148253, ((NU8) 2), ((NI) 32));
-								LOC711 = 0;
-								LOC711 = nsuReplaceStr(LOC710, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_148247 = resizeString(resultstring_148247, LOC711->Sup.len + 0);
-appendString(resultstring_148247, LOC711);
+								LOC791 = 0;
+								LOC791 = nsuformatFloat(t_148253, ((NU8) 2), ((NI) 32));
+								resultstring_148247 = resizeString(resultstring_148247, LOC791->Sup.len + 0);
+appendString(resultstring_148247, LOC791);
 								res_148409 += ((NI) 1);
-							} LA704: ;
+							} LA780: ;
 						}
 					}
 					{
-						NIM_BOOL LOC714;
-						NimStringDesc* LOC717;
-						LOC714 = 0;
-						LOC714 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC714) goto LA715;
+						NIM_BOOL LOC794;
+						NimStringDesc* LOC797;
+						LOC794 = 0;
+						LOC794 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148249 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC794) goto LA795;
 						appenddatato_129003(((NimStringDesc*) &TMP133), resultstring_148247);
-						LOC717 = 0;
-						LOC717 = resultstring_148247; resultstring_148247 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC717) nimGCunrefNoCycle(LOC717);
+						LOC797 = 0;
+						LOC797 = resultstring_148247; resultstring_148247 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC797) nimGCunrefNoCycle(LOC797);
 					}
-					LA715: ;
+					LA795: ;
 					{
-						if (!(res_148415 < ((NI) 10000))) goto LA720;
+						if (!(res_148415 < ((NI) 10000))) goto LA800;
 						res_148415 += ((NI) 1);
 					}
-					goto LA718;
-					LA720: ;
+					goto LA798;
+					LA800: ;
 					{
 						res_148415 += ((NI) 1);
 					}
-					LA718: ;
-				} LA701: ;
+					LA798: ;
+				} LA777: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP133), resultstring_148247);
-		LOC723 = 0;
-		LOC723 = resultstring_148247; resultstring_148247 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC723) nimGCunrefNoCycle(LOC723);
+		LOC803 = 0;
+		LOC803 = resultstring_148247; resultstring_148247 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC803) nimGCunrefNoCycle(LOC803);
 		nosremoveFile(((NimStringDesc*) &TMP132));
 	}
-	LA697: ;
+	LA773: ;
 	beginat_148445 = preparebench_131012(((NimStringDesc*) &TMP134), ((NI) 1), ((NI) 1));
-	LOC724 = 0;
-	LOC724 = resultstring_148447; resultstring_148447 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC724) nimGCunrefNoCycle(LOC724);
+	LOC804 = 0;
+	LOC804 = resultstring_148447; resultstring_148447 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC804) nimGCunrefNoCycle(LOC804);
 	{
-		NIM_BOOL LOC727;
-		NIM_BOOL LOC728;
-		NimStringDesc* LOC756;
-		LOC727 = 0;
-		LOC728 = 0;
-		LOC728 = nosexistsFile(((NimStringDesc*) &TMP135));
-		LOC727 = !(LOC728);
-		if (!(LOC727)) goto LA729;
-		LOC727 = (beginat_148445 < ((NI) 100000));
-		LA729: ;
-		if (!LOC727) goto LA730;
+		NIM_BOOL LOC807;
+		NIM_BOOL LOC808;
+		NimStringDesc* LOC840;
+		LOC807 = 0;
+		LOC808 = 0;
+		LOC808 = nosexistsFile(((NimStringDesc*) &TMP135));
+		LOC807 = !(LOC808);
+		if (!(LOC807)) goto LA809;
+		LOC807 = (beginat_148445 < ((NI) 100000));
+		LA809: ;
+		if (!LOC807) goto LA810;
 		createfile_129068(((NimStringDesc*) &TMP135));
 		{
 			NI res_148615;
 			res_148615 = beginat_148445;
 			{
 				while (1) {
-					if (!(res_148615 <= ((NI) 100000))) goto LA734;
+					if (!(res_148615 <= ((NI) 100000))) goto LA814;
 					i_148449 = res_148615;
 					{
 						NI res_148609;
@@ -3106,102 +3206,107 @@ appendString(resultstring_148247, LOC711);
 						res_148609 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC738;
-								NimStringDesc* LOC739;
+								NimStringDesc* LOC823;
+								NimStringDesc* LOC824;
 								NF t_148453;
-								NimStringDesc* LOC743;
-								NimStringDesc* LOC744;
-								if (!(res_148609 <= ((NI) 1))) goto LA737;
+								NimStringDesc* LOC828;
+								if (!(res_148609 <= ((NI) 1))) goto LA817;
 								j_148451 = res_148609;
-								LOC738 = 0;
-								LOC739 = 0;
-								LOC739 = nimIntToStr(i_148449);
-								LOC738 = rawNewString(LOC739->Sup.len + 2);
-appendString(LOC738, ((NimStringDesc*) &TMP61));
-appendString(LOC738, LOC739);
-appendString(LOC738, ((NimStringDesc*) &TMP75));
-								resultstring_148447 = resizeString(resultstring_148447, LOC738->Sup.len + 0);
-appendString(resultstring_148447, LOC738);
+								{
+									NIM_BOOL LOC820;
+									LOC820 = 0;
+									LOC820 = likely(!((i_148449 == ((NI) 0))));
+									if (!LOC820) goto LA821;
+									resultstring_148447 = resizeString(resultstring_148447, 1);
+appendString(resultstring_148447, ((NimStringDesc*) &TMP61));
+								}
+								LA821: ;
+								LOC823 = 0;
+								LOC824 = 0;
+								LOC824 = nimIntToStr(i_148449);
+								LOC823 = rawNewString(LOC824->Sup.len + 1);
+appendString(LOC823, LOC824);
+appendString(LOC823, ((NimStringDesc*) &TMP75));
+								resultstring_148447 = resizeString(resultstring_148447, LOC823->Sup.len + 0);
+appendString(resultstring_148447, LOC823);
 								t_148453 = 0.0;
 								{
 									while (1) {
 										TY139293* a_148455;
 										NF t0_148492;
-										NF LOC742;
-										if (!(t_148453 <= 0.0)) goto LA741;
+										NF LOC827;
+										if (!(t_148453 <= 0.0)) goto LA826;
 										a_148455 = normalkeys_139357(i_148449);
 										t0_148492 = ntcpuTime();
 										quicksort_143492(a_148455->data, a_148455->Sup.len);
-										LOC742 = 0;
-										LOC742 = ntcpuTime();
-										t_148453 = ((NF)(LOC742) - (NF)(t0_148492));
-									} LA741: ;
+										LOC827 = 0;
+										LOC827 = ntcpuTime();
+										t_148453 = ((NF)(LOC827) - (NF)(t0_148492));
+									} LA826: ;
 								}
-								LOC743 = 0;
-								LOC743 = nsuformatFloat(t_148453, ((NU8) 2), ((NI) 32));
-								LOC744 = 0;
-								LOC744 = nsuReplaceStr(LOC743, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_148447 = resizeString(resultstring_148447, LOC744->Sup.len + 0);
-appendString(resultstring_148447, LOC744);
+								LOC828 = 0;
+								LOC828 = nsuformatFloat(t_148453, ((NU8) 2), ((NI) 32));
+								resultstring_148447 = resizeString(resultstring_148447, LOC828->Sup.len + 0);
+appendString(resultstring_148447, LOC828);
 								res_148609 += ((NI) 1);
-							} LA737: ;
+							} LA817: ;
 						}
 					}
 					{
-						NIM_BOOL LOC747;
-						NimStringDesc* LOC750;
-						LOC747 = 0;
-						LOC747 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC747) goto LA748;
+						NIM_BOOL LOC831;
+						NimStringDesc* LOC834;
+						LOC831 = 0;
+						LOC831 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148449 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC831) goto LA832;
 						appenddatato_129003(((NimStringDesc*) &TMP136), resultstring_148447);
-						LOC750 = 0;
-						LOC750 = resultstring_148447; resultstring_148447 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC750) nimGCunrefNoCycle(LOC750);
+						LOC834 = 0;
+						LOC834 = resultstring_148447; resultstring_148447 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC834) nimGCunrefNoCycle(LOC834);
 					}
-					LA748: ;
+					LA832: ;
 					{
-						if (!(res_148615 < ((NI) 10000))) goto LA753;
+						if (!(res_148615 < ((NI) 10000))) goto LA837;
 						res_148615 += ((NI) 1);
 					}
-					goto LA751;
-					LA753: ;
+					goto LA835;
+					LA837: ;
 					{
 						res_148615 += ((NI) 1);
 					}
-					LA751: ;
-				} LA734: ;
+					LA835: ;
+				} LA814: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP136), resultstring_148447);
-		LOC756 = 0;
-		LOC756 = resultstring_148447; resultstring_148447 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC756) nimGCunrefNoCycle(LOC756);
+		LOC840 = 0;
+		LOC840 = resultstring_148447; resultstring_148447 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC840) nimGCunrefNoCycle(LOC840);
 		nosremoveFile(((NimStringDesc*) &TMP135));
 	}
-	LA730: ;
+	LA810: ;
 	beginat_148646 = preparebench_131012(((NimStringDesc*) &TMP137), ((NI) 1), ((NI) 100));
-	LOC757 = 0;
-	LOC757 = resultstring_148648; resultstring_148648 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC757) nimGCunrefNoCycle(LOC757);
+	LOC841 = 0;
+	LOC841 = resultstring_148648; resultstring_148648 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC841) nimGCunrefNoCycle(LOC841);
 	{
-		NIM_BOOL LOC760;
-		NIM_BOOL LOC761;
-		NimStringDesc* LOC789;
-		LOC760 = 0;
-		LOC761 = 0;
-		LOC761 = nosexistsFile(((NimStringDesc*) &TMP138));
-		LOC760 = !(LOC761);
-		if (!(LOC760)) goto LA762;
-		LOC760 = (beginat_148646 < ((NI) 100000));
-		LA762: ;
-		if (!LOC760) goto LA763;
+		NIM_BOOL LOC844;
+		NIM_BOOL LOC845;
+		NimStringDesc* LOC877;
+		LOC844 = 0;
+		LOC845 = 0;
+		LOC845 = nosexistsFile(((NimStringDesc*) &TMP138));
+		LOC844 = !(LOC845);
+		if (!(LOC844)) goto LA846;
+		LOC844 = (beginat_148646 < ((NI) 100000));
+		LA846: ;
+		if (!LOC844) goto LA847;
 		createfile_129068(((NimStringDesc*) &TMP138));
 		{
 			NI res_149015;
 			res_149015 = beginat_148646;
 			{
 				while (1) {
-					if (!(res_149015 <= ((NI) 100000))) goto LA767;
+					if (!(res_149015 <= ((NI) 100000))) goto LA851;
 					i_148650 = res_149015;
 					{
 						NI res_149009;
@@ -3209,102 +3314,107 @@ appendString(resultstring_148447, LOC744);
 						res_149009 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC771;
-								NimStringDesc* LOC772;
+								NimStringDesc* LOC860;
+								NimStringDesc* LOC861;
 								NF t_148654;
-								NimStringDesc* LOC776;
-								NimStringDesc* LOC777;
-								if (!(res_149009 <= ((NI) 1))) goto LA770;
+								NimStringDesc* LOC865;
+								if (!(res_149009 <= ((NI) 1))) goto LA854;
 								j_148652 = res_149009;
-								LOC771 = 0;
-								LOC772 = 0;
-								LOC772 = nimIntToStr(i_148650);
-								LOC771 = rawNewString(LOC772->Sup.len + 2);
-appendString(LOC771, ((NimStringDesc*) &TMP61));
-appendString(LOC771, LOC772);
-appendString(LOC771, ((NimStringDesc*) &TMP75));
-								resultstring_148648 = resizeString(resultstring_148648, LOC771->Sup.len + 0);
-appendString(resultstring_148648, LOC771);
+								{
+									NIM_BOOL LOC857;
+									LOC857 = 0;
+									LOC857 = likely(!((i_148650 == ((NI) 0))));
+									if (!LOC857) goto LA858;
+									resultstring_148648 = resizeString(resultstring_148648, 1);
+appendString(resultstring_148648, ((NimStringDesc*) &TMP61));
+								}
+								LA858: ;
+								LOC860 = 0;
+								LOC861 = 0;
+								LOC861 = nimIntToStr(i_148650);
+								LOC860 = rawNewString(LOC861->Sup.len + 1);
+appendString(LOC860, LOC861);
+appendString(LOC860, ((NimStringDesc*) &TMP75));
+								resultstring_148648 = resizeString(resultstring_148648, LOC860->Sup.len + 0);
+appendString(resultstring_148648, LOC860);
 								t_148654 = 0.0;
 								{
 									while (1) {
 										TY139293* a_148656;
 										NF t0_148806;
-										NF LOC775;
-										if (!(t_148654 <= 0.0)) goto LA774;
+										NF LOC864;
+										if (!(t_148654 <= 0.0)) goto LA863;
 										a_148656 = almostsortedkeys_139188(i_148650);
 										t0_148806 = ntcpuTime();
 										simplequicksort_148684(a_148656->data, a_148656->Sup.len);
-										LOC775 = 0;
-										LOC775 = ntcpuTime();
-										t_148654 = ((NF)(LOC775) - (NF)(t0_148806));
-									} LA774: ;
+										LOC864 = 0;
+										LOC864 = ntcpuTime();
+										t_148654 = ((NF)(LOC864) - (NF)(t0_148806));
+									} LA863: ;
 								}
-								LOC776 = 0;
-								LOC776 = nsuformatFloat(t_148654, ((NU8) 2), ((NI) 32));
-								LOC777 = 0;
-								LOC777 = nsuReplaceStr(LOC776, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_148648 = resizeString(resultstring_148648, LOC777->Sup.len + 0);
-appendString(resultstring_148648, LOC777);
+								LOC865 = 0;
+								LOC865 = nsuformatFloat(t_148654, ((NU8) 2), ((NI) 32));
+								resultstring_148648 = resizeString(resultstring_148648, LOC865->Sup.len + 0);
+appendString(resultstring_148648, LOC865);
 								res_149009 += ((NI) 1);
-							} LA770: ;
+							} LA854: ;
 						}
 					}
 					{
-						NIM_BOOL LOC780;
-						NimStringDesc* LOC783;
-						LOC780 = 0;
-						LOC780 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148650 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC780) goto LA781;
+						NIM_BOOL LOC868;
+						NimStringDesc* LOC871;
+						LOC868 = 0;
+						LOC868 = unlikely((((NI) ((NI)(((NI) ((NI)(i_148650 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC868) goto LA869;
 						appenddatato_129003(((NimStringDesc*) &TMP139), resultstring_148648);
-						LOC783 = 0;
-						LOC783 = resultstring_148648; resultstring_148648 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC783) nimGCunrefNoCycle(LOC783);
+						LOC871 = 0;
+						LOC871 = resultstring_148648; resultstring_148648 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC871) nimGCunrefNoCycle(LOC871);
 					}
-					LA781: ;
+					LA869: ;
 					{
-						if (!(res_149015 < ((NI) 10000))) goto LA786;
+						if (!(res_149015 < ((NI) 10000))) goto LA874;
 						res_149015 += ((NI) 1);
 					}
-					goto LA784;
-					LA786: ;
+					goto LA872;
+					LA874: ;
 					{
 						res_149015 += ((NI) 100);
 					}
-					LA784: ;
-				} LA767: ;
+					LA872: ;
+				} LA851: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP139), resultstring_148648);
-		LOC789 = 0;
-		LOC789 = resultstring_148648; resultstring_148648 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC789) nimGCunrefNoCycle(LOC789);
+		LOC877 = 0;
+		LOC877 = resultstring_148648; resultstring_148648 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC877) nimGCunrefNoCycle(LOC877);
 		nosremoveFile(((NimStringDesc*) &TMP138));
 	}
-	LA763: ;
+	LA847: ;
 	beginat_149046 = preparebench_131012(((NimStringDesc*) &TMP140), ((NI) 1), ((NI) 100));
-	LOC790 = 0;
-	LOC790 = resultstring_149048; resultstring_149048 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC790) nimGCunrefNoCycle(LOC790);
+	LOC878 = 0;
+	LOC878 = resultstring_149048; resultstring_149048 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC878) nimGCunrefNoCycle(LOC878);
 	{
-		NIM_BOOL LOC793;
-		NIM_BOOL LOC794;
-		NimStringDesc* LOC822;
-		LOC793 = 0;
-		LOC794 = 0;
-		LOC794 = nosexistsFile(((NimStringDesc*) &TMP141));
-		LOC793 = !(LOC794);
-		if (!(LOC793)) goto LA795;
-		LOC793 = (beginat_149046 < ((NI) 100000));
-		LA795: ;
-		if (!LOC793) goto LA796;
+		NIM_BOOL LOC881;
+		NIM_BOOL LOC882;
+		NimStringDesc* LOC914;
+		LOC881 = 0;
+		LOC882 = 0;
+		LOC882 = nosexistsFile(((NimStringDesc*) &TMP141));
+		LOC881 = !(LOC882);
+		if (!(LOC881)) goto LA883;
+		LOC881 = (beginat_149046 < ((NI) 100000));
+		LA883: ;
+		if (!LOC881) goto LA884;
 		createfile_129068(((NimStringDesc*) &TMP141));
 		{
 			NI res_149215;
 			res_149215 = beginat_149046;
 			{
 				while (1) {
-					if (!(res_149215 <= ((NI) 100000))) goto LA800;
+					if (!(res_149215 <= ((NI) 100000))) goto LA888;
 					i_149050 = res_149215;
 					{
 						NI res_149209;
@@ -3312,102 +3422,107 @@ appendString(resultstring_148648, LOC777);
 						res_149209 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC804;
-								NimStringDesc* LOC805;
+								NimStringDesc* LOC897;
+								NimStringDesc* LOC898;
 								NF t_149054;
-								NimStringDesc* LOC809;
-								NimStringDesc* LOC810;
-								if (!(res_149209 <= ((NI) 1))) goto LA803;
+								NimStringDesc* LOC902;
+								if (!(res_149209 <= ((NI) 1))) goto LA891;
 								j_149052 = res_149209;
-								LOC804 = 0;
-								LOC805 = 0;
-								LOC805 = nimIntToStr(i_149050);
-								LOC804 = rawNewString(LOC805->Sup.len + 2);
-appendString(LOC804, ((NimStringDesc*) &TMP61));
-appendString(LOC804, LOC805);
-appendString(LOC804, ((NimStringDesc*) &TMP75));
-								resultstring_149048 = resizeString(resultstring_149048, LOC804->Sup.len + 0);
-appendString(resultstring_149048, LOC804);
+								{
+									NIM_BOOL LOC894;
+									LOC894 = 0;
+									LOC894 = likely(!((i_149050 == ((NI) 0))));
+									if (!LOC894) goto LA895;
+									resultstring_149048 = resizeString(resultstring_149048, 1);
+appendString(resultstring_149048, ((NimStringDesc*) &TMP61));
+								}
+								LA895: ;
+								LOC897 = 0;
+								LOC898 = 0;
+								LOC898 = nimIntToStr(i_149050);
+								LOC897 = rawNewString(LOC898->Sup.len + 1);
+appendString(LOC897, LOC898);
+appendString(LOC897, ((NimStringDesc*) &TMP75));
+								resultstring_149048 = resizeString(resultstring_149048, LOC897->Sup.len + 0);
+appendString(resultstring_149048, LOC897);
 								t_149054 = 0.0;
 								{
 									while (1) {
 										TY139293* a_149056;
 										NF t0_149093;
-										NF LOC808;
-										if (!(t_149054 <= 0.0)) goto LA807;
+										NF LOC901;
+										if (!(t_149054 <= 0.0)) goto LA900;
 										a_149056 = almostsortedkeys_139188(i_149050);
 										t0_149093 = ntcpuTime();
 										insertionsort_144125(a_149056->data, a_149056->Sup.len);
-										LOC808 = 0;
-										LOC808 = ntcpuTime();
-										t_149054 = ((NF)(LOC808) - (NF)(t0_149093));
-									} LA807: ;
+										LOC901 = 0;
+										LOC901 = ntcpuTime();
+										t_149054 = ((NF)(LOC901) - (NF)(t0_149093));
+									} LA900: ;
 								}
-								LOC809 = 0;
-								LOC809 = nsuformatFloat(t_149054, ((NU8) 2), ((NI) 32));
-								LOC810 = 0;
-								LOC810 = nsuReplaceStr(LOC809, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_149048 = resizeString(resultstring_149048, LOC810->Sup.len + 0);
-appendString(resultstring_149048, LOC810);
+								LOC902 = 0;
+								LOC902 = nsuformatFloat(t_149054, ((NU8) 2), ((NI) 32));
+								resultstring_149048 = resizeString(resultstring_149048, LOC902->Sup.len + 0);
+appendString(resultstring_149048, LOC902);
 								res_149209 += ((NI) 1);
-							} LA803: ;
+							} LA891: ;
 						}
 					}
 					{
-						NIM_BOOL LOC813;
-						NimStringDesc* LOC816;
-						LOC813 = 0;
-						LOC813 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149050 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC813) goto LA814;
+						NIM_BOOL LOC905;
+						NimStringDesc* LOC908;
+						LOC905 = 0;
+						LOC905 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149050 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC905) goto LA906;
 						appenddatato_129003(((NimStringDesc*) &TMP142), resultstring_149048);
-						LOC816 = 0;
-						LOC816 = resultstring_149048; resultstring_149048 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC816) nimGCunrefNoCycle(LOC816);
+						LOC908 = 0;
+						LOC908 = resultstring_149048; resultstring_149048 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC908) nimGCunrefNoCycle(LOC908);
 					}
-					LA814: ;
+					LA906: ;
 					{
-						if (!(res_149215 < ((NI) 10000))) goto LA819;
+						if (!(res_149215 < ((NI) 10000))) goto LA911;
 						res_149215 += ((NI) 1);
 					}
-					goto LA817;
-					LA819: ;
+					goto LA909;
+					LA911: ;
 					{
 						res_149215 += ((NI) 100);
 					}
-					LA817: ;
-				} LA800: ;
+					LA909: ;
+				} LA888: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP142), resultstring_149048);
-		LOC822 = 0;
-		LOC822 = resultstring_149048; resultstring_149048 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC822) nimGCunrefNoCycle(LOC822);
+		LOC914 = 0;
+		LOC914 = resultstring_149048; resultstring_149048 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC914) nimGCunrefNoCycle(LOC914);
 		nosremoveFile(((NimStringDesc*) &TMP141));
 	}
-	LA796: ;
+	LA884: ;
 	beginat_149246 = preparebench_131012(((NimStringDesc*) &TMP143), ((NI) 1), ((NI) 100));
-	LOC823 = 0;
-	LOC823 = resultstring_149248; resultstring_149248 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC823) nimGCunrefNoCycle(LOC823);
+	LOC915 = 0;
+	LOC915 = resultstring_149248; resultstring_149248 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC915) nimGCunrefNoCycle(LOC915);
 	{
-		NIM_BOOL LOC826;
-		NIM_BOOL LOC827;
-		NimStringDesc* LOC855;
-		LOC826 = 0;
-		LOC827 = 0;
-		LOC827 = nosexistsFile(((NimStringDesc*) &TMP144));
-		LOC826 = !(LOC827);
-		if (!(LOC826)) goto LA828;
-		LOC826 = (beginat_149246 < ((NI) 100000));
-		LA828: ;
-		if (!LOC826) goto LA829;
+		NIM_BOOL LOC918;
+		NIM_BOOL LOC919;
+		NimStringDesc* LOC951;
+		LOC918 = 0;
+		LOC919 = 0;
+		LOC919 = nosexistsFile(((NimStringDesc*) &TMP144));
+		LOC918 = !(LOC919);
+		if (!(LOC918)) goto LA920;
+		LOC918 = (beginat_149246 < ((NI) 100000));
+		LA920: ;
+		if (!LOC918) goto LA921;
 		createfile_129068(((NimStringDesc*) &TMP144));
 		{
 			NI res_149415;
 			res_149415 = beginat_149246;
 			{
 				while (1) {
-					if (!(res_149415 <= ((NI) 100000))) goto LA833;
+					if (!(res_149415 <= ((NI) 100000))) goto LA925;
 					i_149250 = res_149415;
 					{
 						NI res_149409;
@@ -3415,102 +3530,107 @@ appendString(resultstring_149048, LOC810);
 						res_149409 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC837;
-								NimStringDesc* LOC838;
+								NimStringDesc* LOC934;
+								NimStringDesc* LOC935;
 								NF t_149254;
-								NimStringDesc* LOC842;
-								NimStringDesc* LOC843;
-								if (!(res_149409 <= ((NI) 1))) goto LA836;
+								NimStringDesc* LOC939;
+								if (!(res_149409 <= ((NI) 1))) goto LA928;
 								j_149252 = res_149409;
-								LOC837 = 0;
-								LOC838 = 0;
-								LOC838 = nimIntToStr(i_149250);
-								LOC837 = rawNewString(LOC838->Sup.len + 2);
-appendString(LOC837, ((NimStringDesc*) &TMP61));
-appendString(LOC837, LOC838);
-appendString(LOC837, ((NimStringDesc*) &TMP75));
-								resultstring_149248 = resizeString(resultstring_149248, LOC837->Sup.len + 0);
-appendString(resultstring_149248, LOC837);
+								{
+									NIM_BOOL LOC931;
+									LOC931 = 0;
+									LOC931 = likely(!((i_149250 == ((NI) 0))));
+									if (!LOC931) goto LA932;
+									resultstring_149248 = resizeString(resultstring_149248, 1);
+appendString(resultstring_149248, ((NimStringDesc*) &TMP61));
+								}
+								LA932: ;
+								LOC934 = 0;
+								LOC935 = 0;
+								LOC935 = nimIntToStr(i_149250);
+								LOC934 = rawNewString(LOC935->Sup.len + 1);
+appendString(LOC934, LOC935);
+appendString(LOC934, ((NimStringDesc*) &TMP75));
+								resultstring_149248 = resizeString(resultstring_149248, LOC934->Sup.len + 0);
+appendString(resultstring_149248, LOC934);
 								t_149254 = 0.0;
 								{
 									while (1) {
 										TY139293* a_149256;
 										NF t0_149293;
-										NF LOC841;
-										if (!(t_149254 <= 0.0)) goto LA840;
+										NF LOC938;
+										if (!(t_149254 <= 0.0)) goto LA937;
 										a_149256 = almostreversekeys_139266(i_149250);
 										t0_149293 = ntcpuTime();
 										insertionsort_144125(a_149256->data, a_149256->Sup.len);
-										LOC841 = 0;
-										LOC841 = ntcpuTime();
-										t_149254 = ((NF)(LOC841) - (NF)(t0_149293));
-									} LA840: ;
+										LOC938 = 0;
+										LOC938 = ntcpuTime();
+										t_149254 = ((NF)(LOC938) - (NF)(t0_149293));
+									} LA937: ;
 								}
-								LOC842 = 0;
-								LOC842 = nsuformatFloat(t_149254, ((NU8) 2), ((NI) 32));
-								LOC843 = 0;
-								LOC843 = nsuReplaceStr(LOC842, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_149248 = resizeString(resultstring_149248, LOC843->Sup.len + 0);
-appendString(resultstring_149248, LOC843);
+								LOC939 = 0;
+								LOC939 = nsuformatFloat(t_149254, ((NU8) 2), ((NI) 32));
+								resultstring_149248 = resizeString(resultstring_149248, LOC939->Sup.len + 0);
+appendString(resultstring_149248, LOC939);
 								res_149409 += ((NI) 1);
-							} LA836: ;
+							} LA928: ;
 						}
 					}
 					{
-						NIM_BOOL LOC846;
-						NimStringDesc* LOC849;
-						LOC846 = 0;
-						LOC846 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149250 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC846) goto LA847;
+						NIM_BOOL LOC942;
+						NimStringDesc* LOC945;
+						LOC942 = 0;
+						LOC942 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149250 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC942) goto LA943;
 						appenddatato_129003(((NimStringDesc*) &TMP145), resultstring_149248);
-						LOC849 = 0;
-						LOC849 = resultstring_149248; resultstring_149248 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC849) nimGCunrefNoCycle(LOC849);
+						LOC945 = 0;
+						LOC945 = resultstring_149248; resultstring_149248 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC945) nimGCunrefNoCycle(LOC945);
 					}
-					LA847: ;
+					LA943: ;
 					{
-						if (!(res_149415 < ((NI) 10000))) goto LA852;
+						if (!(res_149415 < ((NI) 10000))) goto LA948;
 						res_149415 += ((NI) 1);
 					}
-					goto LA850;
-					LA852: ;
+					goto LA946;
+					LA948: ;
 					{
 						res_149415 += ((NI) 100);
 					}
-					LA850: ;
-				} LA833: ;
+					LA946: ;
+				} LA925: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP145), resultstring_149248);
-		LOC855 = 0;
-		LOC855 = resultstring_149248; resultstring_149248 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC855) nimGCunrefNoCycle(LOC855);
+		LOC951 = 0;
+		LOC951 = resultstring_149248; resultstring_149248 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC951) nimGCunrefNoCycle(LOC951);
 		nosremoveFile(((NimStringDesc*) &TMP144));
 	}
-	LA829: ;
+	LA921: ;
 	beginat_149446 = preparebench_131012(((NimStringDesc*) &TMP146), ((NI) 1), ((NI) 100));
-	LOC856 = 0;
-	LOC856 = resultstring_149448; resultstring_149448 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC856) nimGCunrefNoCycle(LOC856);
+	LOC952 = 0;
+	LOC952 = resultstring_149448; resultstring_149448 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC952) nimGCunrefNoCycle(LOC952);
 	{
-		NIM_BOOL LOC859;
-		NIM_BOOL LOC860;
-		NimStringDesc* LOC888;
-		LOC859 = 0;
-		LOC860 = 0;
-		LOC860 = nosexistsFile(((NimStringDesc*) &TMP147));
-		LOC859 = !(LOC860);
-		if (!(LOC859)) goto LA861;
-		LOC859 = (beginat_149446 < ((NI) 100000));
-		LA861: ;
-		if (!LOC859) goto LA862;
+		NIM_BOOL LOC955;
+		NIM_BOOL LOC956;
+		NimStringDesc* LOC988;
+		LOC955 = 0;
+		LOC956 = 0;
+		LOC956 = nosexistsFile(((NimStringDesc*) &TMP147));
+		LOC955 = !(LOC956);
+		if (!(LOC955)) goto LA957;
+		LOC955 = (beginat_149446 < ((NI) 100000));
+		LA957: ;
+		if (!LOC955) goto LA958;
 		createfile_129068(((NimStringDesc*) &TMP147));
 		{
 			NI res_149615;
 			res_149615 = beginat_149446;
 			{
 				while (1) {
-					if (!(res_149615 <= ((NI) 100000))) goto LA866;
+					if (!(res_149615 <= ((NI) 100000))) goto LA962;
 					i_149450 = res_149615;
 					{
 						NI res_149609;
@@ -3518,102 +3638,107 @@ appendString(resultstring_149248, LOC843);
 						res_149609 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC870;
-								NimStringDesc* LOC871;
+								NimStringDesc* LOC971;
+								NimStringDesc* LOC972;
 								NF t_149454;
-								NimStringDesc* LOC875;
-								NimStringDesc* LOC876;
-								if (!(res_149609 <= ((NI) 1))) goto LA869;
+								NimStringDesc* LOC976;
+								if (!(res_149609 <= ((NI) 1))) goto LA965;
 								j_149452 = res_149609;
-								LOC870 = 0;
-								LOC871 = 0;
-								LOC871 = nimIntToStr(i_149450);
-								LOC870 = rawNewString(LOC871->Sup.len + 2);
-appendString(LOC870, ((NimStringDesc*) &TMP61));
-appendString(LOC870, LOC871);
-appendString(LOC870, ((NimStringDesc*) &TMP75));
-								resultstring_149448 = resizeString(resultstring_149448, LOC870->Sup.len + 0);
-appendString(resultstring_149448, LOC870);
+								{
+									NIM_BOOL LOC968;
+									LOC968 = 0;
+									LOC968 = likely(!((i_149450 == ((NI) 0))));
+									if (!LOC968) goto LA969;
+									resultstring_149448 = resizeString(resultstring_149448, 1);
+appendString(resultstring_149448, ((NimStringDesc*) &TMP61));
+								}
+								LA969: ;
+								LOC971 = 0;
+								LOC972 = 0;
+								LOC972 = nimIntToStr(i_149450);
+								LOC971 = rawNewString(LOC972->Sup.len + 1);
+appendString(LOC971, LOC972);
+appendString(LOC971, ((NimStringDesc*) &TMP75));
+								resultstring_149448 = resizeString(resultstring_149448, LOC971->Sup.len + 0);
+appendString(resultstring_149448, LOC971);
 								t_149454 = 0.0;
 								{
 									while (1) {
 										TY139293* a_149456;
 										NF t0_149493;
-										NF LOC874;
-										if (!(t_149454 <= 0.0)) goto LA873;
+										NF LOC975;
+										if (!(t_149454 <= 0.0)) goto LA974;
 										a_149456 = equalkeys_139083(i_149450);
 										t0_149493 = ntcpuTime();
 										insertionsort_144125(a_149456->data, a_149456->Sup.len);
-										LOC874 = 0;
-										LOC874 = ntcpuTime();
-										t_149454 = ((NF)(LOC874) - (NF)(t0_149493));
-									} LA873: ;
+										LOC975 = 0;
+										LOC975 = ntcpuTime();
+										t_149454 = ((NF)(LOC975) - (NF)(t0_149493));
+									} LA974: ;
 								}
-								LOC875 = 0;
-								LOC875 = nsuformatFloat(t_149454, ((NU8) 2), ((NI) 32));
-								LOC876 = 0;
-								LOC876 = nsuReplaceStr(LOC875, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_149448 = resizeString(resultstring_149448, LOC876->Sup.len + 0);
-appendString(resultstring_149448, LOC876);
+								LOC976 = 0;
+								LOC976 = nsuformatFloat(t_149454, ((NU8) 2), ((NI) 32));
+								resultstring_149448 = resizeString(resultstring_149448, LOC976->Sup.len + 0);
+appendString(resultstring_149448, LOC976);
 								res_149609 += ((NI) 1);
-							} LA869: ;
+							} LA965: ;
 						}
 					}
 					{
-						NIM_BOOL LOC879;
-						NimStringDesc* LOC882;
-						LOC879 = 0;
-						LOC879 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149450 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC879) goto LA880;
+						NIM_BOOL LOC979;
+						NimStringDesc* LOC982;
+						LOC979 = 0;
+						LOC979 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149450 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC979) goto LA980;
 						appenddatato_129003(((NimStringDesc*) &TMP148), resultstring_149448);
-						LOC882 = 0;
-						LOC882 = resultstring_149448; resultstring_149448 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC882) nimGCunrefNoCycle(LOC882);
+						LOC982 = 0;
+						LOC982 = resultstring_149448; resultstring_149448 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC982) nimGCunrefNoCycle(LOC982);
 					}
-					LA880: ;
+					LA980: ;
 					{
-						if (!(res_149615 < ((NI) 10000))) goto LA885;
+						if (!(res_149615 < ((NI) 10000))) goto LA985;
 						res_149615 += ((NI) 1);
 					}
-					goto LA883;
-					LA885: ;
+					goto LA983;
+					LA985: ;
 					{
 						res_149615 += ((NI) 100);
 					}
-					LA883: ;
-				} LA866: ;
+					LA983: ;
+				} LA962: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP148), resultstring_149448);
-		LOC888 = 0;
-		LOC888 = resultstring_149448; resultstring_149448 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC888) nimGCunrefNoCycle(LOC888);
+		LOC988 = 0;
+		LOC988 = resultstring_149448; resultstring_149448 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC988) nimGCunrefNoCycle(LOC988);
 		nosremoveFile(((NimStringDesc*) &TMP147));
 	}
-	LA862: ;
+	LA958: ;
 	beginat_149646 = preparebench_131012(((NimStringDesc*) &TMP149), ((NI) 1), ((NI) 100));
-	LOC889 = 0;
-	LOC889 = resultstring_149648; resultstring_149648 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC889) nimGCunrefNoCycle(LOC889);
+	LOC989 = 0;
+	LOC989 = resultstring_149648; resultstring_149648 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC989) nimGCunrefNoCycle(LOC989);
 	{
-		NIM_BOOL LOC892;
-		NIM_BOOL LOC893;
-		NimStringDesc* LOC921;
-		LOC892 = 0;
-		LOC893 = 0;
-		LOC893 = nosexistsFile(((NimStringDesc*) &TMP150));
-		LOC892 = !(LOC893);
-		if (!(LOC892)) goto LA894;
-		LOC892 = (beginat_149646 < ((NI) 100000));
-		LA894: ;
-		if (!LOC892) goto LA895;
+		NIM_BOOL LOC992;
+		NIM_BOOL LOC993;
+		NimStringDesc* LOC1025;
+		LOC992 = 0;
+		LOC993 = 0;
+		LOC993 = nosexistsFile(((NimStringDesc*) &TMP150));
+		LOC992 = !(LOC993);
+		if (!(LOC992)) goto LA994;
+		LOC992 = (beginat_149646 < ((NI) 100000));
+		LA994: ;
+		if (!LOC992) goto LA995;
 		createfile_129068(((NimStringDesc*) &TMP150));
 		{
 			NI res_149815;
 			res_149815 = beginat_149646;
 			{
 				while (1) {
-					if (!(res_149815 <= ((NI) 100000))) goto LA899;
+					if (!(res_149815 <= ((NI) 100000))) goto LA999;
 					i_149650 = res_149815;
 					{
 						NI res_149809;
@@ -3621,102 +3746,107 @@ appendString(resultstring_149448, LOC876);
 						res_149809 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC903;
-								NimStringDesc* LOC904;
+								NimStringDesc* LOC1008;
+								NimStringDesc* LOC1009;
 								NF t_149654;
-								NimStringDesc* LOC908;
-								NimStringDesc* LOC909;
-								if (!(res_149809 <= ((NI) 1))) goto LA902;
+								NimStringDesc* LOC1013;
+								if (!(res_149809 <= ((NI) 1))) goto LA1002;
 								j_149652 = res_149809;
-								LOC903 = 0;
-								LOC904 = 0;
-								LOC904 = nimIntToStr(i_149650);
-								LOC903 = rawNewString(LOC904->Sup.len + 2);
-appendString(LOC903, ((NimStringDesc*) &TMP61));
-appendString(LOC903, LOC904);
-appendString(LOC903, ((NimStringDesc*) &TMP75));
-								resultstring_149648 = resizeString(resultstring_149648, LOC903->Sup.len + 0);
-appendString(resultstring_149648, LOC903);
+								{
+									NIM_BOOL LOC1005;
+									LOC1005 = 0;
+									LOC1005 = likely(!((i_149650 == ((NI) 0))));
+									if (!LOC1005) goto LA1006;
+									resultstring_149648 = resizeString(resultstring_149648, 1);
+appendString(resultstring_149648, ((NimStringDesc*) &TMP61));
+								}
+								LA1006: ;
+								LOC1008 = 0;
+								LOC1009 = 0;
+								LOC1009 = nimIntToStr(i_149650);
+								LOC1008 = rawNewString(LOC1009->Sup.len + 1);
+appendString(LOC1008, LOC1009);
+appendString(LOC1008, ((NimStringDesc*) &TMP75));
+								resultstring_149648 = resizeString(resultstring_149648, LOC1008->Sup.len + 0);
+appendString(resultstring_149648, LOC1008);
 								t_149654 = 0.0;
 								{
 									while (1) {
 										TY139293* a_149656;
 										NF t0_149693;
-										NF LOC907;
-										if (!(t_149654 <= 0.0)) goto LA906;
+										NF LOC1012;
+										if (!(t_149654 <= 0.0)) goto LA1011;
 										a_149656 = fewuniquekeys_139121(i_149650);
 										t0_149693 = ntcpuTime();
 										insertionsort_144125(a_149656->data, a_149656->Sup.len);
-										LOC907 = 0;
-										LOC907 = ntcpuTime();
-										t_149654 = ((NF)(LOC907) - (NF)(t0_149693));
-									} LA906: ;
+										LOC1012 = 0;
+										LOC1012 = ntcpuTime();
+										t_149654 = ((NF)(LOC1012) - (NF)(t0_149693));
+									} LA1011: ;
 								}
-								LOC908 = 0;
-								LOC908 = nsuformatFloat(t_149654, ((NU8) 2), ((NI) 32));
-								LOC909 = 0;
-								LOC909 = nsuReplaceStr(LOC908, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_149648 = resizeString(resultstring_149648, LOC909->Sup.len + 0);
-appendString(resultstring_149648, LOC909);
+								LOC1013 = 0;
+								LOC1013 = nsuformatFloat(t_149654, ((NU8) 2), ((NI) 32));
+								resultstring_149648 = resizeString(resultstring_149648, LOC1013->Sup.len + 0);
+appendString(resultstring_149648, LOC1013);
 								res_149809 += ((NI) 1);
-							} LA902: ;
+							} LA1002: ;
 						}
 					}
 					{
-						NIM_BOOL LOC912;
-						NimStringDesc* LOC915;
-						LOC912 = 0;
-						LOC912 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149650 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC912) goto LA913;
+						NIM_BOOL LOC1016;
+						NimStringDesc* LOC1019;
+						LOC1016 = 0;
+						LOC1016 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149650 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC1016) goto LA1017;
 						appenddatato_129003(((NimStringDesc*) &TMP151), resultstring_149648);
-						LOC915 = 0;
-						LOC915 = resultstring_149648; resultstring_149648 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC915) nimGCunrefNoCycle(LOC915);
+						LOC1019 = 0;
+						LOC1019 = resultstring_149648; resultstring_149648 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC1019) nimGCunrefNoCycle(LOC1019);
 					}
-					LA913: ;
+					LA1017: ;
 					{
-						if (!(res_149815 < ((NI) 10000))) goto LA918;
+						if (!(res_149815 < ((NI) 10000))) goto LA1022;
 						res_149815 += ((NI) 1);
 					}
-					goto LA916;
-					LA918: ;
+					goto LA1020;
+					LA1022: ;
 					{
 						res_149815 += ((NI) 100);
 					}
-					LA916: ;
-				} LA899: ;
+					LA1020: ;
+				} LA999: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP151), resultstring_149648);
-		LOC921 = 0;
-		LOC921 = resultstring_149648; resultstring_149648 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC921) nimGCunrefNoCycle(LOC921);
+		LOC1025 = 0;
+		LOC1025 = resultstring_149648; resultstring_149648 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC1025) nimGCunrefNoCycle(LOC1025);
 		nosremoveFile(((NimStringDesc*) &TMP150));
 	}
-	LA895: ;
+	LA995: ;
 	beginat_149845 = preparebench_131012(((NimStringDesc*) &TMP152), ((NI) 1), ((NI) 20));
-	LOC922 = 0;
-	LOC922 = resultstring_149847; resultstring_149847 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC922) nimGCunrefNoCycle(LOC922);
+	LOC1026 = 0;
+	LOC1026 = resultstring_149847; resultstring_149847 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC1026) nimGCunrefNoCycle(LOC1026);
 	{
-		NIM_BOOL LOC925;
-		NIM_BOOL LOC926;
-		NimStringDesc* LOC954;
-		LOC925 = 0;
-		LOC926 = 0;
-		LOC926 = nosexistsFile(((NimStringDesc*) &TMP153));
-		LOC925 = !(LOC926);
-		if (!(LOC925)) goto LA927;
-		LOC925 = (beginat_149845 < ((NI) 100000));
-		LA927: ;
-		if (!LOC925) goto LA928;
+		NIM_BOOL LOC1029;
+		NIM_BOOL LOC1030;
+		NimStringDesc* LOC1062;
+		LOC1029 = 0;
+		LOC1030 = 0;
+		LOC1030 = nosexistsFile(((NimStringDesc*) &TMP153));
+		LOC1029 = !(LOC1030);
+		if (!(LOC1029)) goto LA1031;
+		LOC1029 = (beginat_149845 < ((NI) 100000));
+		LA1031: ;
+		if (!LOC1029) goto LA1032;
 		createfile_129068(((NimStringDesc*) &TMP153));
 		{
 			NI res_150015;
 			res_150015 = beginat_149845;
 			{
 				while (1) {
-					if (!(res_150015 <= ((NI) 100000))) goto LA932;
+					if (!(res_150015 <= ((NI) 100000))) goto LA1036;
 					i_149849 = res_150015;
 					{
 						NI res_150009;
@@ -3724,102 +3854,107 @@ appendString(resultstring_149648, LOC909);
 						res_150009 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC936;
-								NimStringDesc* LOC937;
+								NimStringDesc* LOC1045;
+								NimStringDesc* LOC1046;
 								NF t_149853;
-								NimStringDesc* LOC941;
-								NimStringDesc* LOC942;
-								if (!(res_150009 <= ((NI) 1))) goto LA935;
+								NimStringDesc* LOC1050;
+								if (!(res_150009 <= ((NI) 1))) goto LA1039;
 								j_149851 = res_150009;
-								LOC936 = 0;
-								LOC937 = 0;
-								LOC937 = nimIntToStr(i_149849);
-								LOC936 = rawNewString(LOC937->Sup.len + 2);
-appendString(LOC936, ((NimStringDesc*) &TMP61));
-appendString(LOC936, LOC937);
-appendString(LOC936, ((NimStringDesc*) &TMP75));
-								resultstring_149847 = resizeString(resultstring_149847, LOC936->Sup.len + 0);
-appendString(resultstring_149847, LOC936);
+								{
+									NIM_BOOL LOC1042;
+									LOC1042 = 0;
+									LOC1042 = likely(!((i_149849 == ((NI) 0))));
+									if (!LOC1042) goto LA1043;
+									resultstring_149847 = resizeString(resultstring_149847, 1);
+appendString(resultstring_149847, ((NimStringDesc*) &TMP61));
+								}
+								LA1043: ;
+								LOC1045 = 0;
+								LOC1046 = 0;
+								LOC1046 = nimIntToStr(i_149849);
+								LOC1045 = rawNewString(LOC1046->Sup.len + 1);
+appendString(LOC1045, LOC1046);
+appendString(LOC1045, ((NimStringDesc*) &TMP75));
+								resultstring_149847 = resizeString(resultstring_149847, LOC1045->Sup.len + 0);
+appendString(resultstring_149847, LOC1045);
 								t_149853 = 0.0;
 								{
 									while (1) {
 										TY139293* a_149855;
 										NF t0_149892;
-										NF LOC940;
-										if (!(t_149853 <= 0.0)) goto LA939;
+										NF LOC1049;
+										if (!(t_149853 <= 0.0)) goto LA1048;
 										a_149855 = shuffledkeys_139278(i_149849);
 										t0_149892 = ntcpuTime();
 										insertionsort_144125(a_149855->data, a_149855->Sup.len);
-										LOC940 = 0;
-										LOC940 = ntcpuTime();
-										t_149853 = ((NF)(LOC940) - (NF)(t0_149892));
-									} LA939: ;
+										LOC1049 = 0;
+										LOC1049 = ntcpuTime();
+										t_149853 = ((NF)(LOC1049) - (NF)(t0_149892));
+									} LA1048: ;
 								}
-								LOC941 = 0;
-								LOC941 = nsuformatFloat(t_149853, ((NU8) 2), ((NI) 32));
-								LOC942 = 0;
-								LOC942 = nsuReplaceStr(LOC941, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_149847 = resizeString(resultstring_149847, LOC942->Sup.len + 0);
-appendString(resultstring_149847, LOC942);
+								LOC1050 = 0;
+								LOC1050 = nsuformatFloat(t_149853, ((NU8) 2), ((NI) 32));
+								resultstring_149847 = resizeString(resultstring_149847, LOC1050->Sup.len + 0);
+appendString(resultstring_149847, LOC1050);
 								res_150009 += ((NI) 1);
-							} LA935: ;
+							} LA1039: ;
 						}
 					}
 					{
-						NIM_BOOL LOC945;
-						NimStringDesc* LOC948;
-						LOC945 = 0;
-						LOC945 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC945) goto LA946;
+						NIM_BOOL LOC1053;
+						NimStringDesc* LOC1056;
+						LOC1053 = 0;
+						LOC1053 = unlikely((((NI) ((NI)(((NI) ((NI)(i_149849 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC1053) goto LA1054;
 						appenddatato_129003(((NimStringDesc*) &TMP154), resultstring_149847);
-						LOC948 = 0;
-						LOC948 = resultstring_149847; resultstring_149847 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC948) nimGCunrefNoCycle(LOC948);
+						LOC1056 = 0;
+						LOC1056 = resultstring_149847; resultstring_149847 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC1056) nimGCunrefNoCycle(LOC1056);
 					}
-					LA946: ;
+					LA1054: ;
 					{
-						if (!(res_150015 < ((NI) 10000))) goto LA951;
+						if (!(res_150015 < ((NI) 10000))) goto LA1059;
 						res_150015 += ((NI) 1);
 					}
-					goto LA949;
-					LA951: ;
+					goto LA1057;
+					LA1059: ;
 					{
 						res_150015 += ((NI) 20);
 					}
-					LA949: ;
-				} LA932: ;
+					LA1057: ;
+				} LA1036: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP154), resultstring_149847);
-		LOC954 = 0;
-		LOC954 = resultstring_149847; resultstring_149847 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC954) nimGCunrefNoCycle(LOC954);
+		LOC1062 = 0;
+		LOC1062 = resultstring_149847; resultstring_149847 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC1062) nimGCunrefNoCycle(LOC1062);
 		nosremoveFile(((NimStringDesc*) &TMP153));
 	}
-	LA928: ;
+	LA1032: ;
 	beginat_150046 = preparebench_131012(((NimStringDesc*) &TMP155), ((NI) 1), ((NI) 100));
-	LOC955 = 0;
-	LOC955 = resultstring_150048; resultstring_150048 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC955) nimGCunrefNoCycle(LOC955);
+	LOC1063 = 0;
+	LOC1063 = resultstring_150048; resultstring_150048 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC1063) nimGCunrefNoCycle(LOC1063);
 	{
-		NIM_BOOL LOC958;
-		NIM_BOOL LOC959;
-		NimStringDesc* LOC987;
-		LOC958 = 0;
-		LOC959 = 0;
-		LOC959 = nosexistsFile(((NimStringDesc*) &TMP156));
-		LOC958 = !(LOC959);
-		if (!(LOC958)) goto LA960;
-		LOC958 = (beginat_150046 < ((NI) 100000));
-		LA960: ;
-		if (!LOC958) goto LA961;
+		NIM_BOOL LOC1066;
+		NIM_BOOL LOC1067;
+		NimStringDesc* LOC1099;
+		LOC1066 = 0;
+		LOC1067 = 0;
+		LOC1067 = nosexistsFile(((NimStringDesc*) &TMP156));
+		LOC1066 = !(LOC1067);
+		if (!(LOC1066)) goto LA1068;
+		LOC1066 = (beginat_150046 < ((NI) 100000));
+		LA1068: ;
+		if (!LOC1066) goto LA1069;
 		createfile_129068(((NimStringDesc*) &TMP156));
 		{
 			NI res_150215;
 			res_150215 = beginat_150046;
 			{
 				while (1) {
-					if (!(res_150215 <= ((NI) 100000))) goto LA965;
+					if (!(res_150215 <= ((NI) 100000))) goto LA1073;
 					i_150050 = res_150215;
 					{
 						NI res_150209;
@@ -3827,102 +3962,107 @@ appendString(resultstring_149847, LOC942);
 						res_150209 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC969;
-								NimStringDesc* LOC970;
+								NimStringDesc* LOC1082;
+								NimStringDesc* LOC1083;
 								NF t_150054;
-								NimStringDesc* LOC974;
-								NimStringDesc* LOC975;
-								if (!(res_150209 <= ((NI) 1))) goto LA968;
+								NimStringDesc* LOC1087;
+								if (!(res_150209 <= ((NI) 1))) goto LA1076;
 								j_150052 = res_150209;
-								LOC969 = 0;
-								LOC970 = 0;
-								LOC970 = nimIntToStr(i_150050);
-								LOC969 = rawNewString(LOC970->Sup.len + 2);
-appendString(LOC969, ((NimStringDesc*) &TMP61));
-appendString(LOC969, LOC970);
-appendString(LOC969, ((NimStringDesc*) &TMP75));
-								resultstring_150048 = resizeString(resultstring_150048, LOC969->Sup.len + 0);
-appendString(resultstring_150048, LOC969);
+								{
+									NIM_BOOL LOC1079;
+									LOC1079 = 0;
+									LOC1079 = likely(!((i_150050 == ((NI) 0))));
+									if (!LOC1079) goto LA1080;
+									resultstring_150048 = resizeString(resultstring_150048, 1);
+appendString(resultstring_150048, ((NimStringDesc*) &TMP61));
+								}
+								LA1080: ;
+								LOC1082 = 0;
+								LOC1083 = 0;
+								LOC1083 = nimIntToStr(i_150050);
+								LOC1082 = rawNewString(LOC1083->Sup.len + 1);
+appendString(LOC1082, LOC1083);
+appendString(LOC1082, ((NimStringDesc*) &TMP75));
+								resultstring_150048 = resizeString(resultstring_150048, LOC1082->Sup.len + 0);
+appendString(resultstring_150048, LOC1082);
 								t_150054 = 0.0;
 								{
 									while (1) {
 										TY139293* a_150056;
 										NF t0_150093;
-										NF LOC973;
-										if (!(t_150054 <= 0.0)) goto LA972;
+										NF LOC1086;
+										if (!(t_150054 <= 0.0)) goto LA1085;
 										a_150056 = randkeys_139290(i_150050);
 										t0_150093 = ntcpuTime();
 										insertionsort_144125(a_150056->data, a_150056->Sup.len);
-										LOC973 = 0;
-										LOC973 = ntcpuTime();
-										t_150054 = ((NF)(LOC973) - (NF)(t0_150093));
-									} LA972: ;
+										LOC1086 = 0;
+										LOC1086 = ntcpuTime();
+										t_150054 = ((NF)(LOC1086) - (NF)(t0_150093));
+									} LA1085: ;
 								}
-								LOC974 = 0;
-								LOC974 = nsuformatFloat(t_150054, ((NU8) 2), ((NI) 32));
-								LOC975 = 0;
-								LOC975 = nsuReplaceStr(LOC974, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_150048 = resizeString(resultstring_150048, LOC975->Sup.len + 0);
-appendString(resultstring_150048, LOC975);
+								LOC1087 = 0;
+								LOC1087 = nsuformatFloat(t_150054, ((NU8) 2), ((NI) 32));
+								resultstring_150048 = resizeString(resultstring_150048, LOC1087->Sup.len + 0);
+appendString(resultstring_150048, LOC1087);
 								res_150209 += ((NI) 1);
-							} LA968: ;
+							} LA1076: ;
 						}
 					}
 					{
-						NIM_BOOL LOC978;
-						NimStringDesc* LOC981;
-						LOC978 = 0;
-						LOC978 = unlikely((((NI) ((NI)(((NI) ((NI)(i_150050 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC978) goto LA979;
+						NIM_BOOL LOC1090;
+						NimStringDesc* LOC1093;
+						LOC1090 = 0;
+						LOC1090 = unlikely((((NI) ((NI)(((NI) ((NI)(i_150050 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC1090) goto LA1091;
 						appenddatato_129003(((NimStringDesc*) &TMP157), resultstring_150048);
-						LOC981 = 0;
-						LOC981 = resultstring_150048; resultstring_150048 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC981) nimGCunrefNoCycle(LOC981);
+						LOC1093 = 0;
+						LOC1093 = resultstring_150048; resultstring_150048 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC1093) nimGCunrefNoCycle(LOC1093);
 					}
-					LA979: ;
+					LA1091: ;
 					{
-						if (!(res_150215 < ((NI) 10000))) goto LA984;
+						if (!(res_150215 < ((NI) 10000))) goto LA1096;
 						res_150215 += ((NI) 1);
 					}
-					goto LA982;
-					LA984: ;
+					goto LA1094;
+					LA1096: ;
 					{
 						res_150215 += ((NI) 100);
 					}
-					LA982: ;
-				} LA965: ;
+					LA1094: ;
+				} LA1073: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP157), resultstring_150048);
-		LOC987 = 0;
-		LOC987 = resultstring_150048; resultstring_150048 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC987) nimGCunrefNoCycle(LOC987);
+		LOC1099 = 0;
+		LOC1099 = resultstring_150048; resultstring_150048 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC1099) nimGCunrefNoCycle(LOC1099);
 		nosremoveFile(((NimStringDesc*) &TMP156));
 	}
-	LA961: ;
+	LA1069: ;
 	beginat_150246 = preparebench_131012(((NimStringDesc*) &TMP158), ((NI) 1), ((NI) 100));
-	LOC988 = 0;
-	LOC988 = resultstring_150248; resultstring_150248 = copyStringRC1(((NimStringDesc*) &TMP73));
-	if (LOC988) nimGCunrefNoCycle(LOC988);
+	LOC1100 = 0;
+	LOC1100 = resultstring_150248; resultstring_150248 = copyStringRC1(((NimStringDesc*) &TMP73));
+	if (LOC1100) nimGCunrefNoCycle(LOC1100);
 	{
-		NIM_BOOL LOC991;
-		NIM_BOOL LOC992;
-		NimStringDesc* LOC1020;
-		LOC991 = 0;
-		LOC992 = 0;
-		LOC992 = nosexistsFile(((NimStringDesc*) &TMP159));
-		LOC991 = !(LOC992);
-		if (!(LOC991)) goto LA993;
-		LOC991 = (beginat_150246 < ((NI) 100000));
-		LA993: ;
-		if (!LOC991) goto LA994;
+		NIM_BOOL LOC1103;
+		NIM_BOOL LOC1104;
+		NimStringDesc* LOC1136;
+		LOC1103 = 0;
+		LOC1104 = 0;
+		LOC1104 = nosexistsFile(((NimStringDesc*) &TMP159));
+		LOC1103 = !(LOC1104);
+		if (!(LOC1103)) goto LA1105;
+		LOC1103 = (beginat_150246 < ((NI) 100000));
+		LA1105: ;
+		if (!LOC1103) goto LA1106;
 		createfile_129068(((NimStringDesc*) &TMP159));
 		{
 			NI res_150415;
 			res_150415 = beginat_150246;
 			{
 				while (1) {
-					if (!(res_150415 <= ((NI) 100000))) goto LA998;
+					if (!(res_150415 <= ((NI) 100000))) goto LA1110;
 					i_150250 = res_150415;
 					{
 						NI res_150409;
@@ -3930,79 +4070,84 @@ appendString(resultstring_150048, LOC975);
 						res_150409 = ((NI) 1);
 						{
 							while (1) {
-								NimStringDesc* LOC1002;
-								NimStringDesc* LOC1003;
+								NimStringDesc* LOC1119;
+								NimStringDesc* LOC1120;
 								NF t_150254;
-								NimStringDesc* LOC1007;
-								NimStringDesc* LOC1008;
-								if (!(res_150409 <= ((NI) 1))) goto LA1001;
+								NimStringDesc* LOC1124;
+								if (!(res_150409 <= ((NI) 1))) goto LA1113;
 								j_150252 = res_150409;
-								LOC1002 = 0;
-								LOC1003 = 0;
-								LOC1003 = nimIntToStr(i_150250);
-								LOC1002 = rawNewString(LOC1003->Sup.len + 2);
-appendString(LOC1002, ((NimStringDesc*) &TMP61));
-appendString(LOC1002, LOC1003);
-appendString(LOC1002, ((NimStringDesc*) &TMP75));
-								resultstring_150248 = resizeString(resultstring_150248, LOC1002->Sup.len + 0);
-appendString(resultstring_150248, LOC1002);
+								{
+									NIM_BOOL LOC1116;
+									LOC1116 = 0;
+									LOC1116 = likely(!((i_150250 == ((NI) 0))));
+									if (!LOC1116) goto LA1117;
+									resultstring_150248 = resizeString(resultstring_150248, 1);
+appendString(resultstring_150248, ((NimStringDesc*) &TMP61));
+								}
+								LA1117: ;
+								LOC1119 = 0;
+								LOC1120 = 0;
+								LOC1120 = nimIntToStr(i_150250);
+								LOC1119 = rawNewString(LOC1120->Sup.len + 1);
+appendString(LOC1119, LOC1120);
+appendString(LOC1119, ((NimStringDesc*) &TMP75));
+								resultstring_150248 = resizeString(resultstring_150248, LOC1119->Sup.len + 0);
+appendString(resultstring_150248, LOC1119);
 								t_150254 = 0.0;
 								{
 									while (1) {
 										TY139293* a_150256;
 										NF t0_150293;
-										NF LOC1006;
-										if (!(t_150254 <= 0.0)) goto LA1005;
+										NF LOC1123;
+										if (!(t_150254 <= 0.0)) goto LA1122;
 										a_150256 = normalkeys_139357(i_150250);
 										t0_150293 = ntcpuTime();
 										insertionsort_144125(a_150256->data, a_150256->Sup.len);
-										LOC1006 = 0;
-										LOC1006 = ntcpuTime();
-										t_150254 = ((NF)(LOC1006) - (NF)(t0_150293));
-									} LA1005: ;
+										LOC1123 = 0;
+										LOC1123 = ntcpuTime();
+										t_150254 = ((NF)(LOC1123) - (NF)(t0_150293));
+									} LA1122: ;
 								}
-								LOC1007 = 0;
-								LOC1007 = nsuformatFloat(t_150254, ((NU8) 2), ((NI) 32));
-								LOC1008 = 0;
-								LOC1008 = nsuReplaceStr(LOC1007, ((NimStringDesc*) &TMP59), ((NimStringDesc*) &TMP60));
-								resultstring_150248 = resizeString(resultstring_150248, LOC1008->Sup.len + 0);
-appendString(resultstring_150248, LOC1008);
+								LOC1124 = 0;
+								LOC1124 = nsuformatFloat(t_150254, ((NU8) 2), ((NI) 32));
+								resultstring_150248 = resizeString(resultstring_150248, LOC1124->Sup.len + 0);
+appendString(resultstring_150248, LOC1124);
 								res_150409 += ((NI) 1);
-							} LA1001: ;
+							} LA1113: ;
 						}
 					}
 					{
-						NIM_BOOL LOC1011;
-						NimStringDesc* LOC1014;
-						LOC1011 = 0;
-						LOC1011 = unlikely((((NI) ((NI)(((NI) ((NI)(i_150250 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
-						if (!LOC1011) goto LA1012;
+						NIM_BOOL LOC1127;
+						NimStringDesc* LOC1130;
+						LOC1127 = 0;
+						LOC1127 = unlikely((((NI) ((NI)(((NI) ((NI)(i_150250 % ((NI) 10000)))) / ((NI) 1)))) == ((NI) 0)));
+						if (!LOC1127) goto LA1128;
 						appenddatato_129003(((NimStringDesc*) &TMP160), resultstring_150248);
-						LOC1014 = 0;
-						LOC1014 = resultstring_150248; resultstring_150248 = copyStringRC1(((NimStringDesc*) &TMP73));
-						if (LOC1014) nimGCunrefNoCycle(LOC1014);
+						LOC1130 = 0;
+						LOC1130 = resultstring_150248; resultstring_150248 = copyStringRC1(((NimStringDesc*) &TMP73));
+						if (LOC1130) nimGCunrefNoCycle(LOC1130);
 					}
-					LA1012: ;
+					LA1128: ;
 					{
-						if (!(res_150415 < ((NI) 10000))) goto LA1017;
+						if (!(res_150415 < ((NI) 10000))) goto LA1133;
 						res_150415 += ((NI) 1);
 					}
-					goto LA1015;
-					LA1017: ;
+					goto LA1131;
+					LA1133: ;
 					{
 						res_150415 += ((NI) 100);
 					}
-					LA1015: ;
-				} LA998: ;
+					LA1131: ;
+				} LA1110: ;
 			}
 		}
 		appenddatato_129003(((NimStringDesc*) &TMP160), resultstring_150248);
-		LOC1020 = 0;
-		LOC1020 = resultstring_150248; resultstring_150248 = copyStringRC1(((NimStringDesc*) &TMP73));
-		if (LOC1020) nimGCunrefNoCycle(LOC1020);
+		LOC1136 = 0;
+		LOC1136 = resultstring_150248; resultstring_150248 = copyStringRC1(((NimStringDesc*) &TMP73));
+		if (LOC1136) nimGCunrefNoCycle(LOC1136);
 		nosremoveFile(((NimStringDesc*) &TMP159));
 	}
-	LA994: ;
+	LA1106: ;
 }
 
 NIM_EXTERNC N_NOINLINE(void, mainDatInit)(void) {
