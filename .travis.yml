@@ -1,6 +1,6 @@
-- language: c
-- script:
-    cd PK
-    make
-    cd ../main
-    make
+language: c
+script:
+    - cd PK
+    - make
+    - cd ../main
+    - make
