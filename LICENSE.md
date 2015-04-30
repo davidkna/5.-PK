@@ -1,1 +1,0 @@
-GPL v3 https://www.gnu.org/licenses/gpl-3.0
