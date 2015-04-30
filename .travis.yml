@@ -1,7 +1,7 @@
 language: c
 sudo: required
 install:
-    - CURRENTDIR = $(PWD)
+    - CURRENTDIR=$(PWD)
     - sudo apt-get install --yes build-essential
     - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
     - sudo apt-get update --yes -q
