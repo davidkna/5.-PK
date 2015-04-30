@@ -2,8 +2,8 @@ language: c
 sudo: required
 install:
     - sudo apt-get install --yes build-essential
-    - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-    - sudo apt-get update --yes
+    - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+    - sudo apt-get update --yes -q
     - sudo apt-get install --yes gcc-5.1 g++-5.1 cpp-5.1
     - cd /usr/bin
     - sudo rm  -f gcc g++ cpp
