@@ -1,4 +1,7 @@
 language: c
 script:
-    - ./PK/build/build.sh
-    - ./main/build/build.sh
+    - cd ./PK/build/
+    - ./build.sh
+    - cd ../..
+    - cd ./main/build/
+    - ./build.sh
