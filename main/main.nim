@@ -54,7 +54,7 @@ benchMark(simpleQuickSort, almostSortedKeys, "worstCaseKeysSQS.csv", max, 1, 100
 # InsertionSort
 benchMark(insertionSort, almostSortedKeys, "almostSortedKeysIS.csv", max, 1, 100)
 
-benchMark(insertionSort, almostReverseKeys, "almostReveISeKeysIS.csv", max, 1, 100)
+benchMark(insertionSort, almostReverseKeys, "almostReverseKeysIS.csv", max, 1, 100)
 
 benchMark(insertionSort, equalKeys, "equalKeysIS.csv", max, 1, 100)
 
