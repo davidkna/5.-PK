@@ -260,6 +260,8 @@ N_NIMCALL(TGenericSeq*, incrSeq)(TGenericSeq* seq, NI elemsize);
 N_NIMCALL(NIM_BOOL, nsuStartsWith)(NimStringDesc* s, NimStringDesc* prefix);
 N_NIMCALL(NI, nsuFindChar)(NimStringDesc* s, NIM_CHAR sub, NI start);
 N_NIMCALL(NimStringDesc*, cstrToNimstr)(NCSTRING str);
+N_NIMCALL(NI, searchextpos_117736)(NimStringDesc* s);
+N_NIMCALL(NimStringDesc*, normext_117726)(NimStringDesc* ext);
 STRING_LITERAL(TMP37, "", 0);
 STRING_LITERAL(TMP38, "unknown OS error", 16);
 NIM_BOOL envcomputed_122007;
@@ -790,6 +792,107 @@ N_NIMCALL(NimStringDesc*, getenv_122843)(NimStringDesc* key) {
 	}
 	LA1: ;
 	}BeforeRet: ;
+	return result;
+}
+
+N_NIMCALL(NI, searchextpos_117736)(NimStringDesc* s) {
+	NI result;
+	result = 0;
+	result = ((NI) -1);
+	{
+		NI i_117751;
+		NI HEX3Atmp_117764;
+		NI res_117767;
+		i_117751 = 0;
+		HEX3Atmp_117764 = 0;
+		HEX3Atmp_117764 = (NI)((s ? s->Sup.len : 0) - ((NI) 1));
+		res_117767 = HEX3Atmp_117764;
+		{
+			while (1) {
+				if (!(((NI) 1) <= res_117767)) goto LA3;
+				i_117751 = res_117767;
+				{
+					if (!((NU8)(s->data[i_117751]) == (NU8)(46))) goto LA6;
+					result = i_117751;
+					goto LA1;
+				}
+				goto LA4;
+				LA6: ;
+				{
+					if (!(((NU8)(s->data[i_117751])) == ((NU8)(92)) || ((NU8)(s->data[i_117751])) == ((NU8)(47)))) goto LA9;
+					goto LA1;
+				}
+				goto LA4;
+				LA9: ;
+				LA4: ;
+				res_117767 -= ((NI) 1);
+			} LA3: ;
+		}
+	} LA1: ;
+	return result;
+}
+
+N_NIMCALL(NimStringDesc*, normext_117726)(NimStringDesc* ext) {
+	NimStringDesc* result;
+	result = 0;
+	{
+		NIM_BOOL LOC3;
+		LOC3 = 0;
+		LOC3 = ((ext) && (ext)->Sup.len == 0);
+		if (LOC3) goto LA4;
+		LOC3 = ((NU8)(ext->data[((NI) 0)]) == (NU8)(46));
+		LA4: ;
+		if (!LOC3) goto LA5;
+		result = copyString(ext);
+	}
+	goto LA1;
+	LA5: ;
+	{
+		NimStringDesc* LOC8;
+		LOC8 = 0;
+		LOC8 = rawNewString(ext->Sup.len + 1);
+appendChar(LOC8, 46);
+appendString(LOC8, ext);
+		result = LOC8;
+	}
+	LA1: ;
+	return result;
+}
+
+N_NIMCALL(NimStringDesc*, noschangeFileExt)(NimStringDesc* filename, NimStringDesc* ext) {
+	NimStringDesc* result;
+	NI extpos;
+	result = 0;
+	extpos = searchextpos_117736(filename);
+	{
+		NimStringDesc* LOC5;
+		NimStringDesc* LOC6;
+		if (!(extpos < ((NI) 0))) goto LA3;
+		LOC5 = 0;
+		LOC6 = 0;
+		LOC6 = normext_117726(ext);
+		LOC5 = rawNewString(filename->Sup.len + LOC6->Sup.len + 0);
+appendString(LOC5, filename);
+appendString(LOC5, LOC6);
+		result = LOC5;
+	}
+	goto LA1;
+	LA3: ;
+	{
+		NimStringDesc* LOC8;
+		NimStringDesc* LOC9;
+		NimStringDesc* LOC10;
+		LOC8 = 0;
+		LOC9 = 0;
+		LOC9 = copyStrLast(filename, ((NI) 0), (NI)(extpos - ((NI) 1)));
+		LOC10 = 0;
+		LOC10 = normext_117726(ext);
+		LOC8 = rawNewString(LOC9->Sup.len + LOC10->Sup.len + 0);
+appendString(LOC8, LOC9);
+appendString(LOC8, LOC10);
+		result = LOC8;
+	}
+	LA1: ;
 	return result;
 }
 

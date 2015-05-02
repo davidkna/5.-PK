@@ -230,8 +230,7 @@ N_NOINLINE(void, addzct_49817)(Tcellseq46362* s, Tcell46346* c);
 N_NIMCALL(void, nosremoveFile)(NimStringDesc* file);
 N_NIMCALL(NI, nospcountProcessors)(void);
 N_NIMCALL(Processobj143402*, nospstartProcess)(NimStringDesc* command, NimStringDesc* workingdir, NimStringDesc** args, NI argsLen0, Stringtableobj135012* env, NU8 options);
-static N_INLINE(void, appendString)(NimStringDesc* dest, NimStringDesc* src);
-N_NIMCALL(NimStringDesc*, rawNewString)(NI space);
+N_NIMCALL(NimStringDesc*, noschangeFileExt)(NimStringDesc* filename, NimStringDesc* ext);
 N_NIMCALL(void, nossleep)(NI milsecs);
 static N_INLINE(void, initStackBottomWith)(void* locals);
 N_NOINLINE(void, setStackBottom)(void* thestackbottom);
@@ -328,11 +327,6 @@ static N_INLINE(void, asgnRefNoCycle)(void** dest, void* src) {
 	}
 	LA7: ;
 	(*dest) = src;
-}
-
-static N_INLINE(void, appendString)(NimStringDesc* dest, NimStringDesc* src) {
-	memcpy(((NCSTRING) ((&(*dest).data[((*dest).Sup.len)- 0]))), ((NCSTRING) ((*src).data)), (NI)((*src).Sup.len + ((NI) 1)));
-	(*dest).Sup.len += (*src).Sup.len;
 }
 
 static N_INLINE(void, initStackBottomWith)(void* locals) {
@@ -474,16 +468,14 @@ NIM_EXTERNC N_NOINLINE(void, PKInit)(void) {
 				if (!(res_147047 <= n_147025)) goto LA32;
 				i_147042 = res_147047;
 				LOC33 = 0;
+				LOC33 = nosgetCurrentDir();
 				LOC34 = 0;
-				LOC34 = nosgetCurrentDir();
+				LOC34 = noschangeFileExt(((NimStringDesc*) &TMP65), ((NimStringDesc*) &TMP66));
 				LOC35 = 0;
-				LOC35 = HEX2F_117492(LOC34, ((NimStringDesc*) &TMP65));
-				LOC33 = rawNewString(LOC35->Sup.len + 3);
-appendString(LOC33, LOC35);
-appendString(LOC33, ((NimStringDesc*) &TMP66));
+				LOC35 = HEX2F_117492(LOC33, LOC34);
 				memset((void*)LOC36, 0, sizeof(LOC36));
 				LOC37 = 0;
-				LOC37 = nospstartProcess(LOC33, ((NimStringDesc*) &TMP67), LOC36, 0, NIM_NIL, 8);
+				LOC37 = nospstartProcess(LOC35, ((NimStringDesc*) &TMP67), LOC36, 0, NIM_NIL, 8);
 				nossleep(((NI) 500));
 				res_147047 += ((NI) 1);
 			} LA32: ;

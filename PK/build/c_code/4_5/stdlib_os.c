@@ -216,6 +216,10 @@ N_NIMCALL(void, nimGCvisit)(void* d, NI op);
 N_NIMCALL(void, TMP38)(void* p, NI op);
 N_NIMCALL(void*, newSeqRC1)(TNimType* typ, NI len);
 N_NIMCALL(TGenericSeq*, incrSeq)(TGenericSeq* seq, NI elemsize);
+N_NIMCALL(NI, searchextpos_118536)(NimStringDesc* s);
+N_NIMCALL(NimStringDesc*, normext_118526)(NimStringDesc* ext);
+N_NIMCALL(NimStringDesc*, copyStrLast)(NimStringDesc* s, NI start_76443, NI last);
+N_NIMCALL(NimStringDesc*, copyStrLast)(NimStringDesc* s, NI first, NI last);
 STRING_LITERAL(TMP28, "", 0);
 STRING_LITERAL(TMP29, "unknown OS error", 16);
 NIM_BOOL envcomputed_121007;
@@ -486,6 +490,107 @@ N_NIMCALL(void, getenvvarsc_121202)(void) {
 		envcomputed_121007 = NIM_TRUE;
 	}
 	LA3: ;
+}
+
+N_NIMCALL(NI, searchextpos_118536)(NimStringDesc* s) {
+	NI result;
+	result = 0;
+	result = ((NI) -1);
+	{
+		NI i_118551;
+		NI HEX3Atmp_118564;
+		NI res_118567;
+		i_118551 = 0;
+		HEX3Atmp_118564 = 0;
+		HEX3Atmp_118564 = (NI)((s ? s->Sup.len : 0) - ((NI) 1));
+		res_118567 = HEX3Atmp_118564;
+		{
+			while (1) {
+				if (!(((NI) 1) <= res_118567)) goto LA3;
+				i_118551 = res_118567;
+				{
+					if (!((NU8)(s->data[i_118551]) == (NU8)(46))) goto LA6;
+					result = i_118551;
+					goto LA1;
+				}
+				goto LA4;
+				LA6: ;
+				{
+					if (!(((NU8)(s->data[i_118551])) == ((NU8)(47)) || ((NU8)(s->data[i_118551])) == ((NU8)(47)))) goto LA9;
+					goto LA1;
+				}
+				goto LA4;
+				LA9: ;
+				LA4: ;
+				res_118567 -= ((NI) 1);
+			} LA3: ;
+		}
+	} LA1: ;
+	return result;
+}
+
+N_NIMCALL(NimStringDesc*, normext_118526)(NimStringDesc* ext) {
+	NimStringDesc* result;
+	result = 0;
+	{
+		NIM_BOOL LOC3;
+		LOC3 = 0;
+		LOC3 = ((ext) && (ext)->Sup.len == 0);
+		if (LOC3) goto LA4;
+		LOC3 = ((NU8)(ext->data[((NI) 0)]) == (NU8)(46));
+		LA4: ;
+		if (!LOC3) goto LA5;
+		result = copyString(ext);
+	}
+	goto LA1;
+	LA5: ;
+	{
+		NimStringDesc* LOC8;
+		LOC8 = 0;
+		LOC8 = rawNewString(ext->Sup.len + 1);
+appendChar(LOC8, 46);
+appendString(LOC8, ext);
+		result = LOC8;
+	}
+	LA1: ;
+	return result;
+}
+
+N_NIMCALL(NimStringDesc*, noschangeFileExt)(NimStringDesc* filename, NimStringDesc* ext) {
+	NimStringDesc* result;
+	NI extpos;
+	result = 0;
+	extpos = searchextpos_118536(filename);
+	{
+		NimStringDesc* LOC5;
+		NimStringDesc* LOC6;
+		if (!(extpos < ((NI) 0))) goto LA3;
+		LOC5 = 0;
+		LOC6 = 0;
+		LOC6 = normext_118526(ext);
+		LOC5 = rawNewString(filename->Sup.len + LOC6->Sup.len + 0);
+appendString(LOC5, filename);
+appendString(LOC5, LOC6);
+		result = LOC5;
+	}
+	goto LA1;
+	LA3: ;
+	{
+		NimStringDesc* LOC8;
+		NimStringDesc* LOC9;
+		NimStringDesc* LOC10;
+		LOC8 = 0;
+		LOC9 = 0;
+		LOC9 = copyStrLast(filename, ((NI) 0), (NI)(extpos - ((NI) 1)));
+		LOC10 = 0;
+		LOC10 = normext_118526(ext);
+		LOC8 = rawNewString(LOC9->Sup.len + LOC10->Sup.len + 0);
+appendString(LOC8, LOC9);
+appendString(LOC8, LOC10);
+		result = LOC8;
+	}
+	LA1: ;
+	return result;
 }
 
 N_NIMCALL(void, nossleep)(NI milsecs) {
