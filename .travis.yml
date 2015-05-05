@@ -10,18 +10,18 @@ before_install:
         sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc
 before_script:
     - |
-        if [ ! -x ~/nim/bin/nim ]; then
-          git clone -b devel --depth 1 git://github.com/araq/nim ~/nim/
-          git clone -b devel --depth 1 git://github.com/nim-lang/csources ~/nim/csources/
-          cd ~/nim/csources; sh build.sh; cd ..; rm -rf csources
+        if [ ! -x nim/bin/nim ]; then
+          git clone -b devel --depth 1 git://github.com/araq/nim nim/
+          git clone -b devel --depth 1 git://github.com/nim-lang/csources nim/csources
+          cd nim/csources; sh build.sh; cd ..; rm -rf csources
           bin/nim c koch; ./koch boot -d:release
         else
-          cd ~/nim; git fetch origin
+          cd nim; git fetch origin
           git merge FETCH_HEAD | grep "Already up-to-date" || (bin/nim c koch; ./koch boot -d:release)
         fi
 script:
     - |
-        cd ~
-        export PATH=$PATH:/home/travis/nim/bin/
+        cd "$TRAVIS_BUILD_DIR"
+        export PATH="$PATH:$TRAVIS_BUILD_DIR/nim/bin/"
         nim  c -d:release main
         nim  c -d:release PK
