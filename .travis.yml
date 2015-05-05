@@ -21,6 +21,7 @@ before_script:
         fi
 script:
     - |
+        cd ~
         export PATH=$PATH:/home/travis/nim/bin/
         nim  c -d:release main
         nim  c -d:release PK
