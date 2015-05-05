@@ -16,6 +16,7 @@ proc weakShuffle*(x: var seq[int]) =
 proc gaussRand*(länge: int): int =
     randomize()
     result = -1
-    while result < 0:
-        let tmp = 1 + länge.toFloat / PI * cos(2*PI*random(1.0)) * sqrt(-2*log10(random(1.0)))
-        result = tmp.toInt
+    let tmp = 1 + länge.toFloat / PI * cos(2*PI*random(1.0)) * sqrt(-2*log10(random(1.0)))
+    result = tmp.toInt
+    if result < 0
+      result = -result
