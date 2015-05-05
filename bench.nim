@@ -1,20 +1,24 @@
 import times, os, saveData, strutils, algorithm
 
+const countUpThreshold = 10_000
+let appDirPath = getAppDir()
+let testDataPath* = appDirPath / "testData"
+
 template time*(s: stmt): expr =
   let t0 = cpuTime()
   s
   cpuTime() - t0
 
-proc prepareBench(fileName: string, times, step: int): int =
-  if not existsDir("testData"):
-    createDir("testData")
-  if not existsFile("testData" & DirSep & fileName):
-    createFile("testData" & DirSep & fileName)
+proc prepareBench(testName: string, times, step: int): int =
+  let filePath = testDataPath / changeFileExt(testName, "csv")
+
+  if not existsFile(filePath):
+    createFile(filePath)
     result = 1
   else:
-    result = saveData.countLines("testData" & DirSep & fileName) div times + 1
-    if (result > 10_000 and step != 1):
-      result = (result - 10_000) * step + 10_000
+    result = saveData.countLines(filePath) div times + 1
+    if (result > countUpThreshold and step != 1):
+      result = (result - countUpThreshold) * step + countUpThreshold
 
 
 proc isSorted*[T](s: openarray[T]): bool =
@@ -32,54 +36,64 @@ iterator countUpBenchStyle[S, T](a: S, b: T, step = 1): T {.inline.} =
   var res: T = T(a)
   while res <= b:
     yield res
-    if res < 10_000: inc (res, 1)
+    if res < countUpThreshold: inc (res, 1)
     else: inc(res, step)
 
 
 
-template benchMark*(sorter: stmt, listSpawner: stmt, saveFileName: string, maxLength: int, times: int, step: int) =
-  let beginAt = prepareBench(saveFileName, times, step)
-  var resultString = ""
-  if not existsFile("testData" & DirSep & saveFileName & ".lock") and beginAt < maxLength:
-    # Create lockfile
-    createFile("testData" & DirSep & saveFileName & ".lock")
+template benchMark*(sorter: stmt, listSpawner: stmt, testName: string, maxLength: int, times: int, step: int) =
+  let beginAt = prepareBench(testName, times, step)
+  let lockFilePath = testDataPath / changeFileExt(testName, "lock")
+
+  if not existsFile(lockFilePath) and beginAt < maxLength:
+    # Create lockfile 
+    createFile lockFilePath
+
+    let testPath = testDataPath / changeFileExt(testName, "csv")
+    var datei = open(testPath, fmAppend)
+
     for i in countUpBenchStyle(beginAt, maxLength, step):
       for j in 1..times:
-        if likely(i != 0): resultString.add("\n")
-        resultString.add($i & ",")
+
+        if likely(i != 1 and j == 1):
+          write(datei, "\n")
+          
+        write(datei, $i & ",")
+        
         var t = 0.0
         while t <= 0.0:
           var a = listSpawner i
           t = time(a.sorter)
           assert a.isSorted
-        resultString.add formatFloat(t, ffScientific, 32)
-      if (unlikely(i mod 10_000 div times == 0)):
-        appendDataTo("testData" & DirSep & saveFileName, resultString)
-        resultString = ""
-    appendDataTo("testData" & DirSep & saveFileName, resultString)
-    resultString = ""
-    removeFile "testData" & DirSep & saveFileName & ".lock"
+        write(datei, formatFloat(t, ffScientific, 32))
 
-template distMark*(sorter: stmt, saveFileName: string) =
-  let beginAt = prepareBench(saveFileName, 1, 1)
+    flushFile datei
+    close datei
+    removeFile lockFilePath
+
+template distMark*(sorter: stmt, testName: string) =
   const times = 10_000
+  let beginAt = prepareBench(testName, 1, 1)
+  let lockFilePath = testDataPath / changeFileExt(testName, "lock")
 
-  if not existsFile("testData" & DirSep & saveFileName & ".lock") and beginAt < times:
+  if not existsFile(lockFilePath) and beginAt < times:
     # Create lockfile
-    createFile("testData" & DirSep & saveFileName & ".lock")
+    createFile(lockFilePath)
+
+    let testPath = testDataPath / changeFileExt(testName, "csv")
+    var datei = open(testPath, fmAppend)
 
     var results = newSeq[float](times)
     for i in beginAt .. times: 
       var t = 0.0
-      while t == 0.0:
+      while t <= 0.0:
         var a = randKeys times
         t = time(a.sorter)
         assert a.isSorted
-      results[i] = t
-
-    sort results, cmp[float]
-    var resultString = formatFloat(results[0], ffScientific, 32).replace(".", ",")
-    for i in results.items:
-      resultString.add "\n" & formatFloat(i, ffScientific, 32).replace(".", ",")
-    appendDataTo("testData" & DirSep & saveFileName, resultString)
-    removeFile "testData" & DirSep & saveFileName & ".lock"
+      if likely(i != 1):
+          write(datei, "\n")
+      write(datei, formatFloat(t, ffScientific, 32))
+    
+    flushFile datei
+    close datei
+    removeFile lockFilePath

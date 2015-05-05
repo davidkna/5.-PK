@@ -5,7 +5,6 @@ before_install:
         sudo apt-get install --yes build-essential
         sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
         sudo apt-get update -q
-        sudo apt-get upgrade --yes
         sudo apt-get install --yes gcc-5 libzip-dev
         sudo rm  -f /usr/bin/gcc
         sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc
