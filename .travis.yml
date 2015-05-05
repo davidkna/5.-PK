@@ -15,13 +15,12 @@ before_script:
           git clone -b devel --depth 1 git://github.com/nim-lang/csources ~/nim/csources/
           cd ~/nim/csources; sh build.sh; cd ..; rm -rf csources
           bin/nim c koch; ./koch boot -d:release
-          ln -fs ~/nim/bin/nim ~/bin/nim
         else
           cd ~/nim; git fetch origin
           git merge FETCH_HEAD | grep "Already up-to-date" || (bin/nim c koch; ./koch boot -d:release)
         fi
 script:
     - |
-        export PATH=$PATH:~/bin
+        export PATH=$PATH:/home/travis/nim/bin/
         nim  c -d:release main
         nim  c -d:release PK
