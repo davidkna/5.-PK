@@ -16,8 +16,6 @@ proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int =
     else:
       return a
 
-
-
 proc quickSort[T](liste: var openarray[T], inl, inr: int) =
   var r = inr
   var l = inl
@@ -52,11 +50,6 @@ proc quickSort[T](liste: var openarray[T], inl, inr: int) =
       dec r
   quickSort(liste, inl, r)
   quickSort(liste, l, inr)
-
-
-
-
-
 
 proc quickSort* [T] (liste: var openarray[T]) =
   # Optimiert bis in den Tod
@@ -123,4 +116,3 @@ proc radixSort* [T](liste: var seq[T], radix: int = 32) =
     placement *= radix
 
   assert liste.isSorted
-
