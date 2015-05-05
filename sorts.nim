@@ -89,7 +89,7 @@ proc insertionSort* [T](liste: var openarray[T]) =
     while j > 0 and wert < liste[j-1]:
       liste[j] = liste[j-1]
       dec j
-      liste[j] = wert
+    liste[j] = wert
   assert liste.isSorted
 
 proc radixSort* [T](liste: var seq[T], radix: int = 32) =

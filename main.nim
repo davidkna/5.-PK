@@ -3,14 +3,9 @@ import sorts
 import listSpawner
 import radixListSpawner
 import saveData
-import os
 
 
 const max = 100_000
-
-if not existsDir testDataPath:
-    createDir testDataPath
-
 
 # DistMark
 distMark radixSort, "distRS"
