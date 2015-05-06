@@ -79,7 +79,7 @@ proc simpleQuickSort[T](liste: var openarray[T], inl, inr: int) =
 
 proc simpleQuickSort* [T] (liste: var openarray[T]) =
   # Nicht optimiert bis in den Tod!
-  quickSort(liste, 0, liste.high)
+  simpleQuickSort(liste, 0, liste.high)
   assert liste.isSorted
 
 proc insertionSort* [T](liste: var openarray[T]) =
