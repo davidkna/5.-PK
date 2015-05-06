@@ -4,6 +4,13 @@ const countUpThreshold = 10_000
 let appDirPath = getAppDir()
 let testDataPath* = appDirPath / "testData"
 
+proc countLines*(fileName: string): int =
+    for line in fileName.lines:
+        result += 1
+
+proc createFile*(fileName: string) =
+    open(fileName, fmWrite).close()
+
 template time*(s: stmt): expr =
   let t0 = cpuTime()
   s

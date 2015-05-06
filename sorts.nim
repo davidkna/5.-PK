@@ -1,6 +1,6 @@
 import sequtils, bench
 
-proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int =
+proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int {.noSideEffect.} =
   if liste[a] < liste[b]:
     if liste[b] < liste[c]:
       return b
