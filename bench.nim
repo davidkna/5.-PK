@@ -23,7 +23,7 @@ proc prepareBench(testName: string, times, step: int): int =
     createFile(filePath)
     result = 1
   else:
-    result = saveData.countLines(filePath) div times + 1
+    result = countLines(filePath) div times + 1
     if (result > countUpThreshold and step != 1):
       result = (result - countUpThreshold) * step + countUpThreshold
 

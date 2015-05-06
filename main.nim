@@ -2,7 +2,6 @@ import bench
 import sorts
 import listSpawner
 import radixListSpawner
-import saveData
 
 
 const max = 100_000
