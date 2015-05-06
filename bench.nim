@@ -1,4 +1,4 @@
-import times, os, saveData, strutils, algorithm
+import times, os, strutils, algorithm
 
 const countUpThreshold = 10_000
 let appDirPath = getAppDir()
