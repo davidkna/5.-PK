@@ -13,7 +13,6 @@ dependencies:
         fi
         ln -sf ~/nim/bin/nim ~/bin/nim
   cache_directories:
-    - "~/bin/"
     - "~/nim/"
 
 test:
