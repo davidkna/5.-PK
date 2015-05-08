@@ -15,9 +15,9 @@ before_script:
     - |
         if [ ! -x "$HOME/nim/bin/nim" ]; then
           git clone -b devel --depth 1 git://github.com/araq/nim "$HOME/nim/"
-          git clone -b devel --depth 1 git://github.com/nim-lang/csources "$HOME/nim/csources"
-          cd "$HOME/nim/csources"; sh build.sh; cd ..; rm -rf csources
-          bin/nim c koch; ./koch boot -d:release
+          cd "$HOME/nim/"
+          ./build.sh
+          rm -rf csources
         else
           cd "$HOME/nim"; git fetch origin
           git merge FETCH_HEAD | grep "Already up-to-date" || (bin/nim c koch; ./koch boot -d:release)
@@ -26,5 +26,11 @@ script:
     - |
         cd "$TRAVIS_BUILD_DIR"
         export PATH="$PATH:$HOME/nim/bin/"
-        nim  c -d:release main
-        nim  c -d:release PK
+    - |
+        nim c --warning[SmallLshouldNotBeUsed]:off main
+        nim c -d:release --warning[SmallLshouldNotBeUsed]:off main
+        mv main $CIRCLE_ARTIFACTS
+    - |
+        nim c --warning[SmallLshouldNotBeUsed]:off PK
+        nim c -d:release --warning[SmallLshouldNotBeUsed]:off PK
+        mv PK $CIRCLE_ARTIFACTS

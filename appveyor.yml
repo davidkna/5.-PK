@@ -1,0 +1,44 @@
+version: 1.0.{build}
+os: MinGW
+shallow_clone: true
+clone_depth: 1
+clone_folder: c:\5PK
+init:
+- ps: >-
+    cd C:\
+
+    if(Test-Path C:\Nim\bin\nim.exe) {
+      cd Nim
+      git fetch origin
+      git merge FETCH_HEAD
+    }
+
+    else {
+      git clone -b devel -q --depth 1 https://github.com/Araq/Nim.git Nim
+      cd Nim
+      git submodule update --init --depth 1
+      cd csources
+      .\build.bat
+      cd ..
+      Remove-Item -Recurse -Force csources
+    }
+
+    nim c koch
+
+    .\koch.exe boot -d:release
+environment:
+  PATH: C:\MINGW\bin\;C:\Nim\bin\;%PATH%
+cache: C:\Nim\
+build_script:
+- ps: >-
+    cd C:\projects\5PK\
+- ps: >-
+    nim c --warning[SmallLshouldNotBeUsed]:off main
+    nim c -d:release --warning[SmallLshouldNotBeUsed]:off main
+- ps: >-   
+    nim c --warning[SmallLshouldNotBeUsed]:off PK
+    nim c -d:release --warning[SmallLshouldNotBeUsed]:off PK
+artifacts:
+- path: C:\5PK\PK.exe
+- path: C:\5PK\main.exe
+deploy: off
