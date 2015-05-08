@@ -31,7 +31,7 @@ environment:
 cache: C:\Nim\
 build_script:
 - ps: >-
-    cd C:\projects\5PK\
+    cd C:\5PK\
 - ps: >-
     nim c --warning[SmallLshouldNotBeUsed]:off main
     nim c -d:release --warning[SmallLshouldNotBeUsed]:off main
