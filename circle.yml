@@ -9,8 +9,9 @@ dependencies:
           ./koch install ~/bin
         else
           cd ~/nim; git fetch origin
-          git merge FETCH_HEAD | grep "Already up-to-date" || (bin/nim c koch; ./koch boot -d:release; ./koch install ~/bin/)
+          git merge FETCH_HEAD | grep "Already up-to-date" || (bin/nim c koch; ./koch boot -d:release)
         fi
+        ln -sf ~/nim/bin/nim ~/bin/nim
   cache_directories:
     - "~/bin/"
     - "~/nim/"
