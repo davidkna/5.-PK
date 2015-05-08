@@ -7,7 +7,7 @@ let testDataPath = appDirPath / "testData"
 if not existsDir testDataPath:
     createDir testDataPath
 
-for file in walkFiles testDataPath / "*.csv.lock":
+for file in walkFiles testDataPath / "*.lock":
     removeFile file
 
 var n = countProcessors()
