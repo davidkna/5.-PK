@@ -29,8 +29,6 @@ script:
     - |
         nim c --warning[SmallLshouldNotBeUsed]:off main
         nim c -d:release --warning[SmallLshouldNotBeUsed]:off main
-        mv main $CIRCLE_ARTIFACTS
     - |
         nim c --warning[SmallLshouldNotBeUsed]:off PK
         nim c -d:release --warning[SmallLshouldNotBeUsed]:off PK
-        mv PK $CIRCLE_ARTIFACTS
