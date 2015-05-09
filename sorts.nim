@@ -16,103 +16,120 @@ proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int {.noSideEffect.
     else:
       return a
 
-proc quickSort[T](liste: var openarray[T], inl, inr: int) =
-  var r = inr
-  var l = inl
-  let n = r - l + 1
+proc quickSort[T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
+  var rechterZeiger = rechteGrenze
+  var linkerZeiger = linkeGrenze
+  let n = rechteGrenze - linkeGrenze + 1
   if n < 2: return
 
   block trenner:
+    # Median von Drei
     if n <= 40:
-      var m = medianVon3(liste, l, l + n div 2, r)
-      swap liste[m], liste[inr]
-    # Turkey Ninther
+      var m = medianVon3(liste, linkeGrenze, linkeGrenze + n div 2, rechteGrenze)
+      swap liste[m], liste[rechteGrenze]
+    # Ninther
     else:
-      let eps = n div 8
-      let mid = l + n div 2
-      let m1 = liste.medianVon3(l, l + eps, l + eps + eps)
-      let m2 = liste.medianVon3(mid - eps, mid, mid + eps)
-      let m3 = liste.medianVon3(r - eps - eps, r - eps, r)
-      let ninther = liste.medianVon3(m1, m2, m3)
-      swap liste[ninther], liste[inr]
+      let achtel = n div 8
+      let mitte = linkeGrenze + n div 2
 
-  let p = liste[inr]
-  while l <= r:
-    if liste[l] < p:
-      inc l
+      let m1 = liste.medianVon3(linkeGrenze, linkeGrenze + achtel, linkeGrenze + achtel + achtel)
+      let m2 = liste.medianVon3(mitte - achtel, mitte, mitte + achtel)
+      let m3 = liste.medianVon3(rechteGrenze - achtel - achtel, rechteGrenze - achtel, rechteGrenze)
+
+      let ninther = liste.medianVon3(m1, m2, m3)
+
+      swap liste[ninther], liste[rechteGrenze]
+
+  let trenner = liste[rechteGrenze]
+
+  while linkerZeiger <= rechterZeiger:
+
+    if liste[linkerZeiger] < trenner:
+      inc linkerZeiger
       continue
-    if liste[r] > p:
-      dec r
+
+    if liste[rechterZeiger] > trenner:
+      dec rechterZeiger
       continue
-    if l <= r:
-      swap liste[l], liste[r]
-      inc l
-      dec r
-  quickSort(liste, inl, r)
-  quickSort(liste, l, inr)
+
+    if linkerZeiger <= rechterZeiger:
+      swap liste[linkerZeiger], liste[rechterZeiger]
+      inc linkerZeiger
+      dec rechterZeiger
+
+  quickSort(liste, linkeGrenze, rechterZeiger)
+  quickSort(liste, linkerZeiger, rechteGrenze)
 
 proc quickSort* [T] (liste: var openarray[T]) =
-  # Optimiert bis in den Tod
+  # Mit Median von 3 / Ninther
   quickSort(liste, 0, liste.high)
   assert liste.isSorted
 
-proc simpleQuickSort[T](liste: var openarray[T], inl, inr: int) =
-  var r = inr
-  var l = inl
-  let n = r - l + 1
+proc simpleQuickSort[T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
+  var rechterZeiger = rechteGrenze
+  var linkerZeiger = linkeGrenze
+  let n = rechteGrenze - linkeGrenze + 1
   if n < 2: return
 
-  let p = liste[inr]
-  while l <= r:
-    if liste[l] < p:
-      inc l
+  let trenner = liste[rechteGrenze]
+
+  while linkerZeiger <= rechterZeiger:
+    if liste[linkerZeiger] < trenner:
+      inc linkerZeiger
       continue
-    if liste[r] > p:
-      dec r
+
+    if liste[rechterZeiger] > trenner:
+      dec rechterZeiger
       continue
-    if l <= r:
-      swap liste[l], liste[r]
-      inc l
-      dec r
-  quickSort(liste, inl, r)
-  quickSort(liste, l, inr)
+
+    if linkerZeiger <= rechterZeiger:
+      swap liste[linkerZeiger], liste[rechterZeiger]
+      inc linkerZeiger
+      dec rechterZeiger
+
+  quickSort(liste, linkeGrenze, rechterZeiger)
+  quickSort(liste, linkerZeiger, rechteGrenze)
 
 proc simpleQuickSort* [T] (liste: var openarray[T]) =
-  # Nicht optimiert bis in den Tod!
+  # Ohne Median von 3 / Ninther
   simpleQuickSort(liste, 0, liste.high)
   assert liste.isSorted
 
 proc insertionSort* [T](liste: var openarray[T]) =
   for i in 1 .. <liste.len:
-    let wert = liste[i]
-    var j = i
-    while j > 0 and wert < liste[j-1]:
-      liste[j] = liste[j-1]
-      dec j
-    liste[j] = wert
+
+    let aktuellerWert = liste[i]
+    var position = i
+
+    while position > 0 and aktuellerWert < liste[position - 1]:
+      liste[position] = liste[position - 1]
+      dec position
+
+    liste[position] = aktuellerWert
+
   assert liste.isSorted
 
 proc radixSort* [T](liste: var seq[T], radix: int = 32) =
-  var maxLength = false
-  var tmp = -1
-  var placement = 1
+  var maxLänge = false
+  var position = 1
  
-  while not maxLength:
-    maxLength = true
-    # declare and initialize buckets
+  while not maxLänge:
+    maxLänge = true
+    
+    # Intialisiere Buckets
     var buckets = newSeqWith(radix , newSeq[int](0))
  
-    # split aList between lists
+    # Bringe Schlüssel in passende Buckets
     for i in liste:
-      tmp = i div placement
+      let tmp = i div position
       buckets[tmp mod radix].add( i )
-      if maxLength and tmp > 0:
-        maxLength = false
+      if maxLänge and tmp > 0:
+        maxLänge = false
  
-    # empty lists into aList array
+    # Vereine Listen. (dauert O(n))
     liste = concat buckets
  
-    # move to next digit
-    placement *= radix
+    # Bewege zur nächsten Ziffer
+    position *= radix
 
   assert liste.isSorted
