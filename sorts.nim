@@ -25,7 +25,7 @@ proc quickSort[T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
   block trenner:
     # Median von Drei
     if n <= 40:
-      var m = medianVon3(liste, linkeGrenze, linkeGrenze + n div 2, rechteGrenze)
+      let m = medianVon3(liste, linkeGrenze, linkeGrenze + n div 2, rechteGrenze)
       swap liste[m], liste[rechteGrenze]
     # Ninther
     else:
