@@ -96,7 +96,7 @@ proc simpleQuickSort* [T] (liste: var openarray[T]) =
   assert liste.isSorted
 
 proc insertionSort* [T](liste: var openarray[T]) =
-  for i in 1 .. <liste.len:
+  for i in 1 .. liste.high:
 
     let aktuellerWert = liste[i]
     var position = i
