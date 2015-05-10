@@ -34,9 +34,11 @@ build_script:
     cd C:\5PK\
 - ps: >-
     nim c --warning[SmallLshouldNotBeUsed]:off main
+- ps: >-
     nim c -d:release --warning[SmallLshouldNotBeUsed]:off main
 - ps: >-   
     nim c --warning[SmallLshouldNotBeUsed]:off PK
+- ps: >-
     nim c -d:release --warning[SmallLshouldNotBeUsed]:off PK
 artifacts:
 - path: C:\5PK\PK.exe
