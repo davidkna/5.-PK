@@ -1,6 +1,6 @@
 from bench import isSorted
 
-proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int {.noSideEffect.} =
+proc medianVon3 [T](liste: var openarray[T], a, b, c: int): int {.noSideEffect.} =
   if liste[a] < liste[b]:
     if liste[b] < liste[c]:
       return b
@@ -16,7 +16,7 @@ proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int {.noSideEffect.
     else:
       return a
 
-proc quickSort[T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
+proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
   var rechterZeiger = rechteGrenze
   var linkerZeiger = linkeGrenze
   let n = rechteGrenze - linkeGrenze + 1
@@ -60,12 +60,12 @@ proc quickSort[T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
   quickSort(liste, linkeGrenze, rechterZeiger)
   quickSort(liste, linkerZeiger, rechteGrenze)
 
-proc quickSort* [T] (liste: var openarray[T]) =
+proc quickSort* [T](liste: var openarray[T]) =
   # Mit Median von 3 / Ninther
   quickSort(liste, 0, liste.high)
   assert liste.isSorted
 
-proc simpleQuickSort[T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
+proc simpleQuickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
   var rechterZeiger = rechteGrenze
   var linkerZeiger = linkeGrenze
   let n = rechteGrenze - linkeGrenze + 1
@@ -90,7 +90,7 @@ proc simpleQuickSort[T](liste: var openarray[T], linkeGrenze, rechteGrenze: int)
   quickSort(liste, linkeGrenze, rechterZeiger)
   quickSort(liste, linkerZeiger, rechteGrenze)
 
-proc simpleQuickSort* [T] (liste: var openarray[T]) =
+proc simpleQuickSort* [T](liste: var openarray[T]) =
   # Ohne Median von 3 / Ninther
   simpleQuickSort(liste, 0, liste.high)
   assert liste.isSorted
