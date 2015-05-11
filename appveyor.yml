@@ -41,6 +41,6 @@ build_script:
 - ps: >-
     nim c -d:release --warning[SmallLshouldNotBeUsed]:off PK
 artifacts:
-- path: C:\5PK\PK.exe
-- path: C:\5PK\main.exe
+- path: C:\\5PK\\PK.exe
+- path: C:\\5PK\\main.exe
 deploy: off
