@@ -27,8 +27,8 @@ script:
         cd "$TRAVIS_BUILD_DIR"
         export PATH="$PATH:$HOME/nim/bin/"
     - |
-        nim c --warning[SmallLshouldNotBeUsed]:off main
-        nim c -d:release --warning[SmallLshouldNotBeUsed]:off main
+        nim c main
+        nim c -d:release main
     - |
-        nim c --warning[SmallLshouldNotBeUsed]:off PK
-        nim c -d:release --warning[SmallLshouldNotBeUsed]:off PK
+        nim c PK
+        nim c -d:release PK
