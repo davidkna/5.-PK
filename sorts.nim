@@ -1,4 +1,4 @@
-import sequtils, bench
+from bench import isSorted
 
 proc medianVon3 [T] (liste: var openarray[T], a, b, c: int): int {.noSideEffect.} =
   if liste[a] < liste[b]:
@@ -102,14 +102,15 @@ proc insertionSort* [T](liste: var openarray[T]) =
     var position = i
 
     while position > 0 and aktuellerWert < liste[position - 1]:
-      liste[position] = liste[position - 1]
+      shallowCopy(liste[position], liste[position - 1])
       dec position
 
     liste[position] = aktuellerWert
-
   assert liste.isSorted
 
-proc radixSort* [T](liste: var seq[T], radix: int = 32) =
+proc radixSort* [T](liste: var openarray[T]) =
+  const radix = 32
+
   var maxLänge = false
   var position = 1
  
@@ -117,7 +118,9 @@ proc radixSort* [T](liste: var seq[T], radix: int = 32) =
     maxLänge = true
     
     # Intialisiere Buckets
-    var buckets = newSeqWith(radix , newSeq[int](0))
+    var buckets: array[radix, seq[int]]
+    for i in 0 .. buckets.high:
+        buckets[i] = @[]
  
     # Bringe Schlüssel in passende Buckets
     for i in liste:
@@ -125,11 +128,14 @@ proc radixSort* [T](liste: var seq[T], radix: int = 32) =
       buckets[tmp mod radix].add( i )
       if maxLänge and tmp > 0:
         maxLänge = false
- 
-    # Vereine Listen. (dauert O(n))
-    liste = concat buckets
+
+    # Vereine Listen
+    var i = 0
+    for s in items(buckets):
+      for itm in items(s):
+        shallowCopy(liste[i], itm)
+        inc i
  
     # Bewege zur nächsten Ziffer
     position *= radix
-
   assert liste.isSorted
