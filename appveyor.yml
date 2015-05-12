@@ -2,45 +2,31 @@ version: 1.0.{build}
 os: MinGW
 shallow_clone: true
 clone_depth: 1
-clone_folder: c:\5PK
-init:
-- ps: >-
-    cd C:\
-
-    if(Test-Path C:\Nim\bin\nim.exe) {
-      cd Nim
-      git fetch origin
-      git merge FETCH_HEAD
-    }
-
-    else {
-      git clone -b devel -q --depth 1 https://github.com/Araq/Nim.git Nim
-      cd Nim
-      git submodule update --init --depth 1
-      cd csources
-      .\build.bat
-      cd ..
-      Remove-Item -Recurse -Force csources
-    }
-
-    nim c koch
-
-    .\koch.exe boot -d:release
+clone_folder: c:\projects\5PK
 environment:
   PATH: C:\MINGW\bin\;C:\Nim\bin\;%PATH%
+install:
+- cd C:\
+- if exist "C:\Nim\bin\nim.exe" (
+- '  cd Nim'
+- '  git fetch origin'
+- '  git merge FETCH_HEAD'
+- ) else (
+- '  git clone -b devel -q --depth 1 --recursive https://github.com/Araq/Nim.git Nim'
+- '  cd C:\Nim\csources'
+- '  .\build.bat'
+- '  cd C:\Nim'
+- '   RD /S /Q "C:\Nim\csources"'
+- )
+- nim c koch
+- .\koch.exe boot -d:release
 cache: C:\Nim\
 build_script:
-- ps: >-
-    cd C:\5PK\
-- ps: >-
-    nim c main
-- ps: >-
-    nim c -d:release main
-- ps: >-   
-    nim c PK
-- ps: >-
-    nim c -d:release PK
+- cd C:\5PK
+- nim c main
+- nim c -d:release main
+- nim c PK
+- nim c -d:release PK
 artifacts:
-- path: C:\\5PK\\PK.exe
-- path: C:\\5PK\\main.exe
-deploy: off
+- path: c:\5PK\PK.exe
+- path: c:\
