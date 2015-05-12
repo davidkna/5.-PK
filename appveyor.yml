@@ -2,7 +2,7 @@ version: 1.0.{build}
 os: MinGW
 shallow_clone: true
 clone_depth: 1
-clone_folder: c:\projects\5PK
+clone_folder: c:\5PK
 environment:
   PATH: C:\MINGW\bin\;C:\Nim\bin\;%PATH%
 install:
