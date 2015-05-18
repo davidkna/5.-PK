@@ -1,3 +1,5 @@
+{.optimization: speed.}
+
 from bench import isSorted
 
 proc medianVon3 [T](liste: var openarray[T], a, b, c: int): int {.noSideEffect.} =
@@ -16,7 +18,7 @@ proc medianVon3 [T](liste: var openarray[T], a, b, c: int): int {.noSideEffect.}
     else:
       return a
 
-proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
+proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) {.noSideEffect.} =
   var rechterZeiger = rechteGrenze
   var linkerZeiger = linkeGrenze
   let n = rechteGrenze - linkeGrenze + 1
@@ -60,12 +62,12 @@ proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
   quickSort(liste, linkeGrenze, rechterZeiger)
   quickSort(liste, linkerZeiger, rechteGrenze)
 
-proc quickSort* [T](liste: var openarray[T]) =
+proc quickSort* [T](liste: var openarray[T]) {.noSideEffect.} =
   # Mit Median von 3 / Ninther
   quickSort(liste, 0, liste.high)
   assert liste.isSorted
 
-proc simpleQuickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) =
+proc simpleQuickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) {.noSideEffect.} =
   var rechterZeiger = rechteGrenze
   var linkerZeiger = linkeGrenze
   let n = rechteGrenze - linkeGrenze + 1
@@ -90,12 +92,12 @@ proc simpleQuickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int
   quickSort(liste, linkeGrenze, rechterZeiger)
   quickSort(liste, linkerZeiger, rechteGrenze)
 
-proc simpleQuickSort* [T](liste: var openarray[T]) =
+proc simpleQuickSort* [T](liste: var openarray[T]) {.noSideEffect.} =
   # Ohne Median von 3 / Ninther
   simpleQuickSort(liste, 0, liste.high)
   assert liste.isSorted
 
-proc insertionSort* [T](liste: var openarray[T]) =
+proc insertionSort* [T](liste: var openarray[T]) {.noSideEffect.} =
   for i in 1 .. liste.high:
 
     let aktuellerWert = liste[i]
@@ -108,14 +110,13 @@ proc insertionSort* [T](liste: var openarray[T]) =
     liste[position] = aktuellerWert
   assert liste.isSorted
 
-proc radixSort* [T](liste: var openarray[T]) =
+proc radixSort* [T](liste: var openarray[T]) {.noSideEffect.} =
   const radix = 32
 
-  var maxLänge = false
+  let max = liste.max
   var position = 1
  
-  while not maxLänge:
-    maxLänge = true
+  while position <= max:
     
     # Intialisiere Buckets
     var buckets: array[radix, seq[int]]
@@ -126,8 +127,6 @@ proc radixSort* [T](liste: var openarray[T]) =
     for i in liste:
       let tmp = i div position
       buckets[tmp mod radix].add( i )
-      if maxLänge and tmp > 0:
-        maxLänge = false
 
     # Vereine Listen
     var i = 0
