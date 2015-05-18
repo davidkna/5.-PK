@@ -11,7 +11,6 @@ install:
 - cd Nim\csources
 - .\build.bat
 - cd C:\Nim
-- RD /S /Q "C:\Nim\csources"
 - nim c koch
 - .\koch.exe boot -d:release
 build_script:
@@ -20,6 +19,6 @@ build_script:
 - nim c -d:release main
 - nim c PK
 - nim c -d:release PK
-artifacts:
-- path: c:\5PK\PK.exe
-- path: c:\5PK\main.exe
+after_build:
+- 7z a 5_PK.zip main.exe PK.exe
+- appveyor PushArtifact 5_PK.zip
