@@ -7,21 +7,13 @@ environment:
   PATH: C:\MINGW\bin\;C:\Nim\bin\;%PATH%
 install:
 - cd C:\
-- |
-    if exist "C:\Nim\bin\nim.exe" (
-      cd "Nim"
-      git fetch --all
-      git reset --hard origin/devel
-    ) else (
-      git clone -b devel -q --depth 1 --recursive https://github.com/Araq/Nim.git Nim'
-      cd Nim\csources
-      .\build.bat
-      cd C:\Nim
-      RD /S /Q "C:\Nim\csources"'
-    )
+- git clone -b devel -q --depth 1 --recursive https://github.com/Araq/Nim.git Nim
+- cd Nim\csources
+- .\build.bat
+- cd C:\Nim
+- RD /S /Q "C:\Nim\csources"'
 - nim c koch
 - .\koch.exe boot -d:release
-cache: C:\Nim\
 build_script:
 - cd C:\5PK
 - nim c main
@@ -30,4 +22,4 @@ build_script:
 - nim c -d:release PK
 artifacts:
 - path: c:\5PK\PK.exe
-- path: c:\
+- path: c:\5PK\main.exe
