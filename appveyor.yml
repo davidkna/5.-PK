@@ -19,6 +19,9 @@ build_script:
 - nim c -d:release main
 - nim c PK
 - nim c -d:release PK
+- nim c -r demo
+- ps: rm -rf testData
+- nim c -d:release -r demo
 after_build:
 - 7z a 5_PK.zip main.exe PK.exe
 - appveyor PushArtifact 5_PK.zip

@@ -25,3 +25,7 @@ test:
         nim c PK
         nim c -d:release PK
         mv PK $CIRCLE_ARTIFACTS
+    - |
+        nim c -r demo
+        rm -rf testData
+        nim c -d:release -r demo

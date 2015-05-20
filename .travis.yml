@@ -32,3 +32,7 @@ script:
     - |
         nim c PK
         nim c -d:release PK
+    - |
+        nim c -r demo
+        rm -rf testData
+        nim c -d:release -r demo
