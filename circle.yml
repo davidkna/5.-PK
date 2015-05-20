@@ -19,7 +19,7 @@ test:
   override:
     - |
         nim c main
-        nim c -d:release --warning[SmallLshouldNotBeUsed]:off main
+        nim c -d:release main
         mv main $CIRCLE_ARTIFACTS
     - |
         nim c PK
