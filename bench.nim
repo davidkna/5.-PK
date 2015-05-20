@@ -78,7 +78,7 @@ template benchMark*(sorter: stmt, listSpawner: stmt, testName: string, maxLength
 
 template distMark*(sorter: stmt, testName: string) =
   const times = 10_000
-  let beginAt = prepareBench(testName, 1, 1)
+  let beginAt = beginWhere(testName, 1, 1)
   let lockFilePath = testDataPath / changeFileExt(testName, "lock")
 
   if not existsFile(lockFilePath) and beginAt < times:
