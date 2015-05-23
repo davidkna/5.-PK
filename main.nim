@@ -3,6 +3,7 @@ import sorts
 import listSpawner
 import radixListSpawner
 
+{.passC: "-Ofast" .}
 
 const max = 100_000
 
