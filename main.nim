@@ -12,57 +12,57 @@ distMark quickSort, "distQS"
 distMark insertionSort, "distIS"
 
 # RadixSort
-benchMark(radixSort, almostSortedKeys, "almostSortedKeysRS", max, 1, 1)
-benchMark(radixSort, almostSortedKeysx32, "almostSortedKeysx32RS", max, 1, 1)
+benchMark(radixSort, almostSortedKeys, "almostSortedKeysRS", max)
+benchMark(radixSort, almostSortedKeysx32, "almostSortedKeysx32RS", max)
 
-benchMark(radixSort, almostReverseKeys, "almostReverseKeysRS", max, 1, 1)
-benchMark(radixSort, almostReverseKeysx32, "almostReverseKeysx32RS", max, 1, 1)
+benchMark(radixSort, almostReverseKeys, "almostReverseKeysRS", max)
+benchMark(radixSort, almostReverseKeysx32, "almostReverseKeysx32RS", max)
 
-benchMark(radixSort, equalKeys, "equalKeysRS", max, 1, 1)
-benchMark(radixSort, equalKeysx32, "equalKeysx32RS", max, 1, 1)
+benchMark(radixSort, equalKeys, "equalKeysRS", max)
+benchMark(radixSort, equalKeysx32, "equalKeysx32RS", max)
 
-benchMark(radixSort, fewUniqueKeys, "fewUniqueKeysRS", max, 1, 1)
-benchMark(radixSort, fewUniqueKeysx32, "fewUniqueKeysx32RS", max, 1, 1)
+benchMark(radixSort, fewUniqueKeys, "fewUniqueKeysRS", max)
+benchMark(radixSort, fewUniqueKeysx32, "fewUniqueKeysx32RS", max)
 
-benchMark(radixSort, shuffledKeys, "shuffledKeysRS", max, 1, 1)
-benchMark(radixSort, shuffledKeysx32, "shuffledKeysx32RS", max, 1, 1)
+benchMark(radixSort, shuffledKeys, "shuffledKeysRS", max)
+benchMark(radixSort, shuffledKeysx32, "shuffledKeysx32RS", max)
 
-benchMark(radixSort, randKeys, "randKeysRS", max, 1, 1)
-benchMark(radixSort, randKeysx32, "randKeysx32RS", max, 1, 1)
+benchMark(radixSort, randKeys, "randKeysRS", max)
+benchMark(radixSort, randKeysx32, "randKeysx32RS", max)
 
-benchMark(radixSort, normalKeys, "normalKeysRS", max, 1, 1)
-benchMark(radixSort, normalKeysx32, "normalKeysx32RS", max, 1, 1)
+benchMark(radixSort, normalKeys, "normalKeysRS", max)
+benchMark(radixSort, normalKeysx32, "normalKeysx32RS", max)
 
 # QuickSort
-benchMark(quickSort, almostSortedKeys, "almostSortedKeysQS", max, 1, 1)
+benchMark(quickSort, almostSortedKeys, "almostSortedKeysQS", max)
 
-benchMark(quickSort, almostReverseKeys, "almostReverseKeysQS", max, 1, 1)
+benchMark(quickSort, almostReverseKeys, "almostReverseKeysQS", max)
 
-benchMark(quickSort, equalKeys, "equalKeysQS", max, 1, 1)
+benchMark(quickSort, equalKeys, "equalKeysQS", max)
 
-benchMark(quickSort, fewUniqueKeys, "fewUniqueKeysQS", max, 1, 1)
+benchMark(quickSort, fewUniqueKeys, "fewUniqueKeysQS", max)
 
-benchMark(quickSort, shuffledKeys, "shuffledKeysQS", max, 5, 1)
+benchMark(quickSort, shuffledKeys, "shuffledKeysQS", max)
 
-benchMark(quickSort, randKeys, "randKeysQS", max, 1, 1)
+benchMark(quickSort, randKeys, "randKeysQS", max)
 
-benchMark(quickSort, normalKeys, "normalKeysQS", max, 1, 1)
+benchMark(quickSort, normalKeys, "normalKeysQS", max)
 
-benchMark(simpleQuickSort, almostSortedKeys, "worstCaseKeysSQS", max, 1, 100)
+benchMark(simpleQuickSort, almostSortedKeys, "worstCaseKeysSQS", max, 100)
 
 # InsertionSort
-benchMark(insertionSort, almostSortedKeys, "almostSortedKeysIS", max, 1, 100)
+benchMark(insertionSort, almostSortedKeys, "almostSortedKeysIS", max)
 
-benchMark(insertionSort, almostReverseKeys, "almostReverseKeysIS", max, 1, 100)
+benchMark(insertionSort, almostReverseKeys, "almostReverseKeysIS", max, 100)
 
-benchMark(insertionSort, equalKeys, "equalKeysIS", max, 1, 100)
+benchMark(insertionSort, equalKeys, "equalKeysIS", max, 100)
 
-benchMark(insertionSort, fewUniqueKeys, "fewUniqueKeysIS", max, 1, 100)
+benchMark(insertionSort, fewUniqueKeys, "fewUniqueKeysIS", max, 100)
 
-benchMark(insertionSort, shuffledKeys, "shuffledKeysIS", max, 1, 20)
+benchMark(insertionSort, shuffledKeys, "shuffledKeysIS", max, 100)
 
-benchMark(insertionSort, randKeys, "randKeysIS", max, 1, 100)
+benchMark(insertionSort, randKeys, "randKeysIS", max, 100)
 
-benchMark(insertionSort, normalKeys, "normalKeysIS", max, 1, 100)
+benchMark(insertionSort, normalKeys, "normalKeysIS", max, 100)
 
 
