@@ -120,7 +120,7 @@ proc radixSort* [T](liste: var openarray[T]) {.noSideEffect.} =
     while position <= max:
     
         # Intialisiere Buckets
-        var buckets: array[radix, seq[int]]
+        var buckets: array[radix, seq[T]]
         for i in 0 .. buckets.high:
             buckets[i] = @[]
  
