@@ -46,11 +46,11 @@ proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) {.no
 
     while linkerZeiger <= rechterZeiger:
 
-        if liste[linkerZeiger] < trenner:
+        while liste[linkerZeiger] < trenner:
             inc linkerZeiger
             continue
 
-        if liste[rechterZeiger] > trenner:
+        while liste[rechterZeiger] > trenner:
             dec rechterZeiger
             continue
 
@@ -76,11 +76,11 @@ proc simpleQuickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int
     let trenner = liste[rechteGrenze]
 
     while linkerZeiger <= rechterZeiger:
-        if liste[linkerZeiger] < trenner:
+        while liste[linkerZeiger] < trenner:
             inc linkerZeiger
             continue
 
-        if liste[rechterZeiger] > trenner:
+        while liste[rechterZeiger] > trenner:
             dec rechterZeiger
             continue
 
