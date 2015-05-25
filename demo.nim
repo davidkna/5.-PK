@@ -11,8 +11,8 @@ if not existsDir testDataPath:
 
 const max = 5_000
 
-demoBenchMark(radixSort, shuffledKeys, "shuffledKeysRS", max, 1)
+demoBenchMark(radixSort, shuffledKeys, "RS", max, 1)
 
-demoBenchMark(quickSort, shuffledKeys, "shuffledKeysQS", max, 1)
+demoBenchMark(quickSort, shuffledKeys, "QS", max, 1)
 
-demoBenchMark(insertionSort, shuffledKeys, "shuffledKeysIS", max, 1)
+demoBenchMark(insertionSort, shuffledKeys, "IS", max, 1)
