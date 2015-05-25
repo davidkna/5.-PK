@@ -90,6 +90,7 @@ template distMark*(sorter: stmt, testName: string) =
                 t = time(a.sorter)
             if likely(i != 1):
                 write(datei, "\n")
+            write(datei, $i & ",")
             write(datei, formatFloat(t, ffScientific, 32))
     
         flushFile datei
