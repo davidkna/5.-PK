@@ -2,7 +2,7 @@
 
 from bench import isSorted
 
-proc medianVon3 [T](liste: var openarray[T], a, b, c: int): int {.noSideEffect.} =
+proc medianVon3 [T](liste: openarray[T], a, b, c: int): int {.noSideEffect.} =
   if liste[a] < liste[b]:
     if liste[b] < liste[c]:
         return b
@@ -18,6 +18,21 @@ proc medianVon3 [T](liste: var openarray[T], a, b, c: int): int {.noSideEffect.}
     else:
         return a
 
+proc trenner [T](liste: openarray[T], linkeGrenze, rechteGrenze, n: int): int {.noSideEffect.} =
+    # Median von Drei
+    if n <= 40:
+        result = liste[medianVon3(liste, linkeGrenze, linkeGrenze + n div 2, rechteGrenze)]
+    # Ninther
+    else:
+        let achtel = n div 8
+        let mitte = linkeGrenze + n div 2
+
+        let m1 = medianVon3(liste, linkeGrenze, linkeGrenze + achtel, linkeGrenze + achtel + achtel)
+        let m2 = medianVon3(liste, mitte - achtel, mitte, mitte + achtel)
+        let m3 = medianVon3(liste, rechteGrenze - achtel - achtel, rechteGrenze - achtel, rechteGrenze)
+
+        result = liste[medianVon3(liste, m1, m2, m3)]
+
 proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) {.noSideEffect.} =
     var linkerZeiger = linkeGrenze
     var rechterZeiger = rechteGrenze
@@ -25,25 +40,7 @@ proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) {.no
     let n = rechteGrenze - linkeGrenze + 1
     if n < 2: return
 
-    block trenner:
-        # Median von Drei
-        if n <= 40:
-            let m = medianVon3(liste, linkeGrenze, linkeGrenze + n div 2, rechteGrenze)
-            swap liste[m], liste[rechteGrenze]
-        # Ninther
-        else:
-            let achtel = n div 8
-            let mitte = linkeGrenze + n div 2
-
-            let m1 = liste.medianVon3(linkeGrenze, linkeGrenze + achtel, linkeGrenze + achtel + achtel)
-            let m2 = liste.medianVon3(mitte - achtel, mitte, mitte + achtel)
-            let m3 = liste.medianVon3(rechteGrenze - achtel - achtel, rechteGrenze - achtel, rechteGrenze)
-
-            let ninther = liste.medianVon3(m1, m2, m3)
-
-            swap liste[ninther], liste[rechteGrenze]
-
-    let trenner = liste[rechteGrenze]
+    let trenner = liste.trenner(linkeGrenze, rechteGrenze, n)
 
     while linkerZeiger <= rechterZeiger:
 
