@@ -19,8 +19,9 @@ proc medianVon3 [T](liste: var openarray[T], a, b, c: int): int {.noSideEffect.}
         return a
 
 proc quickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) {.noSideEffect.} =
-    var rechterZeiger = rechteGrenze
     var linkerZeiger = linkeGrenze
+    var rechterZeiger = rechteGrenze
+
     let n = rechteGrenze - linkeGrenze + 1
     if n < 2: return
 
@@ -66,8 +67,9 @@ proc quickSort* [T](liste: var openarray[T]) {.noSideEffect.} =
     assert liste.isSorted
 
 proc simpleQuickSort [T](liste: var openarray[T], linkeGrenze, rechteGrenze: int) {.noSideEffect.} =
-    var rechterZeiger = rechteGrenze
     var linkerZeiger = linkeGrenze
+    var rechterZeiger = rechteGrenze
+
     let n = rechteGrenze - linkeGrenze + 1
     if n < 2: return
 
