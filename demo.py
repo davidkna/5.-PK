@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 
-locale.setlocale(locale.LC_ALL, "de_de")
+locale.setlocale(locale.LC_ALL, "de_DE")
 mpl.rcParams['axes.formatter.use_locale'] = True
 sns.set_context("paper")
 
