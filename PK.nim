@@ -1,14 +1,13 @@
 import os, osproc
 
-
 let appDirPath = getAppDir()
 let testDataPath = appDirPath / "testData"
 
-if not existsDir testDataPath:
+if existsDir testDataPath:
+    for file in walkFiles testDataPath / "*.lock":
+        removeFile file
+else:
     createDir testDataPath
-
-for file in walkFiles testDataPath / "*.lock":
-    removeFile file
 
 var n = countProcessors()
 if unlikely(n == 0): n = 1
