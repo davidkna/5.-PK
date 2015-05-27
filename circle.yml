@@ -24,7 +24,7 @@ test:
     - |
         nim c start
         nim c -d:release start
-        mv start< $CIRCLE_ARTIFACTS
+        mv start $CIRCLE_ARTIFACTS
     - |
         nim c -r demo
         rm -rf testData
