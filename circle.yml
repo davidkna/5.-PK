@@ -22,9 +22,9 @@ test:
         nim c -d:release main
         mv main $CIRCLE_ARTIFACTS
     - |
-        nim c PK
-        nim c -d:release PK
-        mv PK $CIRCLE_ARTIFACTS
+        nim c start
+        nim c -d:release start
+        mv start $CIRCLE_ARTIFACTS
     - |
         nim c -r demo
         rm -rf testData

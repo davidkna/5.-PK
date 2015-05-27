@@ -17,11 +17,8 @@ build_script:
 - cd C:\5PK
 - nim c main
 - nim c -d:release main
-- nim c PK
-- nim c -d:release PK
-- nim c -r demo
-- RD /S /Q testData
-- nim c -d:release -r demo
+- nim c start
+- nim c -d:release start
 after_build:
-- 7z a 5_PK.zip main.exe PK.exe
+- 7z a 5_PK.zip main.exe start.exe
 - appveyor PushArtifact 5_PK.zip

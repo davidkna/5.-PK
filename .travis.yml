@@ -30,8 +30,8 @@ script:
         nim c main
         nim c -d:release main
     - |
-        nim c PK
-        nim c -d:release PK
+        nim c start
+        nim c -d:release start
     - |
         nim c -r demo
         rm -rf testData
