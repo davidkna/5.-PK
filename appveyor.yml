@@ -7,8 +7,10 @@ environment:
   PATH: C:\MINGW\bin\;C:\Nim\bin\;%PATH%
 install:
 - cd C:\
-- git clone -b devel -q --depth 1 --recursive https://github.com/Araq/Nim.git Nim
-- cd Nim\csources
+- git clone -b devel -q --depth 1 https://github.com/Araq/Nim.git Nim
+- cd Nim
+- git clone --depth 1 -q git://github.com/nim-lang/csources.git csources
+- cd csources
 - .\build.bat
 - cd C:\Nim
 - nim c koch

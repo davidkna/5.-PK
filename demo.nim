@@ -2,7 +2,6 @@ import listSpawner
 import os
 import bench
 import sorts
-import parseopt2
 
 const max = 5_000
 
