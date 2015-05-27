@@ -16,7 +16,7 @@ before_script:
         if [ ! -x "$HOME/nim/bin/nim" ]; then
           git clone -b devel --depth 1 git://github.com/araq/nim "$HOME/nim/"
           cd "$HOME/nim/"
-          ./build.sh
+          ./bootstrap.sh
           rm -rf csources
         else
           cd "$HOME/nim"; git fetch origin

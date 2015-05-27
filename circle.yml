@@ -4,7 +4,7 @@ dependencies:
         if [ ! -x ~/nim/bin/nim ]; then
           git clone -b devel --depth 1 git://github.com/araq/nim ~/nim/
           cd ~/nim/
-          ./build.sh
+          ./bootstrap.sh
           rm -rf csources
           ./koch install ~/bin
         else
@@ -24,7 +24,7 @@ test:
     - |
         nim c start
         nim c -d:release start
-        mv start $CIRCLE_ARTIFACTS
+        mv start< $CIRCLE_ARTIFACTS
     - |
         nim c -r demo
         rm -rf testData
