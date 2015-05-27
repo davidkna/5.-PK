@@ -98,7 +98,7 @@ template distMark*(sorter: stmt, testName: string) =
         removeFile lockFilePath
 
 template demoBenchMark*(sorter: stmt, listSpawner: stmt, testName: string, maxLength: Natural, beginAt: Natural = 1) =
-
+    echo "Benchmarking " & testName & "…"
     let testPath = testDataPath / changeFileExt(testName, "csv")
     var datei = open(testPath, fmWrite)
 
