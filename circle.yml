@@ -2,7 +2,7 @@ dependencies:
   pre:
     - |
         if [ ! -x ~/nim/bin/nim ]; then
-          git clone -b devel --depth 1 git://github.com/araq/nim ~/nim/
+          git clone -b devel --depth 1 git://github.com/nim-lang/Nim ~/nim/
           cd ~/nim/
           ./bootstrap.sh
           rm -rf csources
