@@ -33,6 +33,4 @@ script:
         nim c start
         nim c -d:release start
     - |
-        nim c -r demo
-        rm -rf testData
         nim c -d:release -r demo
