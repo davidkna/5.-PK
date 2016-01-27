@@ -6,26 +6,25 @@ dependencies:
           cd ~/nim/
           ./bootstrap.sh
           rm -rf csources
-          ./koch install ~/bin
         else
           cd ~/nim; git fetch origin
           git merge FETCH_HEAD | grep "Already up-to-date" || (bin/nim c koch; ./koch boot -d:release)
         fi
-        ln -sf ~/nim/bin/nim ~/bin/nim
+
   cache_directories:
     - "~/nim/"
 
 test:
   override:
     - |
-        nim c main
-        nim c -d:release main
+        ~/nim/bin/nim  c main
+        ~/nim/bin/nim  c -d:release main
         mv main $CIRCLE_ARTIFACTS
     - |
-        nim c start
-        nim c -d:release start
+        ~/nim/bin/nim  c start
+        ~/nim/bin/nim  c -d:release start
         mv start $CIRCLE_ARTIFACTS
     - |
-        nim c -r demo
+        ~/nim/bin/nim  c -r demo
         rm -rf testData
-        nim c -d:release -r demo
+        ~/nim/bin/nim  c -d:release -r demo
