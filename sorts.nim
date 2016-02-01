@@ -1,6 +1,7 @@
 {.optimization: speed.}
 
 from bench import isSorted
+from algorithm import reverse
 import lists
 
 proc medianVon3 [T](liste: openarray[T], a, b, c: int): int {.noSideEffect inline.} =
@@ -116,20 +117,20 @@ proc radixSort* [T](liste: var openarray[T]) =
     while position <= max:
 
         # Intialisiere Buckets
-        var buckets: array[radix, SinglyLinkedRing[T]]
+        var buckets: array[radix, seq[T]]
         for i in 0 .. buckets.high:
-            buckets[i] = initSinglyLinkedRing[T]()
+            buckets[i] = @[]
 
         # Bringe Schlüssel in passende Buckets
         for i in liste:
             let tmp = i div position
-            buckets[tmp mod radix].append( i )
+            buckets[tmp mod radix].add( i )
 
         # Vereine Listen
         var i = 0
         for s in items(buckets):
             for itm in items(s):
-                shallowCopy(liste[i], itm)
+                liste[i] = itm
                 inc i
 
         # Bewege zur nächsten Ziffer
