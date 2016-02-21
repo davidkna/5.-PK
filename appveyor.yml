@@ -15,10 +15,13 @@ install:
 - .\koch.exe boot -d:release
 build_script:
 - cd C:\5PK
-- nim c main
-- nim c -d:release main
+- nim c --threads=on main
+- nim c --threads=on -d:release main
 - nim c start
 - nim c -d:release start
+test_script:
+- nim c --threads=on -r demo
+- nim c --threads=on -d:release -r demo
 after_build:
 - 7z a 5_PK.zip main.exe start.exe
 - appveyor PushArtifact 5_PK.zip

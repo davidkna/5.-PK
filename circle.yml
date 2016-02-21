@@ -17,14 +17,14 @@ dependencies:
 test:
   override:
     - |
-        ~/nim/bin/nim  c main
-        ~/nim/bin/nim  c -d:release main
+        ~/nim/bin/nim  c --threads=on main
+        ~/nim/bin/nim  c --threads=on -d:release main
         mv main $CIRCLE_ARTIFACTS
     - |
         ~/nim/bin/nim  c start
         ~/nim/bin/nim  c -d:release start
         mv start $CIRCLE_ARTIFACTS
     - |
-        ~/nim/bin/nim  c -r demo
+        ~/nim/bin/nim  c --threads=on -r demo
         rm -rf testData
-        ~/nim/bin/nim  c -d:release -r demo
+        ~/nim/bin/nim  c --threads=on -d:release -r demo

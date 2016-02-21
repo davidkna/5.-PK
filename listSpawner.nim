@@ -1,4 +1,6 @@
-import sequtils, shuffle, math
+import sequtils, shuffle, math, threadpool
+{.experimental.}
+
 
 proc sortedKeys(länge: int): seq[int] =
     result = newSeq[int](länge)
@@ -34,11 +36,12 @@ proc shuffledKeys*(länge: int): seq[int] =
 
 proc randKeys*(länge: int): seq[int] =
     result = newSeq[int](länge)
-    for i in result.low .. result.high:
-        result[i] = random(länge)
-    shuffle(result)
+    parallel:
+        for i in result.low .. result.high:
+            result[i] = spawn random(länge)
 
 proc normalKeys*(länge: int): seq[int] =
     result = newSeq[int](länge)
-    for i in result.low .. result.high:
-        result[i] = gaussRand länge
+    parallel:
+        for i in result.low .. result.high:
+            result[i] = spawn gaussRand länge

@@ -27,10 +27,11 @@ script:
         cd "$TRAVIS_BUILD_DIR"
         export PATH="$PATH:$HOME/nim/bin/"
     - |
-        nim c main
-        nim c -d:release main
+        nim c --threads=on main
+        nim c --threads=on -d:release main
     - |
         nim c start
         nim c -d:release start
     - |
-        nim c -d:release -r demo
+        nim c --threads=on -r demo
+        nim c --threads=on -d:release -r demo
