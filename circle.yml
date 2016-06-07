@@ -25,6 +25,6 @@ test:
         ~/nim/bin/nim  c -d:release start
         mv start $CIRCLE_ARTIFACTS
     - |
-        ~/nim/bin/nim  c --threads=on -r demo
+        time ~/nim/bin/nim  c --threads=on -r demo
         rm -rf testData
-        ~/nim/bin/nim  c --threads=on -d:release -r demo
+        time ~/nim/bin/nim  c --threads=on -d:release -r demo
