@@ -1,4 +1,4 @@
-import math
+import math, random
 
 proc shuffle*(x: var seq[int]) {.inline.} =
     for i in countdown(x.high, 0):
